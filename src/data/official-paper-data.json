@@ -1,0 +1,748 @@
+{
+  "title": "PHÁP LUẬT VỀ BẢO VỆ QUYỀN LỢI CỦA NHÀ ĐẦU TƯ CÁ NHÂN TRÊN THỊ TRƯỜNG CHỨNG KHOÁN VIỆT NAM",
+  "institution": "HỌC VIỆN NGÂN HÀNG - KHOA LUẬT",
+  "courseCode": "261LAW10A01",
+  "group": "Nhóm 2",
+  "instructor": "TS. Nguyễn Phương Thảo",
+  "year": "2026",
+  "abbreviations": [
+    {
+      "short": "BLDS",
+      "full": "Bộ luật Dân sự"
+    },
+    {
+      "short": "BLHS",
+      "full": "Bộ luật Hình sự"
+    },
+    {
+      "short": "BCTC",
+      "full": "Báo cáo tài chính"
+    },
+    {
+      "short": "CTCK",
+      "full": "Công ty chứng khoán"
+    },
+    {
+      "short": "ĐHĐCĐ",
+      "full": "Đại hội đồng cổ đông"
+    },
+    {
+      "short": "HĐQT",
+      "full": "Hội đồng quản trị"
+    },
+    {
+      "short": "NĐT",
+      "full": "Nhà đầu tư"
+    },
+    {
+      "short": "TTCK",
+      "full": "Thị trường chứng khoán"
+    },
+    {
+      "short": "UBCKNN",
+      "full": "Ủy ban Chứng khoán Nhà nước"
+    },
+    {
+      "short": "VSDC",
+      "full": "Tổng công ty Lưu ký và Bù trừ Chứng khoán Việt Nam"
+    }
+  ],
+  "totalParagraphs": 451,
+  "chapters": [
+    {
+      "id": "chap-1",
+      "title": "PHẦN MỞ ĐẦU.",
+      "sections": [
+        {
+          "id": "sec-1",
+          "num": "1",
+          "title": "1. Lý do chọn đề tài.",
+          "subsections": [],
+          "paragraphs": [
+            "Thị trường chứng khoán là kênh huy động và phân bổ vốn trung, dài hạn quan trọng của nền kinh tế. Trong thị trường này, nhà đầu tư cá nhân tạo nên lực lượng tham gia đông đảo, góp phần duy trì thanh khoản và mở rộng khả năng huy động vốn của doanh nghiệp. Tuy nhiên, cá nhân thường ở vị thế bất lợi hơn tổ chức về khả năng tiếp cận, kiểm chứng và phân tích thông tin; đồng thời dễ chịu tác động của tâm lý đám đông, tin đồn và các hành vi lôi kéo trên môi trường số. Khi gian lận, thao túng, giao dịch nội bộ hoặc công bố thông tin sai lệch xảy ra, thiệt hại của nhà đầu tư không chỉ dừng ở khoản tiền đã bỏ ra mà còn làm suy giảm niềm tin đối với tính công bằng và minh bạch của thị trường.",
+            "Bởi vậy, nghiên cứu pháp luật về bảo vệ quyền lợi của nhà đầu tư cá nhân có ý nghĩa cả về lý luận và thực tiễn. Một cơ chế bảo vệ phù hợp phải đồng thời phòng ngừa rủi ro pháp lý, phát hiện và xử lý vi phạm, tạo điều kiện khắc phục thiệt hại; nhưng không được biến thành sự bảo đảm cho mọi quyết định đầu tư. Đây là cơ sở để lựa chọn đề tài “Pháp luật về bảo vệ quyền lợi của nhà đầu tư cá nhân trên thị trường chứng khoán Việt Nam”."
+          ]
+        },
+        {
+          "id": "sec-2",
+          "num": "2",
+          "title": "2. Mục đích, đối tượng và phạm vi nghiên cứu.",
+          "subsections": [],
+          "paragraphs": [
+            "Phần nghiên cứu này làm rõ khái niệm, đặc điểm, cách phân loại và các quyền cơ bản của nhà đầu tư cá nhân; xác định nội dung, sự cần thiết và các nguyên tắc của cơ chế bảo vệ; đồng thời khái quát hệ thống pháp luật Việt Nam hiện hành. Đối tượng nghiên cứu là các quy phạm điều chỉnh việc bảo vệ cá nhân khi đầu tư chứng khoán tại Việt Nam. Phạm vi pháp luật được cập nhật đến ngày 26/09/2026, tập trung vào Luật Chứng khoán 2019, Luật Doanh nghiệp 2020, Bộ luật Dân sự 2015 và các văn bản hướng dẫn, xử lý vi phạm có liên quan (Quốc hội, 2019; Quốc hội, 2020; Quốc hội, 2015a)."
+          ]
+        },
+        {
+          "id": "sec-3",
+          "num": "3",
+          "title": "3. Phương pháp nghiên cứu.",
+          "subsections": [],
+          "paragraphs": [
+            "Bài viết sử dụng phương pháp phân tích quy phạm, hệ thống hóa, tổng hợp và đối chiếu. Các kết luận được hình thành trên cơ sở văn bản pháp luật còn hiệu lực, tài liệu chính thức của cơ quan quản lý và một số chuẩn mực quốc tế về bảo vệ nhà đầu tư."
+          ]
+        },
+        {
+          "id": "sec-4",
+          "num": "4",
+          "title": "4. Kết cấu bài nghiên cứu.",
+          "subsections": [],
+          "paragraphs": [
+            "Chương 1. Những vấn đề lý luận và khung pháp luật về bảo vệ quyền lợi của nhà đầu tư cá nhân",
+            "Chương 2. Thực trạng áp dụng pháp luật về bảo vệ quyền lợi nhà đầu tư cá nhân",
+            "Chương 3. Những bất cập còn tồn tại trên thực tế",
+            "Chương 4. Kiến nghị hoàn thiện pháp luật và nâng cao hiệu quả bảo vệ nhà đầu tư cá nhân"
+          ]
+        }
+      ],
+      "leadParagraphs": []
+    },
+    {
+      "id": "chap-2",
+      "title": "CHƯƠNG 1. NHỮNG VẤN ĐỀ LÝ LUẬN VÀ KHUNG PHÁP LUẬT VỀ BẢO VỆ QUYỀN LỢI CỦA NHÀ ĐẦU TƯ CÁ NHÂN.",
+      "sections": [
+        {
+          "id": "sec-1-1",
+          "num": "1.1",
+          "title": "1.1. Khái niệm, phân loại và nội dung bảo vệ quyền lợi của nhà đầu tư cá nhân.",
+          "subsections": [
+            {
+              "id": "sub-1-1-1",
+              "num": "1.1.1",
+              "title": "1.1.1. Khái niệm và phân loại nhà đầu tư cá nhân.",
+              "paragraphs": [
+                "Trước hết, khoản 15, 16 Điều 4 Luật Chứng khoán 2019, nhà đầu tư cá nhân là cá nhân dùng tài sản hợp pháp của mình để mua, bán, nắm giữ chứng khoán, từ đó xác lập quyền và nghĩa vụ tương ứng. Khái niệm này không đồng nhất với “cổ đông”: chỉ khi sở hữu cổ phần mới là cổ đông; người sở hữu trái phiếu, chứng chỉ quỹ có địa vị pháp lý và nhóm quyền khác (Quốc hội, 2019).",
+                "Theo khoản 1 Điều 11 Luật Chứng khoán 2019, nhà đầu tư được phân thành chuyên nghiệp và không chuyên nghiệp. Cá nhân chuyên nghiệp khi có chứng chỉ hành nghề chứng khoán; hoặc nắm giữ danh mục chứng khoán niêm yết, đăng ký giao dịch tối thiểu 02 tỷ đồng; hoặc có thu nhập chịu thuế năm gần nhất tối thiểu 01 tỷ đồng. Riêng giao dịch trái phiếu doanh nghiệp riêng lẻ của cá nhân chuyên nghiệp phải thuộc điểm a hoặc b khoản 1b Điều 11. Nhà đầu tư cá nhân không chuyên nghiệp là người không đáp ứng hoặc không được xác nhận đáp ứng tiêu chí chuyên nghiệp tại thời điểm luật yêu cầu (Quốc hội, 2019).",
+                "Phân loại này có ý nghĩa bảo vệ trực tiếp: nhà đầu tư chuyên nghiệp được tiếp cận sản phẩm rủi ro cao hơn với chế độ công bố thông tin khác; nhà đầu tư không chuyên nghiệp cần bảo vệ cao hơn qua giới hạn sản phẩm, minh bạch, trách nhiệm trung gian và cảnh báo rủi ro. Tuy nhiên, tư cách chuyên nghiệp không làm mất quyền được bảo vệ trước gian lận, thao túng, chiếm dụng tài sản hoặc công bố thông tin sai lệch."
+              ]
+            },
+            {
+              "id": "sub-1-1-2",
+              "num": "1.1.2",
+              "title": "1.1.2. Đặc điểm của nhà đầu tư cá nhân.",
+              "paragraphs": [
+                "Thứ nhất, nhà đầu tư cá nhân đầu tư bằng nguồn lực và chịu rủi ro trực tiếp với tài sản của chính mình; quy mô danh mục thường nhỏ hơn tổ chức, làm cho khả năng phân tán rủi ro và chịu đựng biến động cũng hạn chế hơn.",
+                "Thứ hai, quyết định đầu tư thường do chính cá nhân đưa ra, không có bộ máy phân tích, pháp chế, quản trị rủi ro như tổ chức; dù có thể dùng tư vấn, nhà đầu tư cá nhân vẫn phải tự sàng lọc chất lượng tư vấn và xung đột lợi ích.",
+                "Thứ ba, nhà đầu tư cá nhân chịu ảnh hưởng rõ hơn của giới hạn nhận thức và hành vi: tâm lý đám đông, hiệu ứng “sợ bỏ lỡ cơ hội”, quá tự tin, thiên kiến xác nhận hoặc giữ khoản lỗ làm giảm chất lượng quyết định.",
+                "Thứ tư, nhà đầu tư cá nhân vừa được bảo vệ vừa có nghĩa vụ tuân thủ pháp luật: tự chịu trách nhiệm về quyết định đầu tư, thanh toán, thuế, công bố thông tin khi luật định; không được cung cấp thông tin sai sự thật, dùng thông tin nội bộ hoặc thao túng thị trường theo khoản 1, 2, 3 Điều 12 Luật Chứng khoán 2019. Bảo vệ nhà đầu tư phải đi cùng giáo dục tài chính và trách nhiệm hành xử (Quốc hội, 2019)."
+              ]
+            },
+            {
+              "id": "sub-1-1-3",
+              "num": "1.1.3",
+              "title": "1.1.3. Nội dung bảo vệ quyền lợi của nhà đầu tư cá nhân.",
+              "paragraphs": [
+                "Bảo vệ quyền lợi nhà đầu tư cá nhân là tổng thể quy phạm, thiết chế và biện pháp bảo đảm cá nhân được đối xử công bằng, tiếp cận thông tin, kiểm soát tài sản đầu tư và sử dụng cơ chế hữu hiệu khi quyền, lợi ích bị xâm phạm. Nội dung bao quát cả phòng ngừa, xử lý và khắc phục.",
+                "Cụ thể: một là, phòng ngừa thiệt hại qua điều kiện chào bán, niêm yết, giao dịch; nghĩa vụ công bố thông tin (Chương VIII, Điều 118–128 Luật Chứng khoán 2019); quản trị công ty; lưu ký, bù trừ, quản lý tiền và chứng khoán khách hàng; tiêu chuẩn hoạt động của công ty chứng khoán, công ty quản lý quỹ và người hành nghề; cảnh báo, phổ biến kiến thức và phân loại nhà đầu tư (Quốc hội, 2019).",
+                "Hai là, phát hiện và xử lý hành vi xâm phạm: cơ quan quản lý, Sở giao dịch, Tổng công ty Lưu ký và Bù trừ Chứng khoán Việt Nam cùng trung gian giám sát; khi vi phạm có thể bị đình chỉ, hủy bỏ giao dịch hoặc đợt chào bán, xử phạt hành chính, buộc khắc phục, thậm chí truy cứu trách nhiệm hình sự.",
+                "Ba là, khắc phục hậu quả và phục hồi quyền lợi: cải chính, bổ sung thông tin, hoàn trả tiền mua chứng khoán hoặc tiền đặt cọc, hoàn trả khoản thu trái pháp luật, khôi phục trạng thái hợp pháp, bồi thường thiệt hại và giải quyết tranh chấp; nhà đầu tư có thể phản ánh, khiếu nại, tố cáo hoặc khởi kiện.",
+                "Các quyền cụ thể gồm năm nhóm: Thứ nhất, quyền sở hữu và định đoạt chứng khoán, tiền trong tài khoản. Thứ hai, quyền hưởng lợi ích kinh tế như cổ tức, lãi trái phiếu, lợi nhuận quỹ. Thứ ba, quyền tiếp cận thông tin về tổ chức phát hành, công ty đại chúng, chứng khoán và giao dịch. Thứ tư, quyền tham gia quản trị, giám sát theo khoản 1, 2 Điều 115 Luật Doanh nghiệp 2020 và khoản 1 Điều 101, khoản 2 Điều 102 Luật Chứng khoán 2019. Thứ năm, quyền yêu cầu bảo vệ, gồm phản ánh, khiếu nại, tố cáo, khởi kiện và yêu cầu bồi thường (Quốc hội, 2019; Quốc hội, 2020).",
+                "Tóm lại, bảo vệ nhà đầu tư cá nhân là chuỗi biện pháp liên kết: phòng ngừa tốt giảm thiệt hại; xử lý nghiêm bảo vệ trật tự thị trường; hoàn trả, bồi thường và giải quyết tranh chấp đưa bảo vệ từ văn bản thành lợi ích thực tế."
+              ]
+            }
+          ],
+          "paragraphs": []
+        },
+        {
+          "id": "sec-1-2",
+          "num": "1.2",
+          "title": "1.2. Sự cần thiết bảo vệ quyền lợi của nhà đầu tư cá nhân.",
+          "subsections": [],
+          "paragraphs": [
+            "Trước hết, bảo vệ xuất phát từ bất cân xứng thông tin: tổ chức phát hành, người quản lý, cổ đông kiểm soát nắm thông tin trực tiếp; nhà đầu tư cá nhân chủ yếu tiếp cận thông tin đã công bố và khó kiểm chứng toàn bộ. Thông tin chậm, thiếu, sai lệch làm giá chứng khoán không phản ánh đúng thực trạng và quyết định nhà đầu tư bị sai lệch. Vì vậy, công bố đầy đủ, chính xác, kịp thời cùng kiểm toán, quản trị, giám sát là nền tảng bảo vệ.",
+            "Thứ hai, hạn chế kiến thức tài chính làm tăng tính dễ bị tổn thương: nhiều cá nhân chưa đủ khả năng đọc báo cáo tài chính, đánh giá dòng tiền, phân biệt biến động giá với mất vốn hoặc nhận diện xung đột lợi ích. Ứng dụng giao dịch giúp tiếp cận thị trường thuận tiện hơn nhưng cũng rút ngắn thời gian cân nhắc. Minh bạch phải đi cùng thông tin dễ hiểu, cảnh báo phù hợp và giáo dục tài chính.",
+            "Thứ ba, tâm lý đám đông khuếch đại rủi ro: mua bán theo tin đồn, khuyến nghị không kiểm chứng hoặc giá ngắn hạn khiến hành vi số đông thay thế phân tích độc lập, tạo điều kiện cho thông tin sai lệch và thao túng. Pháp luật cần kiểm soát thao túng, dùng thông tin nội bộ, cung cấp thông tin sai sự thật; cơ quan quản lý và trung gian phải tăng cảnh báo.",
+            "Thứ tư, nhà đầu tư cá nhân thường thiếu bộ máy chuyên môn hỗ trợ: tổ chức có chuyên gia tài chính, pháp lý, công nghệ, quản trị rủi ro; cá nhân tự làm hoặc phụ thuộc dịch vụ bên ngoài. Nếu tư vấn không phù hợp, có xung đột lợi ích hoặc không giải thích đủ rủi ro, cá nhân khó phát hiện và phản ứng kịp thời. Pháp luật phải xác định chuẩn mực nghề nghiệp, trách nhiệm quản lý tài sản khách hàng, nghĩa vụ trung thực và cơ chế xử lý khi trung gian vi phạm.",
+            "Thứ năm, bảo vệ nhà đầu tư tạo lập và duy trì niềm tin thị trường: niềm tin không chỉ từ giá tăng mà từ kỳ vọng giao dịch công bằng, thông tin trọng yếu được công bố, vi phạm bị phát hiện, xử lý, khắc phục. Khi bảo vệ hiệu quả, cá nhân tham gia dài hạn hơn, thanh khoản và huy động vốn được củng cố; ngược lại, quyền lợi bị xâm phạm thường xuyên có thể khiến nhà đầu tư rời bỏ thị trường hoặc chỉ đầu cơ ngắn hạn.",
+            "Sau cùng, bảo vệ cá nhân góp phần bảo vệ trật tự công cộng và ổn định tài chính: thiệt hại lan rộng từ gian lận, thao túng có thể gây bán tháo, tranh chấp hàng loạt và chi phí xã hội lớn. Tuy nhiên, Nhà nước bảo vệ quyền hợp pháp và tính liêm chính của quá trình đầu tư, không bảo đảm lợi nhuận và không bù đắp khoản lỗ đơn thuần từ biến động thị trường. Cách tiếp cận này dung hòa bảo vệ và tự chịu trách nhiệm."
+          ]
+        },
+        {
+          "id": "sec-1-3",
+          "num": "1.3",
+          "title": "1.3. Các nguyên tắc pháp lý cốt lõi trong bảo vệ nhà đầu tư cá nhân.",
+          "subsections": [],
+          "paragraphs": [
+            "Các khoản 1, 2, 3 và 4 Điều 5 Luật Chứng khoán 2019 đặt ra bốn nguyên tắc cơ bản cho hoạt động chứng khoán và thị trường chứng khoán. Đây đồng thời là nền tảng để giải thích và áp dụng các quy định bảo vệ nhà đầu tư (Quốc hội, 2019).",
+            "Thứ nhất, tôn trọng quyền sở hữu, quyền khác đối với tài sản và quyền tự do giao dịch, đầu tư, kinh doanh, cung cấp dịch vụ chứng khoán. Nhà đầu tư tự quyết định sử dụng tài sản hợp pháp, lựa chọn công cụ và thời điểm giao dịch trong giới hạn luật định; mọi hạn chế phải có căn cứ, mục đích chính đáng và minh bạch (khoản 1 Điều 5).",
+            "Thứ hai, thị trường phải công bằng, công khai và minh bạch. Công bằng không có nghĩa mọi nhà đầu tư đạt kết quả như nhau, mà là tiếp cận thị trường theo quy tắc nhất quán, không bị gian lận hoặc lợi dụng thông tin chưa công bố. Công khai, minh bạch yêu cầu thông tin trọng yếu đúng, đầy đủ, kịp thời, dễ tiếp cận; xung đột lợi ích phải được nhận diện, quản lý (khoản 2 Điều 5).",
+            "Thứ ba, quyền và lợi ích hợp pháp của nhà đầu tư phải được bảo vệ. Nguyên tắc này định hướng cơ chế phòng ngừa, giám sát, chế tài và khắc phục; hiệu quả bảo vệ còn phụ thuộc khả năng thực hiện quyền, tiếp cận chứng cứ, yêu cầu hoàn trả hoặc bồi thường và thi hành quyết định giải quyết (khoản 3 Điều 5).",
+            "Thứ tư, nhà đầu tư tự chịu trách nhiệm về rủi ro. Khi đã được cung cấp thông tin đúng và thị trường vận hành hợp pháp, cá nhân phải chịu kết quả kinh tế của lựa chọn đầu tư. Nguyên tắc tại khoản 4 Điều 5 không thể dùng để miễn trừ cho gian lận, che giấu thông tin hoặc vi phạm nghĩa vụ nghề nghiệp; cơ chế bảo vệ cũng không xóa bỏ rủi ro vốn có của chứng khoán.",
+            "Bốn nguyên tắc có quan hệ bổ trợ: tự do đầu tư cần được thực hiện trong môi trường công bằng; bảo vệ quyền lợi cần đi cùng minh bạch; còn tự chịu trách nhiệm chỉ hợp lý khi nhà đầu tư không bị dẫn dắt bởi hành vi trái pháp luật. Đây là tiêu chí để đánh giá tính đầy đủ và hiệu quả của từng quy định cụ thể."
+          ]
+        },
+        {
+          "id": "sec-1-4",
+          "num": "1.4",
+          "title": "1.4. Khung pháp luật hiện hành về bảo vệ quyền lợi của nhà đầu tư cá nhân.",
+          "subsections": [],
+          "paragraphs": [
+            "Khung pháp luật gồm nhiều lớp quy phạm. Ở lớp nền tảng, Hiến pháp và Bộ luật Dân sự bảo hộ quyền sở hữu, quyền tự do định đoạt và cơ chế bồi thường khi có hành vi trái pháp luật gây thiệt hại; khoản 1 Điều 584 và các điều tiếp theo Bộ luật Dân sự 2015 là cơ sở chung về bồi thường ngoài hợp đồng (Quốc hội, 2015a).",
+            "Ở lớp chuyên ngành, Luật Chứng khoán 2019 (Luật số 54/2019/QH14), sửa đổi bổ sung bởi Luật số 56/2024/QH15, hợp nhất tại Văn bản hợp nhất số 24/VBHN-VPQH, quy định địa vị nhà đầu tư, tiêu chí chuyên nghiệp, nguyên tắc thị trường, điều kiện chào bán, nghĩa vụ công ty đại chúng, quản trị quỹ, tổ chức kinh doanh chứng khoán, đăng ký, lưu ký, bù trừ, công bố thông tin, thanh tra và xử lý vi phạm. Các khoản 1, 2, 3 Điều 12 nghiêm cấm gian lận, công bố thông tin sai sự thật, dùng thông tin nội bộ và thao túng thị trường, tạo “hàng rào” phòng ngừa (Quốc hội, 2019; Quốc hội, 2024).",
+            "Nghị định số 155/2020/NĐ-CP, sửa đổi bởi Nghị định số 245/2025/NĐ-CP, hợp nhất tại Văn bản hợp nhất số 48/VBHN-BTC, cụ thể hóa điều kiện, hồ sơ, thủ tục chào bán, phát hành, công ty đại chúng, niêm yết, đăng ký giao dịch, tổ chức thị trường và hoạt động trung gian, giúp chuyển nghĩa vụ nguyên tắc thành tiêu chuẩn kiểm tra (Chính phủ, 2020a; Chính phủ, 2025a; Bộ Tài chính, 2025).",
+            "Với cá nhân là cổ đông, Luật Doanh nghiệp bổ sung lớp bảo vệ: các điểm a, b, c, d, đ, e, g khoản 1 Điều 115 ghi nhận quyền cổ đông phổ thông như tham dự, phát biểu, biểu quyết Đại hội đồng cổ đông; nhận cổ tức; ưu tiên mua cổ phần mới; chuyển nhượng cổ phần; tiếp cận tài liệu; nhận phần tài sản còn lại khi giải thể, phá sản. Khoản 2 Điều 115 trao thêm quyền giám sát, yêu cầu cho cổ đông hoặc nhóm cổ đông đáp ứng điều kiện, nhằm bảo vệ cổ đông thiểu số mà không làm tê liệt quản trị doanh nghiệp.",
+            "Ở lớp thực thi, Nghị định số 156/2020/NĐ-CP, sửa đổi bởi Nghị định số 128/2021/NĐ-CP và Nghị định số 306/2025/NĐ-CP, hợp nhất tại Văn bản hợp nhất số 17/VBHN-BTC. Điểm b khoản 3 Điều 5 xác định mức phạt tiền tối đa trong lĩnh vực chứng khoán với cá nhân là 1,5 tỷ đồng; với tổ chức là 03 tỷ đồng. Ngoài tiền phạt, pháp luật quy định hình thức xử phạt và biện pháp khắc phục; khoản 4, 5 Điều 51 quy định hoàn trả tiền mua chứng khoán, tiền đặt cọc hoặc tài sản khách hàng trong trường hợp tương ứng. Xử lý vi phạm không chỉ thu tiền phạt mà còn loại bỏ lợi ích bất hợp pháp và phục hồi quyền lợi bị ảnh hưởng (Chính phủ, 2020b; Chính phủ, 2021; Chính phủ, 2025b; Bộ Tài chính, 2026a).",
+            "Khung pháp luật còn vận hành qua Ủy ban Chứng khoán Nhà nước, Sở giao dịch chứng khoán, Tổng công ty Lưu ký và Bù trừ Chứng khoán Việt Nam, cơ quan điều tra, Tòa án và tổ chức trung gian. Mỗi thiết chế đảm nhiệm một khâu từ cấp phép, giám sát, cảnh báo, xử lý đến giải quyết tranh chấp. Hiệu quả bảo vệ không chỉ phụ thuộc số lượng văn bản mà còn phụ thuộc phối hợp thực thi, chất lượng công bố thông tin, khả năng phát hiện vi phạm và mức độ thuận lợi khi nhà đầu tư yêu cầu hoàn trả hoặc bồi thường.",
+            "Từ phân tích trên, pháp luật Việt Nam đã hình thành khung bảo vệ tương đối toàn diện, bao phủ phòng ngừa, xử lý và khắc phục. Vấn đề trung tâm không chỉ là có quy định hay không, mà là bảo đảm quy định thống nhất, cập nhật, dễ tiếp cận và được thực thi đủ nhanh để quyền của nhà đầu tư cá nhân trở thành quyền có thể sử dụng trên thực tế."
+          ]
+        }
+      ],
+      "leadParagraphs": []
+    },
+    {
+      "id": "chap-3",
+      "title": "CHƯƠNG 2. THỰC TRẠNG ÁP DỤNG PHÁP LUẬT VỀ BẢO VỆ QUYỀN LỢI NHÀ ĐẦU TƯ CÁ NHÂN.",
+      "sections": [
+        {
+          "id": "sec-2-1",
+          "num": "2.1",
+          "title": "2.1. Bảo vệ nhà đầu tư thông qua quy định về công bố thông tin.",
+          "subsections": [
+            {
+              "id": "sub-2-1-1",
+              "num": "2.1.1",
+              "title": "2.1.1. Quy định về nghĩa vụ công bố thông tin của tổ chức phát hành, công ty đại chúng.",
+              "paragraphs": [
+                "Công bố thông tin (CBTT) là một trong những trụ cột pháp lý cốt lõi nhằm bảo đảm tính minh bạch, công bằng và hiệu quả trên thị trường chứng khoán (TTCK). Đối với nhà đầu tư cá nhân - chủ thể vốn chịu nhiều rủi ro về tính bất cân xứng thông tin (information asymmetry) trên thị trường - các quy định pháp luật về nghĩa vụ CBTT đóng vai trò là \"lá chắn\" bảo vệ tối quan trọng, giúp họ tiếp cận dữ liệu khách quan để đưa ra quyết định đầu tư đúng đắn.",
+                "Thứ nhất, nghĩa vụ công bố thông tin định kỳ: Theo quy định tại Điều 120 Luật Chứng khoán năm 2019 và Chương II Thông tư 96/2020/TT-BTC của Bộ Tài chính, các công ty đại chúng (CTĐC) và tổ chức phát hành có nghĩa vụ báo cáo và CBTT định kỳ bao gồm: Báo cáo tài chính (BCTC) năm đã được kiểm toán, BCTC bán niên soát xét, BCTC quý; Báo cáo thường niên; và Báo cáo tình hình quản trị công ty định kỳ 06 tháng và hàng năm. Các tài liệu này cung cấp bức toàn cảnh về sức khỏe tài chính và hiệu quả điều hành của doanh nghiệp (Quốc hội, 2019; Bộ Tài chính, 2020b).",
+                "Thứ hai, nghĩa vụ công bố thông tin bất thường và theo yêu cầu: Căn cứ Điều 121 và 122 Luật Chứng khoán 2019, trong thời hạn 24 giờ kể từ khi xảy ra các sự kiện bất thường có khả năng ảnh hưởng lớn đến giá chứng khoán (như tài khoản ngân hàng bị phong tỏa, tạm ngừng hoạt động kinh doanh, thay đổi nhân sự chủ chốt, bị khởi tố/bắt tạm giam người nội bộ, thông qua quyết định M&A...), doanh nghiệp bắt buộc phải CBTT công khai. Đồng thời, khi xuất hiện các thông tin ảnh hưởng nghiêm trọng hoặc tin đồn thất thiệt, Ủy ban Chứng khoán Nhà nước (UBCKNN) hoặc Sở Giao dịch Chứng khoán (SGDCK) có quyền yêu cầu doanh nghiệp phải xác minh và CBTT kịp thời (Quốc hội, 2019).",
+                "Thứ ba, quy định chuẩn hóa CBTT song ngữ theo Thông tư 68/2024/TT-BTC: Một bước tiến pháp lý mang tính đột phá gần đây là việc Bộ Tài chính ban hành Thông tư số 68/2024/TT-BTC ngày 18/09/2024. Thông tư này sửa đổi, bổ sung quy định bắt buộc các CTĐC, tổ chức niêm yết phải thực hiện CBTT đồng thời bằng cả tiếng Việt và tiếng Anh theo lộ trình khắt khe. Điều này không chỉ gỡ vướng cho tiêu chí nâng hạng TTCK Việt Nam từ thị trường cận biên lên thị trường mới nổi của FTSE Russell, mà còn tạo ra môi trường minh bạch đẳng cấp quốc tế, gián tiếp bảo vệ tối đa quyền lợi cho mọi nhà đầu tư (Bộ Tài chính, 2024)."
+              ]
+            },
+            {
+              "id": "sub-2-1-2",
+              "num": "2.1.2",
+              "title": "2.1.2. Thực tiễn thực thi và các vấn đề đặt ra.",
+              "paragraphs": [
+                "Dù khung pháp lý đã được xây dựng tương đối đồng bộ, thực tiễn thực thi nghĩa vụ CBTT tại Việt Nam vẫn đối mặt với nhiều bất cập nhức nhối. Tình trạng chậm CBTT, CBTT không đầy đủ, giải trình chung chung hoặc thậm chí cố tình giấu giếm các thông tin bất lợi diễn ra tương đối phổ biến.",
+                "VÍ DỤ ĐIỂN HÌNH TRONG THỰC TIỄN THỰC THI (DỮ LIỆU XỬ PHẠT CÔNG KHAI)",
+                "Ví dụ 1 (Công ty CP Mua bán nợ Thuận Minh): Ủy ban Chứng khoán Nhà nước đã ban hành Quyết định xử phạt vi phạm hành chính đối với Công ty CP Mua bán nợ Thuận Minh với số tiền 92,5 triệu đồng do hành vi chậm công bố nhiều tài liệu pháp lý bắt buộc theo quy định (như BCTC kiểm toán, BCTN) từ 10 ngày làm việc trở lên.",
+                "Ví dụ 2 (Công ty CP Đất Xanh Miền Bắc): Đất Xanh Miền Bắc là điển hình của doanh nghiệp chậm/không công bố Báo cáo tình hình tài chính năm 2024 và các tài liệu liên quan đến nghĩa vụ trái phiếu đúng thời hạn, dẫn đến việc bị cơ quan quản lý đưa vào danh sách vi phạm nghĩa vụ CBTT.",
+                "=> Hệ quả đối với nhà đầu tư cá nhân: Nhà đầu tư cá nhân không có ưu thế tiếp cận thông tin nội bộ như các quỹ đầu tư lớn. Khi thông tin bị chậm trễ hoặc bóp méo, họ rơi vào thế \"thiếu thông tin để ra quyết định\", dễ mua phải cổ phiếu/trái phiếu bị định giá sai, dẫn đến thiệt hại tài chính nặng nề khi rủi ro phát lộ."
+              ]
+            },
+            {
+              "id": "sub-2-1-3",
+              "num": "2.1.3",
+              "title": "2.1.3. Đánh giá thực trạng áp dụng pháp luật về công bố thông tin.",
+              "paragraphs": [
+                "Thứ nhất, chưa xác định rõ ràng trách nhiệm của các tổ chức trung gian: Pháp luật hiện hành chưa quy định cụ thể, chi tiết về trách nhiệm liên đới của các chủ thể tham gia lập, thẩm định hồ sơ báo cáo (bao gồm tổ chức tư vấn phát hành, công ty kiểm toán, tổ chức thẩm định giá, bảo lãnh phát hành). Khi BCTC bị làm giả hoặc sai lệch nghiêm trọng nhưng có sự bỏ sót/thiếu trách nhiệm của kiểm toán viên, cơ chế để nhà đầu tư cá nhân khởi kiện đòi bồi thường thiệt hại trực tiếp từ các đơn vị kiểm toán này vẫn vô cùng gian nan và thiếu căn cứ định lượng cụ thể.",
+                "Thứ hai, chế tài xử phạt vi phạm hành chính chưa đủ sức răn đe: Theo Nghị định 156/2020/NĐ-CP (được sửa đổi bởi Nghị định 128/2021/NĐ-CP), mức phạt tiền đối với hành vi không CBTT hoặc CBTT sai lệch thường chỉ dao động từ 70 - 150 triệu đồng. Mức phạt này là quá nhỏ bé so với lợi ích kinh tế phi pháp mà doanh nghiệp hay nhóm cổ đông chi phối có thể thu được từ việc giấu thông tin để thao túng giá cổ phiếu hay phát hành trái phiếu chui. Do đó, tỉ lệ tuân thủ CBTT ở Việt Nam vẫn thấp hơn nhiều so với các thị trường phát triển trong khu vực (Chính phủ, 2020b; Chính phủ, 2021)."
+              ]
+            }
+          ],
+          "paragraphs": []
+        },
+        {
+          "id": "sec-2-2",
+          "num": "2.2",
+          "title": "2.2. Bảo vệ nhà đầu tư thông qua quy định về quản trị công ty đại chúng.",
+          "subsections": [
+            {
+              "id": "sub-2-2-1",
+              "num": "2.2.1",
+              "title": "2.2.1. Khung quy định pháp luật hiện hành về quản trị công ty đại chúng.",
+              "paragraphs": [
+                "Thứ nhất, kiểm soát giao dịch với người có liên quan và cổ đông lớn: Luật Doanh nghiệp 2020 quy định cơ chế chấp thuận đối với hợp đồng, giao dịch giữa công ty với người có liên quan. Theo Điều 167, tùy trường hợp và giá trị giao dịch, thẩm quyền chấp thuận thuộc HĐQT hoặc ĐHĐCĐ; người có lợi ích liên quan không được tham gia biểu quyết theo cơ chế luật định. Mục tiêu là hạn chế xung đột lợi ích và ngăn việc chuyển lợi ích từ công ty sang cá nhân/nhóm có quyền chi phối. Căn cứ pháp lý: Điều 167 Luật Doanh nghiệp 2020; đồng thời phải đối chiếu Điều lệ và quy định chứng khoán áp dụng cho công ty đại chúng (Quốc hội, 2020).",
+                "Thứ hai, cơ chế thành viên HĐQT không điều hành và độc lập: Nghị định 155/2020/NĐ-CP quy định về tư cách, thành phần HĐQT. Sau khi được sửa đổi bởi Nghị định 245/2025/NĐ-CP, số lượng thành viên HĐQT không điều hành được quy định theo quy mô HĐQT: tối thiểu 01 thành viên không điều hành nếu HĐQT có 03–05 thành viên; tối thiểu 02 nếu có 06–08 thành viên; và tối thiểu 03 nếu có 09–11 thành viên. Đối với công ty niêm yết, thành viên HĐQT độc lập còn phải lập báo cáo đánh giá về hoạt động của HĐQT. Căn cứ pháp lý: Điều 275, Điều 276 và Điều 277 Nghị định 155/2020/NĐ-CP, được sửa đổi, bổ sung bởi Nghị định 245/2025/NĐ-CP (Chính phủ, 2020a; Chính phủ, 2025a).",
+                "Thứ ba, giới hạn số lượng công ty mà một thành viên HĐQT đồng thời tham gia: Nghị định 245/2025/NĐ-CP sửa đổi khoản 3 Điều 275 theo hướng thành viên HĐQT của một công ty đại chúng chỉ được đồng thời là thành viên HĐQT hoặc Hội đồng thành viên tại tối đa 05 công ty khác. Quy định này nhằm hạn chế tình trạng một cá nhân nắm quá nhiều vị trí quản trị, qua đó góp phần bảo đảm thời gian và trách nhiệm thực tế đối với công việc quản trị. Căn cứ pháp lý: Khoản 78 Điều 1 Nghị định 245/2025/NĐ-CP sửa Điều 275 Nghị định 155/2020/NĐ-CP (Chính phủ, 2020a; Chính phủ, 2025a).",
+                "Thứ tư, điều lệ và Quy chế nội bộ về quản trị công ty: Điều 270 Nghị định 155/2020/NĐ-CP yêu cầu Điều lệ công ty và Quy chế nội bộ về quản trị công ty phải phù hợp với Luật Doanh nghiệp, Luật Chứng khoán và pháp luật liên quan. Đây là cơ sở để doanh nghiệp chuyển hóa quy định pháp luật thành quy trình nội bộ về ĐHĐCĐ, HĐQT, kiểm soát giao dịch có xung đột lợi ích, quyền cổ đông và công bố thông tin. Căn cứ pháp lý: Điều 270 Nghị định 155/2020/NĐ-CP và Thông tư 116/2020/TT-BTC (Chính phủ, 2020a; Bộ Tài chính, 2020c).",
+                "Thứ năm, công bố thông tin và khả năng tiếp cận thông tin của nhà đầu tư: Công ty đại chúng phải tổ chức công bố thông tin theo pháp luật chứng khoán, trong đó có các thông tin về quản trị, báo cáo tài chính, nghị quyết/biên bản ĐHĐCĐ, thay đổi nhân sự quản lý, giao dịch của người nội bộ và các thông tin khác thuộc diện phải công bố. Về bản chất, công bố thông tin là một công cụ để nhà đầu tư giám sát thay cho việc trực tiếp tham gia điều hành doanh nghiệp. Căn cứ pháp lý: Luật Chứng khoán 2019; Nghị định 155/2020/NĐ-CP; Thông tư 96/2020/TT-BTC và các văn bản sửa đổi, bổ sung còn hiệu lực (Quốc hội, 2019; Chính phủ, 2020a; Bộ Tài chính, 2020b)."
+              ]
+            },
+            {
+              "id": "sub-2-2-2",
+              "num": "2.2.2",
+              "title": "2.2.2. Thực trạng áp dụng trong thực tế.",
+              "paragraphs": [
+                "Trên thực tế, việc tuân thủ pháp luật về quản trị công ty đại chúng được thể hiện qua nhiều lớp biện pháp. Doanh nghiệp không chỉ ban hành quy chế để “đủ hồ sơ” mà còn phải vận hành các quy trình liên quan đến nhân sự HĐQT, ĐHĐCĐ, giao dịch với người có liên quan, công bố thông tin và kiểm soát nội bộ. Tuy nhiên, mức độ thực chất giữa các doanh nghiệp có thể khác nhau; vì vậy các ví dụ dưới đây được sử dụng để minh họa cách một số doanh nghiệp niêm yết cụ thể triển khai quy định.",
+                "Thứ nhất, Xây dựng và cập nhật Điều lệ, Quy chế nội bộ và Quy chế hoạt động HĐQT: Doanh nghiệp thực hiện bằng cách ban hành Điều lệ, Quy chế nội bộ về quản trị công ty và Quy chế hoạt động của HĐQT; khi pháp luật hoặc cơ cấu quản trị thay đổi thì trình ĐHĐCĐ sửa đổi, thông qua. Ví dụ, FPT công bố trong tháng 4/2026 việc ĐHĐCĐ thường niên 2026 thông qua Điều lệ, Quy chế nội bộ về quản trị công ty và Quy chế hoạt động của HĐQT sau sửa đổi. Điều này cho thấy quy định pháp luật được chuyển thành văn bản nội bộ và được cập nhật khi có thay đổi. Căn cứ pháp lý: Điều 270 Nghị định 155/2020/NĐ-CP; Thông tư 116/2020/TT-BTC. Thực tiễn minh họa: FPT (Chính phủ, 2020a; Bộ Tài chính, 2020c; Công ty Cổ phần FPT, 2025).",
+                "Thứ hai, tổ chức ĐHĐCĐ và tạo cơ chế để cổ đông thực hiện quyền: Doanh nghiệp công bố trước tài liệu họp, chương trình, nghị quyết và biên bản; tổ chức đăng ký cổ đông, biểu quyết các vấn đề thuộc thẩm quyền và công bố kết quả sau cuộc họp. Việc này giúp cổ đông không trực tiếp điều hành vẫn có thể tham gia quyết định các vấn đề quan trọng như bầu HĐQT, sửa Điều lệ, thông qua báo cáo tài chính, phân phối lợi nhuận và các giao dịch thuộc thẩm quyền ĐHĐCĐ. Căn cứ pháp lý: Điều 271–273 Nghị định 155/2020/NĐ-CP; Luật Doanh nghiệp 2020 về quyền của cổ đông và ĐHĐCĐ (Quốc hội, 2020; Chính phủ, 2020a).",
+                "Thứ ba, bố trí thành viên HĐQT không điều hành và thành viên HĐQT độc lập: Doanh nghiệp thực hiện yêu cầu về cơ cấu HĐQT thông qua việc bầu và duy trì số lượng thành viên phù hợp. Đây là cơ chế tạo thêm một lớp giám sát đối với hoạt động điều hành và các quyết định có khả năng phát sinh xung đột lợi ích. FPT báo cáo năm 2025 có 03 thành viên HĐQT độc lập; doanh nghiệp mô tả các thành viên này tham gia trao đổi về chiến lược, chỉ tiêu kinh doanh và các định hướng phát triển. FPT cũng công bố báo cáo đánh giá của thành viên HĐQT độc lập về hoạt động của Tập đoàn. Căn cứ pháp lý: Điều 276, Điều 277 Nghị định 155/2020/NĐ-CP; sau 11/09/2025 áp dụng các sửa đổi của Nghị định 245/2025/NĐ-CP. Thực tiễn minh họa: FPT (Chính phủ, 2020a; Chính phủ, 2025a; Công ty Cổ phần FPT, 2025).",
+                "Thứ tư, lập danh sách người nội bộ và người có liên quan để phục vụ kiểm soát xung đột lợi ích: Trong thực tế, doanh nghiệp công bố danh sách người nội bộ và người có liên quan theo mẫu và cập nhật khi có thay đổi. Việc nhận diện quan hệ liên quan là bước đầu để doanh nghiệp kiểm tra xem một giao dịch có thuộc diện phải phê duyệt, công bố hoặc hạn chế hay không. Báo cáo quản trị của Vinhomes thể hiện danh sách người nội bộ và người có liên quan được lập kèm theo báo cáo quản trị. Căn cứ pháp lý: Luật Doanh nghiệp 2020 về nghĩa vụ kê khai lợi ích liên quan; pháp luật chứng khoán về công bố thông tin; Thông tư 96/2020/TT-BTC. Thực tiễn minh họa: Vinhomes (Quốc hội, 2020; Bộ Tài chính, 2020b; Công ty Cổ phần Vinhomes, 2024).",
+                "Thứ năm, xây dựng quy trình phê duyệt giao dịch với bên liên quan: Doanh nghiệp thường không xử lý giao dịch với bên liên quan như giao dịch thông thường mà thiết lập quy trình xác định người có liên quan, xác định thẩm quyền phê duyệt, kiểm soát xung đột lợi ích, lưu hồ sơ nghị quyết/quyết định và thực hiện công bố thông tin khi thuộc trường hợp phải công bố. Vinhomes công bố rằng các giao dịch với bên liên quan được thực hiện theo Luật Doanh nghiệp, Luật Chứng khoán, Quy chế quản trị nội bộ và Quy trình phối hợp thực hiện phê duyệt giao dịch với người có liên quan; đồng thời các giao dịch được liệt kê và công bố trong báo cáo quản trị và báo cáo tài chính đã kiểm toán. Căn cứ pháp lý: Điều 167 Luật Doanh nghiệp 2020 và các quy định chứng khoán liên quan. Thực tiễn minh họa: Vinhomes (Quốc hội, 2020; Công ty Cổ phần Vinhomes, 2024).",
+                "Thứ sáu, công bố báo cáo quản trị định kỳ và thông tin bất thường: Doanh nghiệp niêm yết duy trì chuyên mục quan hệ nhà đầu tư trên website, đăng báo cáo tình hình quản trị, nghị quyết HĐQT, nghị quyết và biên bản ĐHĐCĐ, báo cáo tài chính và các thông báo giao dịch của người nội bộ. FPT hiện công bố riêng báo cáo quản trị năm 2025 và báo cáo quản trị 6 tháng đầu năm 2026; đồng thời công bố các giao dịch cổ phiếu của người nội bộ và người có liên quan. Căn cứ pháp lý: Luật Chứng khoán 2019; Thông tư 96/2020/TT-BTC và quy định công bố thông tin hiện hành. Thực tiễn minh họa: FPT (Quốc hội, 2019; Bộ Tài chính, 2020b; Công ty Cổ phần FPT, 2025).",
+                "Thứ bảy, công khai giao dịch cổ phiếu của người nội bộ và người có liên quan: Đây là biện pháp thực tế giúp thị trường nhận biết các giao dịch có khả năng liên quan đến người có thông tin nội bộ. FPT công bố trên trang quan hệ nhà đầu tư các thông báo giao dịch và báo cáo kết quả giao dịch cổ phiếu của người nội bộ/người có liên quan. Việc công bố tạo điều kiện cho nhà đầu tư theo dõi thay đổi sở hữu của các chủ thể có vị trí đặc biệt trong công ty. Căn cứ pháp lý: Pháp luật về công bố thông tin chứng khoán, trong đó có quy định đối với người nội bộ và người có liên quan. Thực tiễn minh họa: FPT (Công ty Cổ phần FPT, 2025).",
+                "Cuối cùng, tăng cường đào tạo, cập nhật kiến thức quản trị: Một số doanh nghiệp tổ chức hoặc tham gia các khóa đào tạo về quản trị công ty cho thành viên HĐQT, Ban kiểm soát, người phụ trách quản trị và người quản lý. FPT cho biết đến 31/12/2025 có thành viên HĐQT và Ban kiểm soát có chứng chỉ đào tạo quản trị công ty; đồng thời doanh nghiệp cho biết các thành viên còn lại tiếp tục cập nhật kiến thức. Nghị định 245/2025/NĐ-CP cũng bổ sung trách nhiệm tổ chức đào tạo, tập huấn về quản trị công ty và các kỹ năng cần thiết cho các chức danh liên quan. Căn cứ pháp lý: Khoản 81 Điều 1 Nghị định 245/2025/NĐ-CP sửa Điều 278 Nghị định 155/2020/NĐ-CP. Thực tiễn minh họa: FPT (Chính phủ, 2020a; Chính phủ, 2025a; Công ty Cổ phần FPT, 2025)."
+              ]
+            },
+            {
+              "id": "sub-2-2-3",
+              "num": "2.2.3",
+              "title": "2.2.3. Minh họa thực tiễn qua một số doanh nghiệp niêm yết.",
+              "paragraphs": [
+                "Nội dung tuân thủ",
+                "FPT",
+                "Vinhomes",
+                "Ý nghĩa đối với NĐT",
+                "Cơ cấu HĐQT",
+                "Báo cáo 2025 nêu 0n3 thành viên HĐQT độc lập.",
+                "Báo cáo/ tài liệu ĐHĐCĐ 2025 nêu 03 thành viên HĐQT độc lập.",
+                "Tạo cơ chế giám sát và giảm phụ thuộc hoàn toàn vào nhóm điều hành.",
+                "Giao dịch bên liên quan",
+                "Công bố thông tin về giao dịch của người nội bộ/người có liên quan và các báo cáo quản trị.",
+                "Công bố quy trình phê duyệt giao dịch với người có liên quan; giao dịch được liệt kê trong báo cáo quản trị và BCTC kiểm toán.",
+                "Giúp cổ đông nhận diện xung đột lợi ích và theo dõi dòng giao dịch.",
+                "Công bố thông tin",
+                "Có trang IR công bố BCTN, báo cáo quản trị, nghị quyết, giao dịch người nội bộ.",
+                "Công bố báo cáo quản trị và tài liệu ĐHĐCĐ trên website.",
+                "Tăng khả năng tiếp cận thông tin và giám sát của cổ đông.",
+                "Cập nhật quy chế",
+                "ĐHĐCĐ 2026 thông qua Điều lệ và các quy chế quản trị/HĐQT sửa đổi.",
+                "Duy trì hệ thống quy chế và quy trình quản trị nội bộ.",
+                "Biến quy định pháp luật thành quy trình áp dụng trong doanh nghiệp.",
+                "Bảng trên chỉ có giá trị minh họa, không phải bảng xếp hạng chất lượng quản trị. Việc một doanh nghiệp có công bố quy trình hoặc báo cáo đầy đủ cho thấy cơ chế tuân thủ đã được thiết lập; để kết luận về hiệu quả thực chất cần đánh giá thêm cách cơ chế đó vận hành, chất lượng giám sát và kết quả xử lý các xung đột lợi ích."
+              ]
+            },
+            {
+              "id": "sub-2-2-4",
+              "num": "2.2.4",
+              "title": "2.2.4. Đánh giá thực trạng và tác động đến bảo vệ nhà đầu tư.",
+              "paragraphs": [
+                "Thực tiễn áp dụng cho thấy bên cạnh những kết quả đạt được, quy định pháp luật về quản trị công ty đại chúng vẫn còn những hạn chế ảnh hưởng đến hiệu quả bảo vệ nhà đầu tư.",
+                "Thứ nhất, khoảng cách giữa tuân thủ hình thức và tuân thủ thực chất. Doanh nghiệp có thể đã ban hành Điều lệ, quy chế nội bộ, tổ chức ĐHĐCĐ và thực hiện công bố thông tin, nhưng các thủ tục này tự thân chưa chứng minh rằng cơ chế giám sát hoạt động hiệu quả. Cần phân biệt “có quy trình” với “quy trình tạo ra giám sát thực chất”, đặc biệt khi đánh giá khả năng bảo vệ cổ đông thiểu số.",
+                "Thứ hai, tính độc lập thực tế của thành viên HĐQT độc lập. Pháp luật đã đặt ra tiêu chuẩn để xác định thành viên độc lập, nhưng tính độc lập trên thực tế còn phụ thuộc vào quá trình đề cử, quan hệ với nhóm cổ đông chi phối, khả năng tiếp cận thông tin và mức độ sẵn sàng phản biện. Vì vậy, chỉ nhìn vào số lượng thành viên độc lập chưa đủ để kết luận về hiệu quả giám sát.",
+                "Thứ ba, nguy cơ biến dạng hình thức đối với giao dịch với người có liên quan. Một giao dịch có thể được cấu trúc qua nhiều pháp nhân, hợp đồng hợp tác, khoản đầu tư hoặc bên trung gian. Khi quan hệ thực tế không được nhận diện đầy đủ, việc áp dụng cơ chế phê duyệt và công bố có thể gặp khó khăn. Hiệu quả của quy định do đó phụ thuộc đáng kể vào chất lượng nhận diện người có liên quan và kiểm soát nội bộ.",
+                "Thứ tư, bất cân xứng thông tin giữa cổ đông kiểm soát và cổ đông nhỏ. Cổ đông lớn hoặc nhóm cổ đông kiểm soát thường có khả năng tiếp cận thông tin và ảnh hưởng đến quá trình ra quyết định cao hơn cổ đông nhỏ. Pháp luật khắc phục một phần bằng quyền tiếp cận thông tin, quyền biểu quyết, cơ chế yêu cầu hủy bỏ nghị quyết trái luật và cơ chế công bố thông tin; tuy nhiên, việc thực hiện quyền trên thực tế vẫn phụ thuộc vào khả năng tiếp cận tài liệu và mức độ chủ động của cổ đông.",
+                "Thứ năm, khối lượng nghĩa vụ công bố thông tin lớn và yêu cầu cập nhật pháp luật liên tục. Hệ thống quản trị công ty đại chúng liên quan đồng thời đến Luật Chứng khoán, Luật Doanh nghiệp, nghị định hướng dẫn và thông tư về quản trị/công bố thông tin. Khi pháp luật thay đổi, doanh nghiệp phải rà soát và sửa Điều lệ, quy chế, quy trình và biểu mẫu. Nghị định 245/2025/NĐ-CP là một ví dụ cho thấy doanh nghiệp phải cập nhật cơ chế quản trị để đáp ứng quy định mới (Chính phủ, 2025a).",
+                "Có thể thấy cơ chế bảo vệ nhà đầu tư thông qua quản trị công ty đại chúng được xây dựng theo hướng nhiều tầng. Tầng thứ nhất là quyền của cổ đông và cơ chế ra quyết định tại ĐHĐCĐ. Tầng thứ hai là HĐQT, thành viên không điều hành và thành viên độc lập. Tầng thứ ba là kiểm soát giao dịch có xung đột lợi ích, đặc biệt là giao dịch với người có liên quan. Tầng thứ tư là công bố thông tin để thị trường và cổ đông có thể giám sát. Các tầng này hỗ trợ lẫn nhau thay vì hoạt động độc lập.",
+                "Về mặt thực tế, các ví dụ từ FPT và Vinhomes cho thấy doanh nghiệp đã chuyển một số yêu cầu của pháp luật thành hoạt động cụ thể như cập nhật Điều lệ và quy chế quản trị, duy trì thành viên HĐQT độc lập, lập danh sách người nội bộ và người có liên quan, thiết lập quy trình phê duyệt giao dịch liên quan và công bố báo cáo quản trị. Đây là những biểu hiện cụ thể của việc tuân thủ pháp luật (Công ty Cổ phần FPT, 2025; Công ty Cổ phần Vinhomes, 2024).",
+                "Tuy nhiên, để đánh giá mức độ bảo vệ nhà đầu tư một cách đầy đủ, cần đi xa hơn việc kiểm tra doanh nghiệp có đủ hồ sơ hay không. Vấn đề cốt lõi là cơ chế đó có giúp cổ đông tiếp cận thông tin, phát hiện xung đột lợi ích, tham gia quyết định và yêu cầu trách nhiệm đối với người quản lý hay không. Vì vậy, hướng hoàn thiện trong thời gian tới nên tập trung đồng thời vào cả “tuân thủ” và “hiệu quả vận hành” của quản trị công ty.",
+                "Nhìn chung, pháp luật Việt Nam đã hình thành một khung quản trị công ty đại chúng tương đối đầy đủ, trong đó bảo vệ nhà đầu tư được thực hiện thông qua quyền cổ đông, cơ cấu HĐQT, thành viên độc lập, kiểm soát giao dịch với người có liên quan và nghĩa vụ công bố thông tin. Trong thực tế, các doanh nghiệp niêm yết đã cụ thể hóa các yêu cầu này bằng điều lệ, quy chế nội bộ, quy trình phê duyệt giao dịch, báo cáo quản trị và cơ chế công bố thông tin. Tuy nhiên, thách thức còn nằm ở việc bảo đảm các cơ chế này vận hành thực chất, đặc biệt đối với tính độc lập của HĐQT và khả năng nhận diện, kiểm soát giao dịch có xung đột lợi ích."
+              ]
+            }
+          ],
+          "paragraphs": [
+            "Quản trị công ty là hệ thống các cơ chế, quy trình và quan hệ nhằm định hướng, kiểm soát và giám sát hoạt động của doanh nghiệp, qua đó phân bổ quyền hạn và trách nhiệm giữa Đại hội đồng cổ đông, Hội đồng quản trị, Ban kiểm soát hoặc Ủy ban kiểm toán, Ban điều hành và các bên có quyền lợi liên quan. Đối với công ty đại chúng, quản trị công ty có ý nghĩa đặc biệt đối với bảo vệ nhà đầu tư vì nhà đầu tư thường không trực tiếp điều hành doanh nghiệp mà phải dựa vào cơ chế giám sát, công bố thông tin và trách nhiệm của người quản lý.",
+            "Điều 40 Luật Chứng khoán 2019 đặt ra các nguyên tắc quản trị đối với công ty đại chúng, trong đó nhấn mạnh cơ cấu quản trị hợp lý, hiệu quả hoạt động của HĐQT và Ban kiểm soát, bảo đảm quyền và sự đối xử bình đẳng giữa các cổ đông, tôn trọng quyền lợi hợp pháp của các bên liên quan và công bố thông tin kịp thời, đầy đủ, chính xác, minh bạch (Quốc hội, 2019)."
+          ]
+        },
+        {
+          "id": "sec-2-3",
+          "num": "2.3",
+          "title": "2.3. Bảo vệ nhà đầu tư thông qua chế tài xử lý vi phạm.",
+          "subsections": [
+            {
+              "id": "sub-2-3-1",
+              "num": "2.3.1",
+              "title": "2.3.1. Khung pháp lý về chế tài xử phạt trên thị trường chứng khoán.",
+              "paragraphs": [
+                "Hệ thống chế tài điều chỉnh TTCK Việt Nam hiện nay vận hành dựa trên hai trụ cột:",
+                "Chế tài hành chính:",
+                "Căn cứ pháp lý: Luật Xử lý vi phạm hành chính năm 2012 (sửa đổi, bổ sung năm 2020); Luật Chứng khoán năm 2019; Nghị định số 156/2020/NĐ-CP (sửa đổi, bổ sung bởi Nghị định số 128/2021/NĐ-CP) (Quốc hội, 2019; Chính phủ, 2020b; Chính phủ, 2021).",
+                "Hình thức chế tài: Phạt cảnh cáo; phạt tiền (tối đa 03 tỷ đồng đối với tổ chức và 1,5 tỷ đồng đối với cá nhân; riêng hành vi thao túng thị trường phạt tối đa 10 lần khoản thu trái pháp luật theo Điều 5 Nghị định 156/2020/NĐ-CP); phạt bổ sung (đình chỉ hoạt động giao dịch, đình chỉ kinh doanh dịch vụ chứng khoán có thời hạn, tịch thu tang vật); và các biện pháp khắc phục hậu quả (buộc hủy bỏ/cải chính thông tin, nộp lại số lợi bất hợp pháp, thu hồi chứng khoán chào bán trái luật) (Chính phủ, 2020b).",
+                "Chế tài hình sự:",
+                "Căn cứ pháp lý: Bộ luật Hình sự năm 2015 (sửa đổi, bổ sung năm 2017) (Quốc hội, 2015b). Các tội danh chuyên biệt: Cố ý công bố thông tin sai lệch hoặc che giấu thông tin trong hoạt động chứng khoán (Điều 209); Sử dụng thông tin nội bộ để mua bán chứng khoán (Điều 210); Thao túng thị trường chứng khoán (Điều 211); Làm giả tài liệu trong hồ sơ chào bán, niêm yết chứng khoán (Điều 212).",
+                "Tội danh phái sinh quy mô lớn: Hành vi tăng vốn khống, phát hành trái phiếu gian dối nhằm chiếm đoạt tài sản bị truy cứu trách nhiệm theo Tội lừa đảo chiếm đoạt tài sản (Điều 174)."
+              ]
+            },
+            {
+              "id": "sub-2-3-2",
+              "num": "2.3.2",
+              "title": "2.3.2. Thực tiễn áp dụng chế tài hành chính.",
+              "paragraphs": [
+                "Giai đoạn 2020–2025, Ủy ban Chứng khoán Nhà nước (UBCKNN) cùng Thanh tra Bộ Tài chính đã ban hành 2.731 quyết định xử phạt vi phạm hành chính, thu nộp ngân sách hàng trăm tỷ đồng (bình quân các năm cao điểm 2022–2024 đạt 400–500 vụ/năm). Các nhóm hành vi vi phạm chủ yếu gồm:",
+                "Vi phạm nghĩa vụ công bố thông tin (chiếm >60% tổng số vụ): Chậm hoặc không công bố báo cáo tài chính kiểm toán, báo cáo thường niên, thông tin chào bán trái phiếu riêng lẻ (vi phạm Điều 118 đến Điều 128 Luật Chứng khoán 2019; Điều 42, 43 Nghị định 156/2020/NĐ-CP) (Quốc hội, 2019; Chính phủ, 2020b).",
+                "Giao dịch \"chui\" của cổ đông nội bộ và người có liên quan: Không báo cáo, không công bố thông tin trước khi giao dịch cổ phiếu trị giá lớn (vi phạm Điều 33 Nghị định 156/2020/NĐ-CP). Cơ quan quản lý đã xử phạt tiền từ hàng chục triệu đến hàng tỷ đồng, đồng thời áp dụng hình phạt bổ sung đình chỉ giao dịch từ 3 đến 5 tháng (Chính phủ, 2020b).",
+                "Sai phạm trong phát hành, chào bán chứng khoán: Cung cấp thông tin sai lệch trong hồ sơ chào bán riêng lẻ, sử dụng vốn huy động sai mục đích đã công bố (vi phạm Nghị định 153/2020/NĐ-CP và Nghị định 65/2022/NĐ-CP) (Chính phủ, 2022).",
+                "Sai phạm tại tổ chức trung gian: Công ty chứng khoán (CTCK) cho mượn tài khoản, cấp margin vượt hạn mức quy định (Điều 26 Nghị định 156/2020/NĐ-CP), hoặc không tách bạch tài sản khách hàng với tài sản công ty (Điều 89 Luật Chứng khoán 2019) (Quốc hội, 2019; Chính phủ, 2020b)."
+              ]
+            },
+            {
+              "id": "sub-2-3-3",
+              "num": "2.3.3",
+              "title": "2.3.3. Thực tiễn áp dụng chế tài hình sự qua các vụ án điển hình.",
+              "paragraphs": [
+                "Khi vi phạm gây hậu quả đặc biệt nghiêm trọng, cơ quan tiến hành tố tụng đã áp dụng các chế tài nghiêm khắc nhất để răn đe và bảo vệ quyền lợi hợp pháp của NĐT:",
+                "Vụ án tại Tập đoàn FLC ( Áp dụngĐiều 211 và Điều 174 BLHS 2015): Trịnh Văn Quyết cùng đồng phạm dùng hàng trăm tài khoản thao túng chuỗi mã FLC, ROS, ART, HAI, AMD, GAB. Đồng thời, tại Công ty CP Xây dựng FLC Faros (mã ROS), các bị cáo làm khống hồ sơ tăng vốn điều lệ từ 1,5 tỷ lên 4.300 tỷ đồng, niêm yết lên sàn HoSE để bán và lừa đảo chiếm đoạt hơn 3.620 tỷ đồng của hơn 30.000 NĐT (Quốc hội, 2015b; Thư viện Pháp luật, n.d.).",
+                "Vụ án tại Công ty CP Louis Holdings ( Áp dụng Điều 211 BLHS 2015): Đỗ Thành Nhân câu kết với lãnh đạo CTCK Trí Việt dùng đòn bẩy tài chính và mạng xã hội (“Louis Family”) để kích động NĐT mua đuổi, thao túng mã BII, TGG rồi bán xả, khiến giá cổ phiếu rơi vào tình trạng mất thanh khoản (Quốc hội, 2015b; Wikipedia, n.d.).",
+                "Vụ án tại Tập đoàn Tân Hoàng Minh ( Áp dụngĐiều 174 BLHS 2015): Phát hành khống 09 lô trái phiếu riêng lẻ tại 3 công ty con, tạo hợp đồng mua bán giả cách và bán lại cho hơn 6.600 NĐT cá nhân qua các hợp đồng hợp tác đầu tư, chiếm đoạt hơn 8.600 tỷ đồng. Tòa án đã tuyên buộc các bị cáo hoàn trả toàn bộ số tiền chiếm đoạt cho các bị hại (Quốc hội, 2015b; Finhay, n.d.).",
+                "Vụ án tại Công ty CP Công nghệ Mạng Thông tin ASA ( Áp dụng Điều 174 BLHS 2015): Làm giả tài liệu tăng khống 7 triệu cổ phiếu (70 tỷ đồng vốn góp), đưa lên giao dịch tại hệ thống UPCoM để bán cho NĐT cá nhân nhằm chiếm đoạt tài sản (Quốc hội, 2015b; Bộ Công an, n.d.)."
+              ]
+            }
+          ],
+          "paragraphs": [
+            "Chế tài pháp lý là công cụ cưỡng chế nhà nước nhằm bảo vệ trật tự quản lý kinh tế và khôi phục quyền, lợi ích hợp pháp bị xâm phạm (khoản 2 Điều 132 Luật Chứng khoán 2019). Trên thị trường chứng khoán (TTCK), chế tài hành chính và hình sự đóng vai trò là “tấm khiên hậu kiểm” trực tiếp bảo vệ nhà đầu tư (NĐT) cá nhân trước các hành vi thao túng, trục lợi và gian lận thông tin (Quốc hội, 2019)."
+          ]
+        },
+        {
+          "id": "sec-2-4",
+          "num": "2.4",
+          "title": "2.4. Bảo vệ nhà đầu tư thông qua cơ chế khiếu nại, tố cáo và giải quyết tranh chấp.",
+          "subsections": [
+            {
+              "id": "sub-2-4-1",
+              "num": "2.4.1",
+              "title": "2.4.1. Cơ chế tiếp nhận và xử lý đơn thư của UBCKNN.",
+              "paragraphs": [
+                "Căn cứ Luật Khiếu nại 2011, Luật Tố cáo 2018 và Thông tư 05/2021/TT-TTCP, Thanh tra Ủy ban Chứng khoán Nhà nước tiếp nhận và xử lý đơn theo ba nhóm thẩm quyền: (Quốc hội, 2011; Quốc hội, 2018).",
+                "Tố giác vi phạm pháp luật chuyên ngành (thao túng giá, gian lận BCTC, phát hành khống): UBCKNN xác minh, thanh tra xử phạt hành chính (Nghị định 156/2020/NĐ-CP). Trường hợp có dấu hiệu tội phạm, chuyển hồ sơ sang Cơ quan Cảnh sát điều tra Bộ Công an theo Điều 144, 145 Bộ luật Tố tụng Hình sự (BLTTHS) 2015 (Quốc hội, 2015d; Chính phủ, 2020b).",
+                "Khiếu nại quyết định/hành vi hành chính: Thụ lý và giải quyết theo thẩm quyền, trình tự quy định tại Điều 17 đến Điều 43 Luật Khiếu nại 2011 (Quốc hội, 2011).",
+                "Tranh chấp dân sự/kinh tế thuần túy (giữa NĐT với CTCK): Không thuộc thẩm quyền xử phạt hành chính; UBCKNN hướng dẫn hòa giải cơ sở hoặc khởi kiện theo Điều 133 Luật Chứng khoán 2019 (Quốc hội, 2019)."
+              ]
+            },
+            {
+              "id": "sub-2-4-2",
+              "num": "2.4.2",
+              "title": "2.4.2. Thực tiễn xử lý đơn thư giai đoạn 2021–2023.",
+              "paragraphs": [
+                "UBCKNN đã thụ lý hơn 1.000 đơn thư phản ánh, tập trung vào 4 nhóm nội dung:",
+                "Gian lận phát hành, báo cáo tài chính (Điều 118–128 Luật Chứng khoán 2019; Nghị định 65/2022/NĐ-CP): Thanh tra chuyên ngành, xử phạt vi phạm hành chính và chuyển Cơ quan điều tra C03 (Quốc hội, 2019; Chính phủ, 2022).",
+                "Thao túng giá cổ phiếu (Điều 12 Luật Chứng khoán 2019; Điều 211 BLHS 2015): Phối hợp C03, A05 bóc tách luồng tiền, hội nhóm kín và dữ liệu lệnh để phục vụ khởi tố hình sự (Quốc hội, 2019; Quốc hội, 2015b).",
+                "Tranh chấp dịch vụ với CTCK (Điều 86, 89 Luật Chứng khoán 2019; Điều 513 Bộ luật Dân sự 2015): Bán giải chấp sai quy trình, nghẽn hệ thống lệnh; giải quyết qua yêu cầu giải trình và hướng dẫn khởi kiện dân sự (Quốc hội, 2019; Quốc hội, 2015a).",
+                "Mạo danh tổ chức tài chính (Điều 174 BLHS 2015): Phát thông báo cảnh báo app đầu tư, sàn quốc tế giả mạo và chuyển hồ sơ triệt phá đường dây lừa đảo (Quốc hội, 2015b)."
+              ]
+            },
+            {
+              "id": "sub-2-4-3",
+              "num": "2.4.3",
+              "title": "2.4.3. Các phương thức giải quyết tranh chấp (Điều 133 Luật Chứng khoán 2019).",
+              "paragraphs": [
+                "Thương lượng, hòa giải (Nghị định 22/2017/NĐ-CP): Chi phí thấp, bảo mật, nhưng phụ thuộc thiện chí của CTCK và thiếu hiệu lực cưỡng chế nếu không được Tòa án ra quyết định công nhận (Chương XXXIII BLTTDS 2015) (Quốc hội, 2015c; Chính phủ, 2017).",
+                "Trọng tài thương mại (Luật Trọng tài thương mại 2010): Phán quyết mang tính chung thẩm (Điều 61), nhưng không khả thi với NĐT cá nhân do hợp đồng mẫu mở tài khoản (Điều 405 BLDS 2015) không cài điều khoản trọng tài và mức biểu phí vượt quá quy mô khiếu kiện nhỏ lẻ (Quốc hội, 2015a; Quốc hội, 2010).",
+                "Tòa án nhân dân (BLTTDS 2015): Phương thức bảo đảm bằng quyền lực cưỡng chế tư pháp nhà nước, phán quyết có tính bắt buộc thi hành cao nhất (Quốc hội, 2015c)."
+              ]
+            }
+          ],
+          "paragraphs": []
+        },
+        {
+          "id": "sec-2-5",
+          "num": "2.5",
+          "title": "2.5. Bảo vệ nhà đầu tư thông qua hoạt động giám sát thị trường.",
+          "subsections": [
+            {
+              "id": "sub-2-5-1",
+              "num": "2.5.1",
+              "title": "2.5.1. Hệ thống giám sát thị trường 3 cấp.",
+              "paragraphs": [
+                "Căn cứ Điều 130 Luật Chứng khoán 2019 và Thông tư số 95/2020/TT-BTC, hệ thống giám sát vận hành theo mô hình phân tầng: (Quốc hội, 2019; Bộ Tài chính, 2020a).",
+                "Cấp 1 – Giám sát tuyến đầu (Công ty Chứng khoán): Thực hiện KYC, kiểm soát tài khoản chính chủ theo Luật Phòng, chống rửa tiền năm 2022; giám sát hạn mức ký quỹ margin (Thông tư 120/2020/TT-BTC); chặn lệnh đối ứng cùng nguồn tiền và báo cáo giao dịch đáng ngờ cho Sở Giao dịch và UBCKNN (Quốc hội, 2022; Bộ Tài chính, 2020d).",
+                "Cấp 2 – Giám sát tuyến giữa (Sở Giao dịch Chứng khoán Việt Nam - VNX, HoSE, HNX): Giám sát thời gian thực (real-time) thuật toán khớp lệnh, biên độ giá và các chuỗi lệnh bất thường; giám sát sau phiên đối với giao dịch nội bộ/cổ đông lớn; yêu cầu giải trình khi cổ phiếu tăng trần/giảm sàn 05 phiên liên tiếp; áp dụng các biện pháp cảnh báo, kiểm soát, tạm ngừng hoặc đình chỉ giao dịch theo Quy chế của VNX.",
+                "Cấp 3 – Giám sát tối cao (Ủy ban Chứng khoán Nhà nước): Quản lý nhà nước toàn diện (Điều 8, Điều 9 Luật Chứng khoán 2019); chỉ đạo thanh tra chuyên ngành (Luật Thanh tra 2022); thực hiện quyền yêu cầu ngân hàng sao kê tài khoản tiền, nhà mạng cung cấp dữ liệu liên lạc (khoản 3 Điều 129 Luật Chứng khoán 2019) để củng cố hồ sơ xử phạt hoặc chuyển Bộ Công an (Quốc hội, 2019; Quốc hội, 2022)."
+              ]
+            },
+            {
+              "id": "sub-2-5-2",
+              "num": "2.5.2",
+              "title": "2.5.2. Ứng dụng công nghệ và cảnh báo sớm theo định hướng chính sách.",
+              "paragraphs": [
+                "Theo Nghị quyết 57-NQ/TW của Bộ Chính trị và Quyết định 1726/QĐ-TTg của Thủ tướng Chính phủ (Chiến lược phát triển TTCK đến năm 2030) đặt trọng tâm chuyển đổi số, ứng dụng AI và Big Data vào giám sát tự động. Cài đặt thuật toán phát hiện sớm lệnh đặt/hủy quy mô lớn gây nhiễu (Spoofing), giao dịch chéo tạo thanh khoản ảo (Wash Trading), gom hàng thổi giá rồi xả (Pump & Dump). Kết nối Cơ sở dữ liệu quốc gia về dân cư với hệ thống VSDC và CTCK, làm sạch tài khoản và xác thực sinh trắc học CCCD gắn chip để loại bỏ tài khoản mượn danh thao túng giá (Bộ Chính trị, 2024; Thủ tướng Chính phủ, 2023)."
+              ]
+            },
+            {
+              "id": "sub-2-5-3",
+              "num": "2.5.3",
+              "title": "2.5.3. Thực tiễn hiệu quả đạt được.",
+              "paragraphs": [
+                "Chủ động bóc tách đường dây sai phạm: Phát hiện dấu vết dòng tiền bất thường, cung cấp chứng cứ phục vụ khởi tố hình sự tại nhóm Apec (APS, API, IDJ), Louis Holdings và FLC Faros (Thư viện Pháp luật, n.d.; Wikipedia, n.d.).",
+                "Giảm thiểu nhiễu loạn thông tin: Cơ chế bắt buộc giải trình 05 phiên trần/sàn liên tiếp hạn chế hiệu ứng tâm lý bầy đàn và lan truyền tin đồn thất thiệt.",
+                "Thanh lọc thị trường: Kịp thời đình chỉ, đưa vào diện kiểm soát (chỉ giao dịch phiên chiều) các mã cổ phiếu âm vốn chủ sở hữu hoặc bị từ chối kiểm toán, khoanh vùng rủi ro cho NĐT cá nhân."
+              ]
+            }
+          ],
+          "paragraphs": [
+            "Giám sát thị trường là cơ chế tiền kiểm nhằm phát hiện, cảnh báo và ngăn chặn sớm các giao dịch bất thường, giảm thiểu tổn thất cho NĐT cá nhân (Điều 8, Điều 129 Luật Chứng khoán năm 2019) (Quốc hội, 2019)."
+          ]
+        }
+      ],
+      "leadParagraphs": []
+    },
+    {
+      "id": "chap-4",
+      "title": "CHƯƠNG 3. NHỮNG BẤT CẬP CÒN TỒN TẠI TRÊN THỰC TẾ.",
+      "sections": [
+        {
+          "id": "sec-3-1",
+          "num": "3.1",
+          "title": "3.1. Bất cập về thể chế pháp luật.",
+          "subsections": [
+            {
+              "id": "sub-3-1-1",
+              "num": "3.1.1",
+              "title": "3.1.1. Thiếu quy định định lượng cụ thể về trách nhiệm của các chủ thể trung gian.",
+              "paragraphs": [
+                "Thị trường chứng khoán hoạt động dựa trên niềm tin vào tính minh bạch, trong đó các tổ chức trung gian (công ty chứng khoán tư vấn, tổ chức kiểm toán, tổ chức thẩm định giá, bảo lãnh phát hành) đóng vai trò là những \"người gác cổng\". Khoản 2 Điều 23 Luật Chứng khoán 2019 quy định tổ chức tư vấn phát hành, tổ chức kiểm toán được chấp thuận, người ký báo cáo kiểm toán và cá nhân xác nhận hồ sơ phải chịu trách nhiệm trước pháp luật trong phạm vi liên quan đến hồ sơ đăng ký chào bán chứng khoán ra công chúng. Tương tự, khoản 3 Điều 48 cũng ràng buộc trách nhiệm của các tổ chức này đối với hồ sơ niêm yết, đăng ký giao dịch (Quốc hội, 2019).",
+                "Tuy nhiên, điểm nghẽn pháp lý nằm ở cụm từ \"trong phạm vi liên quan\". Luật chưa có cơ sở định lượng rõ ràng mức độ liên đới chịu trách nhiệm bồi thường thiệt hại của tổ chức kiểm toán hay công ty chứng khoán khi doanh nghiệp phát hành cố tình làm giả hồ sơ, thổi phồng vốn điều lệ hoặc che giấu nợ xấu. Việc Điều 21 chỉ quy định tổ chức kiểm toán có nghĩa vụ \"thông báo bằng văn bản cho Ủy ban Chứng khoán Nhà nước\" khi phát hiện sai phạm sau khi phát hành báo cáo kiểm toán là chưa đủ sức răn đe. Điều này dẫn đến tình trạng các chủ thể trung gian dễ dàng \"lách\" trách nhiệm bằng lý do \"chỉ kiểm toán dựa trên hồ sơ doanh nghiệp cung cấp\", đẩy toàn bộ rủi ro cho nhà đầu tư cá nhân mua phải cổ phiếu rác.",
+                "Chế tài xử phạt chưa tương xứng với hậu quả gây ra:",
+                "Hệ thống chế tài xử lý vi phạm trong lĩnh vực chứng khoán hiện nay bộc lộ sự bất cập lớn về tính răn đe. Theo khoản 4 Điều 132 Luật Chứng khoán 2019, mức phạt tiền tối đa trong xử phạt vi phạm hành chính đối với các hành vi vi phạm khác trong lĩnh vực chứng khoán chỉ là 03 tỷ đồng (Quốc hội, 2019).",
+                "Đối với hai hành vi nguy hiểm nhất là gian lận, lừa đảo (khoản 1 Điều 12) và thao túng thị trường (khoản 3 Điều 12), khoản 3 Điều 132 quy định mức phạt là 10 lần khoản thu trái pháp luật có được từ hành vi vi phạm. Bất cập nảy sinh khi cơ quan chức năng gặp vô vàn khó khăn trong việc chứng minh và tính toán chính xác \"khoản thu trái pháp luật\". Thực tiễn cho thấy, nếu không xác định được khoản thu này, mức phạt lại quay về mốc tối đa là 03 tỷ đồng (đối với tổ chức) hoặc 1,5 tỷ đồng (đối với cá nhân). Con số này là quá nhỏ bé so với hàng ngàn tỷ đồng mà các đội nhóm thao túng thu lợi bất chính, dẫn đến tâm lý \"sẵn sàng vi phạm, chấp nhận nộp phạt để giữ lại lợi nhuận khổng lồ\".",
+                "Thiếu cơ chế bồi thường thiệt hại hiệu quả và khả thi:",
+                "Về mặt nguyên tắc, khoản 2 Điều 133 quy định chủ thể xâm phạm quyền, lợi ích hợp pháp của tổ chức, cá nhân gây thiệt hại thì phải bồi thường theo quy định của Bộ luật Dân sự. Việc bảo vệ quyền lợi và giải quyết tranh chấp được thực hiện thông qua thương lượng, hòa giải, Trọng tài hoặc Tòa án (khoản 1 Điều 133).",
+                "Tuy nhiên, nhà đầu tư cá nhân gần như không thể tự mình khởi kiện thành công. Khó khăn lớn nhất là nghĩa vụ chứng minh mối quan hệ nhân quả giữa hành vi vi phạm (ví dụ: công bố thông tin sai lệch) và thiệt hại cụ thể của nhà đầu tư. Hơn nữa, pháp luật tố tụng dân sự Việt Nam hiện chưa ghi nhận mô hình khởi kiện tập thể (Class action). Nhà đầu tư nhỏ lẻ với thiệt hại vài chục triệu đồng không có đủ tiềm lực tài chính, thời gian và kiến thức pháp lý để theo đuổi một vụ kiện dân sự kéo dài nhiều năm, khiến cơ chế bồi thường tại Điều 133 trở nên thiếu tính thực tiễn.",
+                "Kẽ hở nghiêm trọng trong quy định phân biệt nhà đầu tư chuyên nghiệp:",
+                "Luật Chứng khoán 2019 thiết kế cơ chế chào bán chứng khoán riêng lẻ chỉ dành riêng cho \"nhà đầu tư chứng khoán chuyên nghiệp\" (điểm b khoản 20 Điều 4; điểm b khoản 1 Điều 31). Mục đích là để bảo vệ các nhà đầu tư cá nhân yếu thế khỏi những sản phẩm rủi ro cao như trái phiếu doanh nghiệp không tài sản đảm bảo (Quốc hội, 2019).",
+                "Thế nhưng, tiêu chí xác định nhà đầu tư chuyên nghiệp tại điểm d và điểm đ khoản 1 Điều 11 lại bộc lộ sự lỏng lẻo: chỉ cần nắm giữ danh mục chứng khoán có giá trị tối thiểu 02 tỷ đồng hoặc có thu nhập chịu thuế năm gần nhất tối thiểu 01 tỷ đồng. Trên thực tế, quy định này đã bị lạm dụng triệt để. Các môi giới chứng khoán có thể hỗ trợ khách hàng ký hợp đồng vay mượn ngắn hạn (margin) để \"bơm\" tài khoản đạt mức 02 tỷ đồng, xin xác nhận của công ty chứng khoán, sau đó rút tiền trả lại. Hệ quả là hàng vạn nhà đầu tư cá nhân thiếu kiến thức tài chính đã bị \"khoác áo chuyên nghiệp\" để mua trái phiếu rủi ro cao, dẫn đến các cuộc khủng hoảng diện rộng khi tổ chức phát hành mất khả năng thanh toán.",
+                "Việc lách luật này dẫn đến những hậu quả cực kỳ nghiêm trọng đối với nhà đầu tư cá nhân:",
+                "Thứ nhất, tước đoạt tấm khiên bảo vệ pháp lý: Khi được gắn mác nhà đầu tư chuyên nghiệp, cá nhân mặc nhiên được pháp luật và cơ quan quản lý coi là có đủ năng lực tự phân tích, tự đánh giá rủi ro doanh nghiệp (nguyên tắc Caveat emptor - người mua phải tự chịu trách nhiệm). Điều này vô hình trung tạo kẽ hở cho các tổ chức phân phối (công ty chứng khoán, ngân hàng) thoái thác trách nhiệm tư vấn sai lệch, đẩy toàn bộ gánh nặng thiệt hại cho cá nhân khi tổ chức phát hành vỡ nợ (điển hình như các vụ án trái phiếu Tân Hoàng Minh, Vạn Thịnh Phát) (Finhay, n.d.).",
+                "Thứ hai, bóp méo bản chất thị trường: Hàng vạn nhà đầu tư cá nhân với bản chất là những người gửi tiết kiệm thông thường, do thiếu hiểu biết đã bị \"khoác áo chuyên nghiệp\" để mua trái phiếu rủi ro cao. Khi xảy ra sự cố, hệ quả không chỉ dừng lại ở sự khánh kiệt tài sản của từng gia đình mà còn châm ngòi cho khủng hoảng niềm tin diện rộng, đe dọa trực tiếp đến an ninh tài chính và tính ổn định của thị trường vốn quốc gia.",
+                "Khoảng trống pháp lý trong việc bảo vệ dữ liệu cá nhân của nhà đầu tư:",
+                "Cùng với sự phát triển của công nghệ số, thông tin cá nhân của nhà đầu tư (họ tên, số điện thoại, số căn cước công dân, số dư tài khoản, danh mục đầu tư) trở thành loại tài sản có giá trị cao. Dù khoản 2 Điều 91 Luật Chứng khoán 2019 nghiêm cấm công ty chứng khoán tiết lộ thông tin khách hàng (trừ trường hợp khách hàng đồng ý hoặc cơ quan có thẩm quyền yêu cầu), nhưng quy định này mới chỉ dừng lại ở mức độ cấm đoán nguyên tắc mà chưa có chế tài chuyên ngành cụ thể, thiếu vắng các chuẩn mực kỹ thuật bắt buộc về an toàn thông tin (Quốc hội, 2019).",
+                "Gần đây, Chính phủ đã ban hành Nghị định 13/2023/NĐ-CP về bảo vệ dữ liệu cá nhân (đặt nền móng cho việc xây dựng Luật Bảo vệ dữ liệu cá nhân trong tương lai), song sự đồng bộ và áp dụng vào lĩnh vực chứng khoán vẫn còn lúng túng. Điều này dẫn đến hàng loạt bất cập: (Quốc hội, 2025).",
+                "Tình trạng rò rỉ, mua bán dữ liệu tràn lan: Dữ liệu của nhà đầu tư (đặc biệt là nhà đầu tư F0) bị lộ lọt từ chính các nhân viên môi giới, hệ thống công ty chứng khoán hoặc các bên thứ ba. Nhà đầu tư không có cách nào chứng minh được nguồn gốc lộ lọt để quy trách nhiệm bồi thường cho công ty chứng khoán.",
+                "Hệ quả trực tiếp: Sự yếu kém trong bảo mật dữ liệu là nguyên nhân gốc rễ khiến nhà đầu tư cá nhân liên tục bị \"khủng bố\" bởi các cuộc gọi rác mời chào tham gia \"room phím hàng VIP\", tải app đầu tư giả mạo. Nghiêm trọng hơn, khi nắm được thông tin chi tiết về danh mục và số dư tài khoản, các đối tượng tội phạm công nghệ cao dễ dàng sử dụng AI, Deepfake để lập các kịch bản lừa đảo nhắm trúng đích, chiếm đoạt toàn bộ tài sản của nhà đầu tư một cách tinh vi mà cơ quan chức năng rất khó truy vết. Cơ chế pháp lý bảo vệ nhà đầu tư trong các trường hợp lộ lọt dữ liệu này hiện nay gần như bị bỏ ngỏ."
+              ]
+            }
+          ],
+          "paragraphs": []
+        },
+        {
+          "id": "sec-3-2",
+          "num": "3.2",
+          "title": "3.2. Bất cập trong thực thi pháp luật.",
+          "subsections": [],
+          "paragraphs": [
+            "Tình trạng vi phạm nghĩa vụ công bố thông tin diễn ra phổ biến và có tính hệ thống:",
+            "Minh bạch thông tin là huyết mạch của TTCK. Chương VIII Luật Chứng khoán 2019 (từ Điều 118 đến Điều 128) quy định rất khắt khe về công bố thông tin. Công ty đại chúng phải công bố thông tin định kỳ (Báo cáo tài chính, Báo cáo thường niên) theo Điều 120, và công bố bất thường trong vòng 24 giờ khi xảy ra các sự kiện trọng yếu như tài khoản bị phong tỏa, thay đổi người nội bộ, có quyết định khởi tố (khoản 2 Điều 120) (Quốc hội, 2019).",
+            "Thực tế, hành vi vi phạm công bố thông tin vẫn chiếm tỷ lệ cao nhất trong các quyết định xử phạt của Ủy ban Chứng khoán Nhà nước (UBCKNN). Các hình thức vi phạm rất đa dạng: chậm nộp Báo cáo tài chính kiểm toán; không công bố thông tin về các giao dịch lớn với các bên liên quan; hoặc công bố thông tin mang tính chất đối phó, thiếu diễn giải rủi ro. Nhiều cổ đông lớn (nắm giữ từ 5% trở lên) hoặc người nội bộ thường xuyên phớt lờ nghĩa vụ báo cáo trước và sau giao dịch (quy định tại Điều 127 và Điều 128). Họ sẵn sàng \"bán chui\" cổ phiếu ở vùng giá đỉnh, thu lợi hàng trăm tỷ đồng và chỉ chịu nộp phạt hành chính vài chục triệu đồng do lỗi \"không báo cáo trước khi giao dịch\". Sự bất tuân thủ này trực tiếp tước đoạt quyền tiếp cận thông tin công bằng của nhà đầu tư cá nhân.",
+            "Thực trạng thao túng giá quy mô lớn và vấn nạn \"mượn tài khoản\":",
+            "Khoản 3 Điều 12 cấm sử dụng một hoặc nhiều tài khoản của mình hoặc của người khác để thông đồng mua, bán chứng khoán nhằm tạo cung cầu giả tạo, thao túng giá. Khoản 6 Điều 12 cũng cấm cho người khác mượn tài khoản để giao dịch chứng khoán dẫn đến thao túng giá.",
+            "Bất cập trong thực thi nằm ở sự phức tạp của thủ đoạn phạm tội. Các đội nhóm thao túng thường thiết lập một hệ sinh thái hàng chục doanh nghiệp \"ma\", mượn hàng trăm căn cước công dân của nhân viên, người nhà, thậm chí mua thông tin cá nhân trên mạng để mở tài khoản chứng khoán. Việc luân chuyển dòng tiền qua lại giữa các tài khoản này tạo ra khối lượng giao dịch ảo khổng lồ.",
+            "Trong quá trình xử lý, các cá nhân cho mượn tài khoản thường khai báo \"không biết mục đích của người mượn, không được chia lợi ích\". Do thiếu bằng chứng về yếu tố vụ lợi, cơ quan chức năng gặp khó khăn trong việc truy cứu trách nhiệm hình sự nhóm người này với vai trò đồng phạm, thường chỉ dừng lại ở xử phạt hành chính nhẹ. Điều này vô hình trung tạo ra sự dung túng, khiến vấn nạn cung cấp \"tài khoản rác\" cho đội lái không bị triệt tiêu tận gốc.",
+            "Tư vấn đầu tư trái phép và những rủi ro từ ứng dụng Trí tuệ nhân tạo (AI):",
+            "Khoản 4 Điều 12 nghiêm cấm việc thực hiện hoạt động cung cấp dịch vụ chứng khoán khi chưa được UBCKNN cấp phép. Nghiệp vụ tư vấn đầu tư là nghiệp vụ có điều kiện, chỉ được thực hiện bởi công ty chứng khoán (khoản 4 Điều 86) hoặc công ty quản lý quỹ (điểm c khoản 1 Điều 73). Người hành nghề phải có chứng chỉ chuyên môn (Điều 97).",
+            "Tuy nhiên, không gian mạng xã hội (Zalo, Telegram, Facebook, TikTok) hiện nay tràn ngập các \"chuyên gia tự xưng\", \"room phím hàng VIP\" hoạt động hoàn toàn nằm ngoài sự kiểm soát của Luật Chứng khoán. Đáng lo ngại hơn, sự phát triển của công nghệ AI đang bị lợi dụng để tạo ra các kịch bản lừa đảo mới: sử dụng Deepfake giả mạo hình ảnh, giọng nói của các lãnh đạo quỹ đầu tư uy tín để kêu gọi góp vốn; sử dụng bot tự động spam tin nhắn, phân tích biểu đồ kỹ thuật giả mạo. Các công cụ này đánh trúng tâm lý khao khát làm giàu nhanh của nhà đầu tư F0. Khung pháp lý truyền thống hiện chưa có các quy phạm đặc thù để định danh, kiểm duyệt và phối hợp xuyên biên giới nhằm triệt phá các mạng lưới tư vấn trái phép áp dụng công nghệ cao này.",
+            "Năng lực của lực lượng thanh tra, giám sát còn hạn chế:",
+            "Theo khoản 1 Điều 9 và khoản 4 Điều 129, UBCKNN và lực lượng Thanh tra chứng khoán có nhiệm vụ quản lý, giám sát, thanh tra và xử phạt vi phạm hành chính trên toàn thị trường.",
+            "Sự bùng nổ về số lượng tài khoản (hàng triệu tài khoản mở mới) và thanh khoản khổng lồ hàng ngày đặt lực lượng thanh tra vào tình trạng quá tải nghiêm trọng. Hệ thống cảnh báo tự động của Sở Giao dịch chứng khoán trả về hàng trăm dấu hiệu giao dịch bất thường mỗi tuần, nhưng nguồn lực con người để đi sâu vào xác minh dòng tiền, sao kê tài khoản ngân hàng, chứng minh sự liên thông giữa các tài khoản lại rất mỏng. Sự chênh lệch giữa quy mô thị trường và bộ máy giám sát làm giảm tính kịp thời trong việc ngăn chặn các hành vi phạm tội từ trong trứng nước."
+          ]
+        },
+        {
+          "id": "sec-3-3",
+          "num": "3.3",
+          "title": "3.3. Bất cập về nhận thức và năng lực của nhà đầu tư cá nhân.",
+          "subsections": [],
+          "paragraphs": [
+            "Hạn chế về nền tảng kiến thức và tâm lý đầu tư bầy đàn:",
+            "Bên cạnh các yếu tố khách quan, rủi ro mà nhà đầu tư cá nhân gánh chịu phần lớn xuất phát từ chính sự hạn chế về năng lực tài chính và kiến thức pháp luật. Khoản 4 Điều 5 Luật Chứng khoán 2019 thiết lập nguyên tắc \"Tự chịu trách nhiệm về rủi ro\". Nguyên tắc này đòi hỏi nhà đầu tư phải tự đánh giá doanh nghiệp dựa trên Bản cáo bạch (Điều 19), Báo cáo tài chính (Điều 20) trước khi ra quyết định xuống tiền (Quốc hội, 2019).",
+            "Thực tế, đa số nhà đầu tư cá nhân không đủ khả năng đọc hiểu các tài liệu kế toán phức tạp. Họ bị chi phối mạnh mẽ bởi tâm lý \"đám đông\" (FOMO - Fear of Missing Out), mua bán dựa trên tin đồn, \"phím hàng\" thay vì phân tích giá trị nội tại. Sự thiếu hụt kiến thức này khiến họ nhầm lẫn giữa \"rủi ro thị trường thông thường\" (cổ phiếu giảm do chu kỳ kinh tế) với \"rủi ro pháp lý\" (bị lừa đảo, doanh nghiệp làm giả hồ sơ), dẫn đến việc phân bổ vốn sai lầm vào các doanh nghiệp rỗng ruột.",
+            "Nhận thức chưa đầy đủ về các quyền năng pháp lý:",
+            "Luật Doanh nghiệp và Luật Chứng khoán (khoản 1 Điều 41) trao cho cổ đông quyền được đối xử bình đẳng, quyền tiếp cận đầy đủ thông tin, và quyền đề nghị đình chỉ, hủy bỏ nghị quyết của Đại hội đồng cổ đông, Hội đồng quản trị nếu trái luật. Khoản 6 Điều 41 cũng bảo vệ cổ đông khỏi việc lạm quyền của người nội bộ.",
+            "Dù được trao nhiều \"vũ khí\" pháp lý, nhà đầu tư cá nhân mang tâm lý \"nhỏ lẻ\", \"thấp cổ bé họng\" nên thường tự tước bỏ quyền lợi của mình. Tỷ lệ nhà đầu tư cá nhân tham dự Đại hội đồng cổ đông thường niên để thực hiện quyền chất vấn Ban lãnh đạo, yêu cầu giải trình về các giao dịch với bên liên quan là rất thấp. Sự thờ ơ này tạo khoảng trống để các cổ đông lớn và Hội đồng quản trị tự tung tự tác, rút ruột doanh nghiệp mà không vấp phải sự phản biện nào từ phía các cổ đông nhỏ lẻ.",
+            "Công tác tuyên truyền, phổ biến pháp luật chưa đạt hiệu quả kỳ vọng:",
+            "Khoản 3 Điều 6 và điểm l khoản 1 Điều 9 quy định rõ chính sách của Nhà nước và nhiệm vụ của UBCKNN trong việc tuyên truyền, phổ biến kiến thức về chứng khoán và pháp luật cho công chúng. Tuy nhiên, các chương trình phổ cập kiến thức hiện nay đôi khi còn mang tính hình thức, hàn lâm, chưa tiếp cận được sâu rộng đến các tầng lớp dân cư mới tham gia thị trường (công nhân, sinh viên, người hưu trí). Các kịch bản cảnh báo lừa đảo chưa cập nhật kịp với tốc độ biến tướng của tội phạm mạng."
+          ]
+        },
+        {
+          "id": "sec-3-4",
+          "num": "3.4",
+          "title": "3.4. Bất cập về cơ chế phối hợp giữa các cơ quan quản lý.",
+          "subsections": [],
+          "paragraphs": [
+            "Tính kết nối, chia sẻ dữ liệu liên thông còn rời rạc:",
+            "Để xử lý hiệu quả một vụ việc gian lận chứng khoán, cơ quan quản lý cần truy vết không chỉ dòng chứng khoán mà còn là dòng tiền thực tế. Điều 130 và Điều 131 Luật Chứng khoán 2019 quy định UBCKNN có quyền yêu cầu tổ chức tín dụng cung cấp thông tin tài khoản ngân hàng, yêu cầu doanh nghiệp viễn thông cung cấp sao kê cuộc gọi, và yêu cầu cơ quan thuế, cơ quan đăng ký kinh doanh phối hợp cung cấp thông tin (Quốc hội, 2019).",
+            "Tuy nhiên, khoản 2 Điều 130 quy định việc yêu cầu này phải được Chủ tịch UBCKNN phê duyệt bằng văn bản, tuân thủ trình tự thủ tục của pháp luật về ngân hàng, viễn thông. Quy trình hành chính này tạo ra độ trễ rất lớn. Giữa UBCKNN, Sở Giao dịch chứng khoán, Ngân hàng Nhà nước, Cơ quan Thuế và Cơ quan Công an chưa thiết lập được hệ thống cơ sở dữ liệu quốc gia liên thông, cho phép truy xuất và đối soát theo thời gian thực (real-time). Khi phát hiện dấu hiệu giao dịch bất thường, sự chậm trễ trong việc chia sẻ dữ liệu dòng tiền và ra quyết định phong tỏa tài khoản (điểm g khoản 1 Điều 7) khiến các đối tượng phạm tội có đủ thời gian tẩu tán tài sản, dẫn đến việc thu hồi tiền bồi thường cho nhà đầu tư sau này trở nên vô vọng.",
+            "Thiếu cơ chế phối hợp tác chiến thường xuyên, liên tục:",
+            "Quá trình chuyển hóa một vụ việc từ vi phạm hành chính sang truy cứu trách nhiệm hình sự gặp nhiều vướng mắc. Việc UBCKNN (cơ quan quản lý hành chính) thu thập chứng cứ và chuyển hồ sơ sang Cơ quan Cảnh sát điều tra (cơ quan tiến hành tố tụng) phải trải qua nhiều bước định giá tài sản, giám định mức độ thiệt hại phức tạp. Sự khác biệt về tư duy tiếp cận—UBCKNN ưu tiên ổn định tâm lý thị trường, trong khi cơ quan điều tra tập trung vào yếu tố truy vết tội phạm—đôi khi dẫn đến sự thiếu đồng bộ trong khâu phát ngôn và xử lý khủng hoảng truyền thông. Điều này không chỉ gây ra những cú sốc giảm điểm cực đoan trên bảng điện mà còn làm xói mòn nghiêm trọng niềm tin của nhà đầu tư cá nhân vào hệ thống bảo vệ pháp lý."
+          ]
+        }
+      ],
+      "leadParagraphs": [
+        "Mặc dù khung pháp lý về chứng khoán và thị trường chứng khoán tại Việt Nam đã có những bước tiến dài với sự ra đời của Luật Chứng khoán 2019, song thực tiễn vận hành thị trường thời gian qua vẫn bộc lộ nhiều điểm hạn chế nghiêm trọng. Những bất cập này không chỉ đến từ độ trễ của thể chế pháp luật so với sự phát triển của thị trường, mà còn xuất phát từ sự yếu kém trong khâu thực thi, năng lực của chính nhà đầu tư cá nhân và cơ chế phối hợp giữa các cơ quan quản lý nhà nước (Quốc hội, 2019)."
+      ]
+    },
+    {
+      "id": "chap-5",
+      "title": "CHƯƠNG 4. KIẾN NGHỊ HOÀN THIỆN PHÁP LUẬT VÀ NÂNG CAO HIỆU QUẢ BẢO VỆ NHÀ ĐẦU TƯ CÁ NHÂN.",
+      "sections": [
+        {
+          "id": "sec-4-1",
+          "num": "4.1",
+          "title": "4.1. Hoàn thiện thể chế pháp luật.",
+          "subsections": [
+            {
+              "id": "sub-4-1-1",
+              "num": "4.1.1",
+              "title": "4.1.1. Bổ sung quy định cụ thể về trách nhiệm của tổ chức trung gian.",
+              "paragraphs": [
+                "Từ thực trạng thiếu cơ sở định lượng về mức độ liên đới trách nhiệm của tổ chức trung gian tại mục 3.1.1, việc bổ sung quy định cụ thể là cần thiết để khắc phục tình trạng tổ chức kiểm toán, tư vấn, thẩm định giá “lách” trách nhiệm khi cung cấp thông tin sai lệch. Luật số 56/2024/QH15 đã bổ sung Điều 11a về trách nhiệm của tổ chức, cá nhân tham gia lập, xác nhận hồ sơ, tài liệu báo cáo, nhưng chưa xác định rõ cơ chế liên đới trách nhiệm bồi thường thiệt hại (Quốc hội, 2024).",
+                "Kiến nghị: (i) Bổ sung quy định về mức độ liên đới chịu trách nhiệm bồi thường thiệt hại của tổ chức trung gian, bao gồm cả trách nhiệm dân sự đối với nhà đầu tư, nhằm tạo cơ sở để nhà đầu tư cá nhân khởi kiện khi hồ sơ có sai lệch; (ii) Yêu cầu mua bảo hiểm trách nhiệm nghề nghiệp bắt buộc đối với tổ chức kiểm toán được chấp thuận, bảo đảm khả năng chi trả bồi thường khi xảy ra sai phạm nghiêm trọng; (iii) Quy định rõ trách nhiệm của người hành nghề chứng khoán khi đưa ra khuyến nghị sai lệch gây thiệt hại cho khách hàng, bởi đây là chủ thể trực tiếp tác động đến quyết định đầu tư của nhà đầu tư cá nhân."
+              ]
+            },
+            {
+              "id": "sub-4-1-2",
+              "num": "4.1.2",
+              "title": "4.1.2. Nâng cao chế tài xử phạt.",
+              "paragraphs": [
+                "Từ thực trạng chế tài xử phạt chưa tương xứng với lợi ích phi pháp và hậu quả gây ra tại mục 3.1.2 và 3.2.5, việc nâng cao chế tài là điều kiện tiên quyết để đảm bảo tính răn đe. Mức phạt tiền tối đa hiện hành là 03 tỷ đồng đối với tổ chức; hành vi thao túng có thể phạt 10 lần khoản thu trái pháp luật, nhưng việc xác định khoản thu này gặp nhiều khó khăn, dẫn đến mức phạt thực tế thường chỉ ở mức danh nghĩa.",
+                "Kiến nghị: (i) Tăng mức phạt tiền tối đa lên 5-7 tỷ đồng đối với tổ chức, 2,5-3,5 tỷ đồng đối với cá nhân khi không xác định được khoản thu trái pháp luật, do mức phạt hiện hành quá nhỏ so với lợi nhuận bất chính hàng trăm tỷ đồng; (ii) Bổ sung chế tài cấm đảm nhiệm chức vụ tại công ty đại chúng, công ty chứng khoán từ 3-5 năm, nhằm loại bỏ cá nhân vi phạm khỏi vị trí có thể tiếp tục gây thiệt hại; (iii) Áp dụng chế tài đình chỉ hoạt động 6 tháng đến 1 năm đối với tổ chức trung gian tiếp tay hoặc buông lỏng quản lý, buộc tổ chức trung gian phải thực hiện đúng vai trò “người gác cổng”; (iv) Tăng mức phạt và áp dụng biện pháp ngăn chặn kỹ thuật đối với hành vi tư vấn đầu tư trái phép trên mạng xã hội, xuất phát từ sự bùng nổ của tư vấn trái phép qua mạng xã hội và AI."
+              ]
+            },
+            {
+              "id": "sub-4-1-3",
+              "num": "4.1.3",
+              "title": "4.1.3. Xây dựng cơ chế bồi thường thiệt hại tập thể.",
+              "paragraphs": [
+                "Từ thực trạng thiếu cơ chế khởi kiện tập thể và những rào cản tố tụng tại mục 3.1.3 và 3.2.4, việc xây dựng cơ chế bồi thường tập thể là giải pháp căn cơ để nhà đầu tư cá nhân có thể đòi lại quyền lợi. Điều 133 Luật Chứng khoán 2019 quy định chủ thể gây thiệt hại phải bồi thường, nhưng cơ chế tố tụng hiện hành chỉ ghi nhận đồng nguyên đơn hoặc ủy quyền đại diện, chưa có khởi kiện tập thể (Quốc hội, 2019).",
+                "Kiến nghị: (i) Nghiên cứu bổ sung chế định khởi kiện tập thể vào Bộ luật Tố tụng Dân sự, bởi nhà đầu tư cá nhân với thiệt hại nhỏ không đủ nguồn lực theo đuổi vụ kiện riêng lẻ; (ii) Thiết lập cơ chế hỗ trợ pháp lý cho nhà đầu tư cá nhân thông qua VAFI hoặc đơn vị chuyên trách thuộc UBCKNN, nhằm giảm gánh nặng thủ tục và chi phí; (iii) Thành lập Quỹ Hỗ trợ Nhà đầu tư từ một phần tiền phạt vi phạm hành chính, khoản thu trái pháp luật bị tịch thu và đóng góp tự nguyện của các tổ chức thị trường, để tạo nguồn tài chính ổn định hỗ trợ tố tụng và bồi thường tạm thời."
+              ]
+            },
+            {
+              "id": "sub-4-1-4",
+              "num": "4.1.4",
+              "title": "4.1.4. Hoàn thiện quy định về công bố thông tin.",
+              "paragraphs": [
+                "Từ thực trạng vi phạm công bố thông tin diễn ra phổ biến và chế tài chưa đủ mạnh tại mục 3.1.1 và 3.2.1, việc hoàn thiện quy định về công bố thông tin là trụ cột quan trọng nhất của cơ chế bảo vệ nhà đầu tư. Thông tư 68/2024/TT-BTC đã đặt ra lộ trình công bố thông tin song ngữ, nhưng tình trạng chậm công bố, công bố không đầy đủ vẫn chiếm tỷ trọng cao nhất trong các quyết định xử phạt của UBCKNN (Bộ Tài chính, 2024).",
+                "Kiến nghị: (i) Mở rộng phạm vi thông tin phải công bố (giao dịch với bên liên quan từ 5% tổng tài sản, sơ đồ sở hữu, nợ tiềm ẩn ngoài bảng cân đối), vì nhiều rủi ro bị che giấu qua các giao dịch và nghĩa vụ nợ ngoài bảng; (ii) Quy định rõ thời hạn công bố theo từng loại sự kiện (24 giờ, 48 giờ, 72 giờ, định kỳ), tạo cơ sở pháp lý rõ ràng để xử phạt hành vi chậm công bố; (iii) Tăng chế tài đối với vi phạm công bố thông tin, bao gồm đình chỉ giao dịch chứng khoán hoặc hủy bỏ đợt chào bán nếu hồ sơ có thông tin sai lệch; (iv) Thiết lập cơ chế kiểm tra chéo thông tin công bố với dữ liệu từ cơ quan thuế, bảo hiểm xã hội, ngân hàng thương mại, để phát hiện sớm dấu hiệu sai lệch trước khi gây hậu quả."
+              ]
+            },
+            {
+              "id": "sub-4-1-5",
+              "num": "4.1.5",
+              "title": "4.1.5. Kiến nghị sửa đổi quy định phân biệt nhà đầu tư chuyên nghiệp và không chuyên nghiệp.",
+              "paragraphs": [
+                "Từ những bất cập trong tiêu chí xác định nhà đầu tư chuyên nghiệp và hậu quả đối với nhà đầu tư cá nhân không chuyên nghiệp tại mục 3.1.4, việc sửa đổi quy định phân loại là cần thiết để đảm bảo tính công bằng và hiệu quả bảo vệ. Luật số 56/2024/QH15 đã sửa đổi Điều 11 theo hướng bổ sung khoản 1a và 1b quy định phạm vi tham gia trái phiếu doanh nghiệp riêng lẻ của nhà đầu tư chuyên nghiệp là tổ chức và cá nhân. Tuy nhiên, tiêu chí xác định nhà đầu tư chuyên nghiệp vẫn bộc lộ bất cập: tiêu chí thu nhập và danh mục chứng khoán mang tính hình thức, dễ bị “lách”; thiếu tiêu chí về kinh nghiệm và kiến thức đầu tư thực tế (Quốc hội, 2024).",
+                "Kiến nghị: (i) Bổ sung tiêu chí về kinh nghiệm và kiến thức đầu tư thực tế (số năm giao dịch tối thiểu 02 năm, số lượng giao dịch tối thiểu 50 giao dịch/năm, hoặc chứng chỉ kiến thức đầu tư do UBCKNN cấp), nhằm ngăn chặn tình trạng “chuyên nghiệp trên giấy tờ”; (ii) Điều chỉnh tiêu chí danh mục chứng khoán theo hướng linh hoạt hơn (giảm ngưỡng xuống 01 tỷ đồng, hoặc cho phép cộng gộp tiền gửi tại công ty chứng khoán), để phản ánh đúng năng lực tài chính thực tế; (iii) Thống nhất thời hạn hiệu lực của xác nhận nhà đầu tư chuyên nghiệp là 01 năm, tạo thuận lợi cho nhà đầu tư trong việc duy trì tư cách tham gia thị trường; (iv) Thiết lập cơ chế đánh giá năng lực định kỳ hàng năm thay vì chỉ xác nhận dựa trên sao kê tài khoản; (v) Xem xét lộ trình mở rộng quyền tiếp cận sản phẩm cho nhà đầu tư không chuyên nghiệp có đủ điều kiện, kèm cơ chế bảo vệ bổ sung, để đảm bảo công bằng trong tiếp cận cơ hội đầu tư."
+              ]
+            },
+            {
+              "id": "sub-4-1-6",
+              "num": "4.1.6",
+              "title": "4.1.6. Bổ sung giải pháp bảo vệ dữ liệu cá nhân của nhà đầu tư.",
+              "paragraphs": [
+                "Từ những bất cập về bảo vệ dữ liệu cá nhân của nhà đầu tư đã phân tích tại mục 3.1.5, việc bổ sung giải pháp chuyên biệt cho lĩnh vực chứng khoán là cần thiết, bởi dữ liệu tài chính, chứng khoán của khách hàng thuộc danh mục dữ liệu cá nhân nhạy cảm theo Luật Bảo vệ dữ liệu cá nhân số 91/2025/QH15, đòi hỏi mức bảo vệ cao hơn so với khung pháp lý chung hiện hành (Quốc hội, 2025).",
+                "Kiến nghị: (i) Bổ sung quy định chuyên biệt về consent trong lĩnh vực chứng khoán, yêu cầu sự đồng ý riêng biệt cho từng mục đích sử dụng và triển khai “Nền tảng quản lý sự đồng ý” tập trung để ghi nhận, chứng minh sự đồng ý trên toàn bộ kênh tiếp xúc, nhằm khắc phục tình trạng sự đồng ý như mặc định (khó kiểm soát) hoặc gây hiểu lầm; (ii) Bổ sung yêu cầu xác thực mạnh đối với giao dịch chứng khoán, theo đó giao dịch từ 10 triệu đồng trở lên bắt buộc xác thực sinh trắc học đối chiếu với dữ liệu căn cước công dân hoặc VNeID, giao dịch dưới 10 triệu đồng phải áp dụng ít nhất một hình thức xác thực trong số OTP, FIDO, sinh trắc học hoặc chữ ký số, để ngăn chặn tình trạng chiếm đoạt tài khoản; (iii) Tăng cường chế tài xử phạt đối với hành vi xâm phạm dữ liệu nhà đầu tư, nâng mức phạt lên tương xứng với mức phạt chung của Luật Bảo vệ dữ liệu cá nhân (tối đa 3 tỷ đồng đối với vi phạm thông thường, hoặc 5% doanh thu đối với vi phạm chuyển dữ liệu xuyên biên giới), bổ sung chế tài đình chỉ hoạt động thu thập dữ liệu mới từ 1-3 tháng đối với công ty chứng khoán để lộ dữ liệu nhà đầu tư, và yêu cầu công ty chứng khoán bồi thường thiệt hại khi dữ liệu bị xâm phạm gây tổn thất tài chính; (iv) Yêu cầu công ty chứng khoán xây dựng quy trình ứng phó sự cố dữ liệu với thời hạn thông báo ngắn hơn (24 giờ thay vì 72 giờ) do tính chất nhạy cảm của dữ liệu tài chính, đồng thời thông báo cho nhà đầu tư bị ảnh hưởng và công khai thông tin về sự cố trên cổng thông tin UBCKNN; (v) Thành lập bộ phận chuyên trách bảo vệ dữ liệu tại các công ty chứng khoán, yêu cầu nhân sự bảo vệ dữ liệu phải có hiểu biết về đặc thù dữ liệu tài chính và các rủi ro thao túng, gian lận, định kỳ đánh giá tuân thủ 01 năm/lần và ghi lại nhật ký toàn bộ hoạt động xử lý dữ liệu cá nhân để phục vụ thanh tra, kiểm tra khi cần thiết, bởi dữ liệu cá nhân trong lĩnh vực chứng khoán không chỉ là thông tin riêng tư mà còn gắn trực tiếp với tài sản và năng lực tài chính của nhà đầu tư, nếu bị khai thác trái phép có thể dẫn đến gian lận, thao túng thị trường và tổn thất tài chính thực tế (Quốc hội, 2025)."
+              ]
+            }
+          ],
+          "paragraphs": []
+        },
+        {
+          "id": "sec-4-2",
+          "num": "4.2",
+          "title": "4.2. Nâng cao hiệu quả thực thi pháp luật.",
+          "subsections": [
+            {
+              "id": "sub-4-2-1",
+              "num": "4.2.1",
+              "title": "4.2.1. Tăng cường năng lực thanh tra, giám sát và đẩy mạnh chuyển đổi số.",
+              "paragraphs": [
+                "Từ thực trạng năng lực thanh tra, giám sát còn hạn chế và chuyển đổi số chậm tại mục 3.2.3 và 3.4, việc tăng cường năng lực và đẩy mạnh chuyển đổi số là giải pháp then chốt để phát hiện và ngăn chặn vi phạm kịp thời. Từ năm 2020 đến tháng 7/2025, UBCKNN đã ban hành 2.731 quyết định xử phạt vi phạm hành chính, nhưng số lượng tài khoản nhà đầu tư cá nhân bùng nổ (vượt 13 triệu tài khoản) trong khi biên chế thanh tra còn hạn chế.",
+                "Kiến nghị: (i) Đào tạo, bồi dưỡng chuyên môn cho cán bộ thanh tra, nhằm nâng cao kỹ năng nhận diện vi phạm qua dữ liệu giao dịch và thu thập chứng cứ điện tử; (ii) Ứng dụng Big Data và AI vào giám sát giao dịch, để phát hiện sớm các mẫu giao dịch bất thường (thao túng giá, giao dịch rửa tiền, thao túng thị trường) mà con người khó nhận diện; (iii) Tăng cường biên chế và thành lập đơn vị chuyên trách về phân tích dữ liệu giao dịch, giải quyết tình trạng quá tải giám sát; (iv) Xây dựng hệ thống giám sát tổng thể, kết nối dữ liệu giữa UBCKNN, Sở Giao dịch, VSDC, Ngân hàng Nhà nước, Cục Đăng ký giao dịch bảo đảm và Đề án 06 theo Nghị quyết 57-NQ/TW, nhằm theo dõi “đường đi của dòng tiền” theo thời gian thực; (v) Đẩy nhanh tiến độ vận hành hệ thống KRX và triển khai hệ thống cảnh báo giao dịch thông minh (Bộ Chính trị, 2024)."
+              ]
+            },
+            {
+              "id": "sub-4-2-2",
+              "num": "4.2.2",
+              "title": "4.2.2. Tăng cường phối hợp giữa các cơ quan.",
+              "paragraphs": [
+                "Từ thực trạng kết nối, chia sẻ dữ liệu giữa các cơ quan quản lý còn rời rạc tại mục 3.4, việc tăng cường phối hợp là điều kiện cần để xử lý hiệu quả các vụ việc vi phạm có tính liên ngành.",
+                "Kiến nghị: (i) Thiết lập quy chế phối hợp liên ngành quy định tần suất trao đổi thông tin, đầu mối liên lạc và quy trình xử lý yêu cầu cung cấp thông tin khẩn cấp, nhằm giảm độ trễ trong xử lý vụ việc; (ii) Đơn giản hóa thủ tục yêu cầu cung cấp thông tin tài khoản ngân hàng bằng cách phân cấp thẩm quyền cho Trưởng đoàn thanh tra trong trường hợp khẩn cấp, để tránh tình trạng đối tượng vi phạm kịp tẩu tán tài sản; (iii) Phối hợp với Bộ Thông tin và Truyền thông và Cục An ninh mạng (A05) trong xử lý tư vấn đầu tư trái phép trên mạng, nhằm đối phó với sự bùng nổ của tư vấn trái phép qua mạng xã hội và AI."
+              ]
+            },
+            {
+              "id": "sub-4-2-3",
+              "num": "4.2.3",
+              "title": "4.2.3. Nâng cao hiệu quả tuyên truyền, phổ biến pháp luật và siết chặt xử lý tư vấn trái phép.",
+              "paragraphs": [
+                "Từ thực trạng nhận thức và năng lực tự bảo vệ của nhà đầu tư cá nhân còn hạn chế tại mục 3.3, cùng với sự bùng nổ của tư vấn trái phép trên mạng xã hội tại mục 3.2.4, việc nâng cao hiệu quả tuyên truyền và siết chặt xử lý là giải pháp bổ trợ quan trọng.",
+                "Kiến nghị: (i) Đa dạng hóa hình thức tuyên truyền thông qua video ngắn, infographic trên mạng xã hội, kênh thông tin chính thống của UBCKNN trên YouTube, TikTok, để tiếp cận nhà đầu tư mới ở mọi tầng lớp; (ii) Phát triển chương trình giáo dục tài chính trực tuyến miễn phí cho nhà đầu tư mới, yêu cầu bắt buộc hoàn thành trước khi giao dịch sản phẩm rủi ro cao; (iii) Công khai danh sách tổ chức, cá nhân tư vấn trái phép trên cổng thông tin UBCKNN, giúp nhà đầu tư tra cứu trước khi tham gia; (iv) Tăng chế tài xử phạt đối với hành vi tư vấn đầu tư trái phép lên 500 triệu - 1 tỷ đồng đối với cá nhân, 1-2 tỷ đồng đối với tổ chức, kèm biện pháp cấm hành nghề có thời hạn; (v) Yêu cầu công ty chứng khoán tăng cường quản lý nhân viên, không để nhân viên tham gia hội nhóm tư vấn trái phép và công khai danh sách người hành nghề được cấp phép."
+              ]
+            },
+            {
+              "id": "sub-4-2-4",
+              "num": "4.2.4",
+              "title": "4.2.4. Hoàn thiện cơ chế bồi thường thiệt hại do thao túng giá.",
+              "paragraphs": [
+                "Từ thực trạng thiếu cơ chế bồi thường hiệu quả và khó khăn trong thi hành án tại mục 3.1.3 và 3.2.5, việc hoàn thiện cơ chế bồi thường là giải pháp cuối cùng nhưng không thể thiếu để khôi phục quyền lợi cho nhà đầu tư bị thiệt hại.",
+                "Kiến nghị: (i) Thành lập Quỹ Bảo vệ Nhà đầu tư từ 30-50% tiền phạt vi phạm hành chính, một phần khoản thu trái pháp luật bị tịch thu và đóng góp tự nguyện của các tổ chức thị trường, nhằm tạo nguồn tài chính ổn định hỗ trợ chi phí tố tụng và bồi thường tạm thời; (ii) Đơn giản hóa thủ tục khởi kiện đòi bồi thường thiệt hại do thao túng giá thông qua bộ hồ sơ mẫu, bộ phận hỗ trợ pháp lý tại UBCKNN hoặc VAFI, và cơ chế miễn, giảm án phí đối với thiệt hại dưới 100 triệu đồng; (iii) Xây dựng phương pháp xác định thiệt hại chuẩn hóa (thiệt hại trực tiếp, thiệt hại do mất cơ hội đầu tư, lãi suất trên khoản thiệt hại) để tòa án áp dụng thống nhất, tránh tình trạng mỗi tòa án xác định thiệt hại theo một cách khác nhau; (iv) Tăng cường hiệu quả thi hành án dân sự trong các vụ án chứng khoán thông qua tổ công tác liên ngành, phong tỏa tài sản ngay từ giai đoạn điều tra và ưu tiên xử lý, bán đấu giá tài sản đã kê biên, nhằm đảm bảo nhà đầu tư thực sự nhận được tiền bồi thường."
+              ]
+            }
+          ],
+          "paragraphs": []
+        }
+      ],
+      "leadParagraphs": [
+        "Từ các bất cập đã nhận diện tại Chương 3, phần này đề xuất các kiến nghị nhằm hoàn thiện thể chế và nâng cao hiệu quả thực thi, hướng tới bảo vệ tốt hơn quyền và lợi ích hợp pháp của nhà đầu tư cá nhân."
+      ]
+    },
+    {
+      "id": "chap-6",
+      "title": "CHƯƠNG 5. KẾT LUẬN.",
+      "sections": [
+        {
+          "id": "sec-5-1",
+          "num": "5.1",
+          "title": "5.1. Tóm tắt kết quả nghiên cứu.",
+          "subsections": [],
+          "paragraphs": [
+            "Thị trường chứng khoán Việt Nam đang bước vào giai đoạn phát triển bùng nổ, khẳng định vai trò là kênh huy động vốn hiệu quả, đáng tin cậy với trình tự thủ tục đơn giản nhanh chóng của nền kinh tế. Với quy mô hơn 13,16 triệu tài khoản tính đến giữa năm 2026 (tương đương 13% dân số), sự tham gia đông đảo của lực lượng nhà đầu tư cá nhân đã mang lại nguồn thanh khoản khổng lồ và được coi là chủ thể trung tâm, quan trọng của thị trường chứng khoán. Từ việc xác định tầm quan trọng của chủ thể này, kết quả nghiên cứu của đề tài chỉ ra rằng, Nhà nước đã và đang nỗ lực xây dựng một khung pháp lý tương đối toàn diện nhằm bảo vệ quyền và lợi ích hợp pháp của nhà đầu tư cá nhân. Cụ thể, xuất phát từ Luật Chứng khoán 2019, được sửa đổi và quy định chặt chẽ hơn bởi Luật số 56/2024/QH15 cùng hệ thống các Nghị định hướng dẫn thi hành đến Nghị định về xử phạt vi phạm hành chính, pháp luật Việt Nam đã thiết lập các màng lọc bảo vệ từ việc công bố thông tin, quản trị công ty đến quá trình giám sát, xử lý vi phạm hành chính và hình sự (Quốc hội, 2019; Quốc hội, 2024; Tổng công ty Lưu ký và Bù trừ Chứng khoán Việt Nam, 2026).",
+            "Tuy nhiên, thực trạng hiện nay đang có sự khác biệt nhiều so với quy định đã đặt ra. Từ các ví dụ cho thấy bất chấp các quy định khắt khe, hay mức phạt hành chính, hình sự, hành vi vi phạm nghĩa vụ công bố thông tin, việc che giấu thông tin bất lợi, chậm nộp báo cáo kiểm toán vẫn chưa thật sự chấm dứt hoàn toàn. Nguy hiểm hơn, các tội phạm tài chính ngày càng lợi dụng các kẽ hở pháp lý để tổ chức thao túng giá quy mô lớn – điển hình qua các đại án FLC, Louis Holdings, Tân Hoàng Minh hay ASA. Bằng thủ đoạn mượn căn cước công dân lập tài khoản ảo, giao dịch chéo và gần đây là sử dụng Trí tuệ nhân tạo, mạng xã hội để lập các hội nhóm lừa đảo trên không gian mạng, các nhóm đã dễ dàng qua mặt hệ thống giám sát. Trong khi đó, các tổ chức trung gian mang trọng trách \"người gác cổng\" như công ty chứng khoán, kiểm toán, thẩm định giá lại thường xuyên vắng bóng trách nhiệm do quy định về \"mức độ liên đới\" trong luật còn thiếu chặt chẽ. Hậu quả là rủi ro bị đẩy hoàn toàn về phía những nhà đầu tư cá nhân (Thư viện Pháp luật, n.d.; Wikipedia, n.d.; Finhay, n.d.; Bộ Công an, n.d.)."
+          ]
+        },
+        {
+          "id": "sec-5-2",
+          "num": "5.2",
+          "title": "5.2. Đánh giá chung về thực trạng bảo vệ nhà đầu tư cá nhân.",
+          "subsections": [],
+          "paragraphs": [
+            "Thực tế cho thấy dù chiếm số lượng lớn, đông đảo nhưng nhà đầu tư cá nhân vẫn là đối tượng yếu thế, chịu nhiều bất lợi và rủi ro đến từ nhiều yếu tố khác nhau. Ngoài rủi ro về việc đầu tư thất bại do bị tác động bởi giá cả bất ổn định của chứng khoán trên thị trường mà còn bị ảnh hưởng bởi các hạn chế lớn trong cơ chế vận hành thị trường.",
+            "Thứ nhất, đó là sự bất cân xứng thông tin và bất bình đẳng trong tiếp cận cơ chế bảo vệ. Nhà đầu tư cá nhân là nhóm gặp nhiều khó khăn nhất trong việc tiếp cận thông tin bởi họ không có các bộ phận vận hành hay tiếp cận thông tin trên thị trường như NĐT là tổ chức dẫn đến việc họ luôn là người biết tin cuối cùng. Nhà đầu tư cá nhân còn gặp khó khăn trong việc tiếp cận cơ chế bảo vệ. Cụ thể, dù Pháp luật đã quy định rõ về quyền khởi kiện đòi bồi thường cho mọi đối tượng. Nhưng dường như, việc khởi kiện bồi thường này chỉ khả thi với nhà đầu tư là tổ chức. Bởi khi nhà đầu tư cá nhân bỏ tiền của cải ra để theo đuổi tận cùng một vụ kiện là vô cùng khó khăn, họ sẽ phải đối mặt với nhiều rào cản như: chi phí khởi kiện, chi phí thuê luật sư, hay quá trình tố tụng bị kéo dài làm phát sinh thêm nhiều chi phí khác…",
+            "Thứ hai, cơ chế bồi thường thiệt hại và khôi phục quyền lợi vật chất cho nhà đầu tư gần như tê liệt. Dù pháp luật dân sự quy định nguyên tắc bồi thường, nhưng rào cản từ nghĩa vụ chứng minh mối quan hệ nhân quả giữa hành vi gian lận và thiệt hại của từng cá nhân là một gánh nặng quá sức. Họ thậm chí còn gặp khó khăn trong việc tiếp cận những tài liệu, chứng cứ chứng minh hành vi vi phạm của chủ thể khác đã ảnh hưởng, xâm phạm đến quyền lợi của mình như nào.",
+            "Thứ ba, nguyên nhân không nhỏ đến từ sự hạn chế về kiến thức, kinh nghiệm của nhà đầu tư cá nhân. Họ dễ dàng lấy được tư cách là “nhà đầu tư chuyên nghiệp” bằng các phương thức như bơm vốn vào để đủ điều kiện, mà không biết đến những rủi ro, khó khăn khi là một nhà đầu tư chuyên nghiệp. Khi họ đầu tư với tư cách này, mà thiếu đi các kiến thức, năng lực thực tế thì họ dễ dàng gặp rủi ro khi lao đầu vào các sản phẩm rủi ro cao như trái phiếu riêng lẻ của công ty đại chúng, công ty chứng khoán,..."
+          ]
+        },
+        {
+          "id": "sec-5-3",
+          "num": "5.3",
+          "title": "5.3. Kiến nghị tổng thể hướng tới tương lai.",
+          "subsections": [],
+          "paragraphs": [
+            "Để thị trường chứng khoán Việt Nam thực sự trở thành một thị trường với vai trò phân bổ vốn an toàn, hiệu quả và được nâng hạng trên trường quốc tế, hệ thống quản lý nhà nước và pháp luật chứng khoán cần tiến hành việc đồng bộ từ quy định pháp luật đến áp dụng công nghệ cũng như nâng cao nhận thức của các nhà đầu tư cá nhân khi tham gia vào thị trường chứng khoán.",
+            "Thứ nhất, về hoàn thiện quy định pháp luật, yêu cầu cấp bách nhất là Quốc hội và các cơ quan tư pháp cần khẩn trương nghiên cứu, nội luật hóa cơ chế \"Khởi kiện tập thể\" vào Bộ luật Tố tụng Dân sự, bởi NĐT cá nhân họ khó có đủ nguồn lực để theo đuổi vụ kiện đến cùng. Cùng với đó, Luật Chứng khoán và các văn bản hướng dẫn cần quy định rõ hơn về tỷ lệ chịu trách nhiệm bồi thường liên đới của các tổ chức trung gian khi để lọt sai sót trọng yếu. Việc xác định mức phạt tiền đối với hành vi vi phạm nên được chuyển dịch từ việc ấn định \"mức trần cố định\" sang cơ chế phạt dựa trên tỷ lệ phần trăm (%) tổng tài sản hoặc tổng doanh thu của chủ thể vi phạm, đảm bảo tính trừng phạt thích đáng và đủ răn đe. Đồng thời, cần siết chặt bổ sung các tiêu chí công nhận \"nhà đầu tư chuyên nghiệp\" thông qua bằng cấp, chứng chỉ, kinh nghiệm và lịch sử giao dịch dài hạn, thay vì chỉ dựa vào số dư tài khoản tại một thời điểm.",
+            "Thứ hai, về nâng cao hiệu quả thực thi, Ủy ban Chứng khoán Nhà nước cần thực hiện giám sát, nhận diện dữ liệu vi phạm bằng việc áp dụng công nghệ quản lý. Việc ứng dụng Trí tuệ nhân tạo và Dữ liệu lớn vào hệ thống cảnh báo sớm, kết hợp chặt chẽ với việc khai thác Đề án 06 theo Nghị quyết 57-NQ/TW của Chính phủ, sẽ giúp định danh chính xác dòng tiền và phát hiện sớm các giao dịch bất thường. Tăng cường sự phối hợp giữa các cơ quan quản lý Nhà nước: UBCKNN, Ngân hàng Nhà nước và Bộ Công an để đảm bảo thị trường được diễn ra ổn định, hoạt động hiệu quả (Bộ Chính trị, 2024).",
+            "Thứ ba, cần nâng cao nhận thức và kiến thức pháp lý của nhà đầu tư cá nhân. Cơ quan quản lý và các định chế trung gian phải đổi mới phương thức phổ biến pháp luật, tận dụng tối đa các nền tảng kỹ thuật số để đưa thông tin đến gần hơn với công chúng. Thay vì chỉ tuyên truyền thụ động, cần thiết lập cơ chế bắt buộc nhà đầu tư hoàn thành các chương trình giáo dục tài chính cơ bản trước khi được phép giao dịch các sản phẩm có độ rủi ro cao. Giải pháp này giúp họ có cái nhìn chuẩn xác, chủ động nhận diện rủi ro và tự bảo vệ quyền lợi tài sản của mình trước khi ra quyết định giải ngân.",
+            "Nhìn chung, một thị trường chứng khoán lành mạnh và phát triển bền vững phải được xây dựng trên nền tảng thượng tôn pháp luật, hướng đến bảo đảm tính công bằng, công khai và minh bạch. Nhưng cần hiểu rằng, việc bảo vệ nhà đầu tư cá nhân không có nghĩa rằng Nhà nước sẽ bảo đảm mọi giao dịch đầu tư không bị thua lỗ, hay bảo đảm lợi nhuận cho bất kỳ giao dịch nào. Mục tiêu tối thượng của pháp luật là tạo ra một thị trường bình đẳng, mọi rào cản bất cân xứng thông tin bị xóa bỏ; hành vi thao túng, gian lận phải trả giá đắt. Chỉ khi loại trừ được những rủi ro pháp lý đó, nhà đầu tư mới thật sự đối mặt với những rủi ro tự nhiên trên thị trường và họ sẽ phải tự mình chịu trách nhiệm với quyết định đầu tư của mình.",
+            "DANH MỤC TÀI LIỆU THAM KHẢO",
+            "Bộ Chính trị. (2024). Nghị quyết số 57-NQ/TW về đột phá phát triển khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số quốc gia.",
+            "Bộ Công an. (n.d.). Kết quả điều tra mở rộng vụ án lừa đảo chiếm đoạt tài sản, đưa hoặc sử dụng trái phép thông tin mạng máy tính, mạng viễn thông. Cổng thông tin điện tử Bộ Công an. https://bocongan.gov.vn/bai-viet/ket-qua-dieu-tra-mo-rong-vu-an-lua-dao-chiem-doat-tai-san-dua-hoac-su-dung-trai-phep-thong-tin-mang-may-tinh-mang-vien-thong-1757403658",
+            "Bộ Tài chính. (2020a). Thông tư số 95/2020/TT-BTC hướng dẫn giám sát giao dịch chứng khoán trên thị trường chứng khoán.",
+            "Bộ Tài chính. (2020b). Thông tư số 96/2020/TT-BTC hướng dẫn công bố thông tin trên thị trường chứng khoán. Cổng Thông tin điện tử Chính phủ. https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=201902",
+            "Bộ Tài chính. (2020c). Thông tư số 116/2020/TT-BTC hướng dẫn một số điều về quản trị công ty áp dụng đối với công ty đại chúng. Cổng Thông tin điện tử Chính phủ. https://vanban.chinhphu.vn/?docid=202770&pageid=27160",
+            "Bộ Tài chính. (2020d). Thông tư số 120/2020/TT-BTC quy định giao dịch cổ phiếu niêm yết, đăng ký giao dịch và chứng chỉ quỹ, trái phiếu doanh nghiệp, chứng quyền có bảo đảm.",
+            "Bộ Tài chính. (2024). Thông tư số 68/2024/TT-BTC sửa đổi, bổ sung một số quy định về giao dịch, công bố thông tin và hoạt động công ty chứng khoán. Cổng Thông tin điện tử Chính phủ. https://vanban.chinhphu.vn/?pageid=27160&docid=211243",
+            "Bộ Tài chính. (2025). Văn bản hợp nhất số 48/VBHN-BTC hợp nhất Nghị định quy định chi tiết thi hành một số điều của Luật Chứng khoán.",
+            "Bộ Tài chính. (2026a). Văn bản hợp nhất số 17/VBHN-BTC hợp nhất Nghị định quy định xử phạt vi phạm hành chính trong lĩnh vực chứng khoán và thị trường chứng khoán.",
+            "Bộ Tài chính. (2026b). Thông tư số 08/2026/TT-BTC sửa đổi, bổ sung một số nội dung về công bố thông tin, giao dịch chứng khoán và hoạt động công ty chứng khoán. Ủy ban Chứng khoán Nhà nước. https://ssc.gov.vn/webcenter/portal/ubck/pages_r/l/chitit?dDocName=APPSSCGOVVN1620163834",
+            "Chính phủ. (2017). Nghị định số 22/2017/NĐ-CP về hòa giải thương mại.",
+            "Chính phủ. (2020a). Nghị định số 155/2020/NĐ-CP quy định chi tiết thi hành một số điều của Luật Chứng khoán. Cổng Thông tin điện tử Chính phủ. https://vanban.chinhphu.vn/?docid=202222&pageid=27160",
+            "Chính phủ. (2020b). Nghị định số 156/2020/NĐ-CP quy định xử phạt vi phạm hành chính trong lĩnh vực chứng khoán và thị trường chứng khoán. Cổng Thông tin điện tử Chính phủ. https://vanban.chinhphu.vn/?pageid=27160&docid=202223",
+            "Chính phủ. (2021). Nghị định số 128/2021/NĐ-CP sửa đổi, bổ sung một số điều của Nghị định số 156/2020/NĐ-CP. Cổng Thông tin điện tử Chính phủ. https://vanban.chinhphu.vn/?pageid=27160&docid=204890",
+            "Chính phủ. (2022). Nghị định số 65/2022/NĐ-CP sửa đổi, bổ sung một số điều của Nghị định số 153/2020/NĐ-CP về chào bán, giao dịch trái phiếu doanh nghiệp riêng lẻ.",
+            "Chính phủ. (2025a). Nghị định số 245/2025/NĐ-CP sửa đổi, bổ sung một số điều của Nghị định số 155/2020/NĐ-CP. Cổng Thông tin điện tử Chính phủ. https://vanban.chinhphu.vn/?classid=1&docid=215320&pageid=27160&typegroupid=4",
+            "Chính phủ. (2025b). Nghị định số 306/2025/NĐ-CP sửa đổi, bổ sung một số quy định về xử phạt vi phạm hành chính trong lĩnh vực chứng khoán. Cổng Thông tin điện tử Chính phủ. https://vanban.chinhphu.vn/?pageid=27160&docid=215991",
+            "Chính phủ. (2025c). Nghị định số 356/2025/NĐ-CP quy định chi tiết một số điều và biện pháp thi hành Luật Bảo vệ dữ liệu cá nhân. Cổng Thông tin điện tử Chính phủ. https://vanban.chinhphu.vn/?pageid=27160&docid=216387",
+            "Công ty Cổ phần FPT. (2025). Quản trị công ty năm 2025. Báo cáo thường niên FPT. https://bctn2025.fpt.com/quan-tri-cong-ty/quan-tri-cong-ty-nam-2025/",
+            "Công ty Cổ phần FPT. (n.d.). Thông tin công bố dành cho nhà đầu tư. https://fpt.com/vi/nha-dau-tu/thong-tin-cong-bo",
+            "Công ty Cổ phần Vinhomes. (2024). Báo cáo tình hình quản trị năm 2024. https://vinhomes.vn/vi/bao-cao-tinh-hinh-quan-tri-nam-2024-cua-cong-ty-co-phan-vinhomes",
+            "Công ty Cổ phần Vinhomes. (2025). Tài liệu Đại hội đồng cổ đông năm 2025. https://gcp-cdn.vinhomes.vn/cms-data/VHM_Tai%20lieu%20Dai%20hoi%20co%20dong%202025_1.pdf",
+            "Finhay. (n.d.). Trái phiếu Tân Hoàng Minh. https://www.finhay.com.vn/trai-phieu-tan-hoang-minh",
+            "IOSCO. (2017). Objectives and principles of securities regulation. International Organization of Securities Commissions. https://www.iosco.org/library/pubdocs/pdf/IOSCOPD561.pdf",
+            "OECD. (2022). G20/OECD high-level principles on financial consumer protection 2022. OECD Publishing.",
+            "OECD. (2023). G20/OECD principles of corporate governance 2023. OECD Publishing.",
+            "Quốc hội. (2010). Luật Trọng tài thương mại số 54/2010/QH12.",
+            "Quốc hội. (2011). Luật Khiếu nại số 02/2011/QH13.",
+            "Quốc hội. (2015a). Bộ luật Dân sự số 91/2015/QH13.",
+            "Quốc hội. (2015b). Bộ luật Hình sự số 100/2015/QH13, được sửa đổi, bổ sung năm 2017.",
+            "Quốc hội. (2015c). Bộ luật Tố tụng dân sự số 92/2015/QH13.",
+            "Quốc hội. (2015d). Bộ luật Tố tụng hình sự số 101/2015/QH13.",
+            "Quốc hội. (2018). Luật Tố cáo số 25/2018/QH14.",
+            "Quốc hội. (2019). Luật Chứng khoán số 54/2019/QH14. Cổng Thông tin điện tử Chính phủ. https://vanban.chinhphu.vn/default.aspx?pageid=27160&docid=198541",
+            "Quốc hội. (2020). Luật Doanh nghiệp số 59/2020/QH14. Cơ sở dữ liệu quốc gia về văn bản pháp luật. https://vbpl.moj.gov.vn/bolaodong/Pages/vbpq-toanvan.aspx?ItemID=142881",
+            "Quốc hội. (2022). Luật Phòng, chống rửa tiền số 14/2022/QH15 và Luật Thanh tra số 11/2022/QH15.",
+            "Quốc hội. (2024). Luật số 56/2024/QH15 sửa đổi, bổ sung một số điều của Luật Chứng khoán. Cổng Thông tin điện tử Chính phủ. https://vanban.chinhphu.vn/?pageid=27160&docid=212484&classid=1&orggroupid=1",
+            "Quốc hội. (2025). Luật Bảo vệ dữ liệu cá nhân số 91/2025/QH15. Cổng Thông tin điện tử Chính phủ. https://chinhphu.vn/?pageid=27160&docid=214590&classid=1&typegroupid=3",
+            "Thủ tướng Chính phủ. (2023). Quyết định số 1726/QĐ-TTg phê duyệt Chiến lược phát triển thị trường chứng khoán đến năm 2030.",
+            "Thư viện Pháp luật. (n.d.). Nội dung Bản án số 426/2024/HS-ST: Vụ án Trịnh Văn Quyết và đồng phạm tại Tập đoàn FLC. https://thuvienphapluat.vn/banan/tin-tuc/noi-dung-ban-an-4262024hs-st-vu-an-trinh-van-quyet-va-dong-pham-tai-tap-doan-flc-11182.html",
+            "Tổng công ty Lưu ký và Bù trừ Chứng khoán Việt Nam. (2026). Thông tin thống kê tài khoản và hoạt động đăng ký, lưu ký, bù trừ, thanh toán chứng khoán. https://vsdc.vn/vi/ad/198372",
+            "Ủy ban Chứng khoán Nhà nước. (2024). Công khai thông tin xử phạt vi phạm hành chính trong lĩnh vực chứng khoán. https://ssc.gov.vn/web/guest/xu-phat-vi-pham-hanh-chinh",
+            "Ủy ban Chứng khoán Nhà nước. (2025). Báo cáo tổng kết công tác thanh tra, giám sát thị trường chứng khoán giai đoạn 2020–2025. https://ssc.gov.vn/webcenter/portal/ubck/pages_r/l/chitit?dDocName=APPSSCGOVVN1620157133&dID=163076",
+            "Ủy ban Chứng khoán Nhà nước. (2026a). Hỏi đáp quyền và nghĩa vụ cơ bản của nhà đầu tư cá nhân khi tham gia thị trường chứng khoán.",
+            "Ủy ban Chứng khoán Nhà nước. (n.d.). Thông tin về công tác giám sát và xử lý vi phạm trên thị trường chứng khoán. https://ssc.gov.vn/webcenter/portal/ubck/pages_r/l/chitit?dDocName=APPSSCGOVVN162070965",
+            "Wikipedia. (n.d.). Vụ án Louis Holdings thao túng thị trường chứng khoán. Wikipedia tiếng Việt. https://vi.wikipedia.org/wiki/V%E1%BB%A5_%C3%A1n_Louis_Holdings_thao_t%C3%BAng_th%E1%BB%8B_tr%C6%B0%E1%BB%9Dng_ch%E1%BB%A9ng_kho%C3%A1n"
+          ]
+        }
+      ],
+      "leadParagraphs": []
+    }
+  ]
+}
