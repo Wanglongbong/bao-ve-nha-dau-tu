@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Shield, BookOpen, Scale, Award, Heart, QrCode as QrIcon, Maximize2, ExternalLink } from 'lucide-react';
 import { QrCodeImage, QrCodeModal } from '@/components/qr-code-modal';
 import { soundFx } from '@/lib/audio-effects';
+import { BotanicalWatermark } from '@/components/botanical-filigree';
 
 export function SiteFooter() {
   const [isQrModalOpen, setIsQrModalOpen] = useState(false);
@@ -14,7 +15,8 @@ export function SiteFooter() {
   return (
     <>
       <footer className="bg-gradient-to-b from-[#FAF7F2] via-[#F5EEE6] to-[#EFE5DA] text-[#1C130E] pt-16 pb-12 border-t border-[#D4AF37]/50 relative overflow-hidden font-serif shadow-inner">
-        {/* Decorative artistic diffusion glow */}
+        {/* Decorative botanical watermark and artistic diffusion glow */}
+        <BotanicalWatermark opacity={0.03} />
         <div 
           className="absolute top-0 right-1/4 w-[600px] h-[350px] rounded-full blur-[140px] pointer-events-none opacity-15"
           style={{ background: 'radial-gradient(circle, #C2410C 0%, transparent 70%)' }}
@@ -29,7 +31,7 @@ export function SiteFooter() {
                   <Shield className="w-7 h-7" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-extrabold text-[#1C130E] tracking-wide">
+                  <h3 className="text-xl font-extrabold text-[#1C130E] tracking-wide text-artistic-halo">
                     BẢO VỆ NHÀ ĐẦU TƯ CÁ NHÂN
                   </h3>
                   <p className="text-xs text-[#8C2B0A] font-bold uppercase tracking-wider">

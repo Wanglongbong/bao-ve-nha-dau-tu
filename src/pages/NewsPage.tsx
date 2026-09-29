@@ -24,7 +24,13 @@ import {
 } from 'lucide-react';
 import { soundFx } from '@/lib/audio-effects';
 import { askAboutNewsArticle } from '@/lib/gemini-client';
-import { BotanicalCornerFiligree, BotanicalVineDivider } from '@/components/botanical-filigree';
+import {
+  BotanicalCornerFiligree,
+  BotanicalVineDivider,
+  BotanicalCardCorners,
+  BotanicalHeaderCrest,
+  BotanicalWatermark,
+} from '@/components/botanical-filigree';
 
 interface NewsItem {
   id: string;
@@ -348,9 +354,11 @@ export function NewsPage() {
       </div>
 
       {/* 2. Main Shell */}
-      <div className="site-shell">
+      <div className="site-shell relative">
+        <BotanicalWatermark opacity={0.04} />
+
         {/* Page Title & Search Bar */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 pb-6 border-b border-[#EBD7C7]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 pb-6 border-b border-[#EBD7C7] relative z-10">
           <div>
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#8C2B0A] bg-[#FAF0E6] border border-[#EBD7C7] px-3.5 py-1.5 rounded-full w-fit mb-3">
               <Newspaper className="w-4 h-4 text-[#C2410C]" />
@@ -359,6 +367,7 @@ export function NewsPage() {
             <h1 className="text-3xl sm:text-4xl font-extrabold text-[#1C130E] tracking-tight text-artistic-halo">
               Cẩm Nang &amp; Tin Tức Pháp Luật Chứng Khoán
             </h1>
+            <BotanicalHeaderCrest className="!justify-start my-2" />
             <p className="text-sm sm:text-base text-[#3D2E24] mt-2 max-w-2xl leading-relaxed">
               Cập nhật liên tục các văn bản quy phạm pháp luật mới, án lệ xử phạt thao túng giá và cảnh báo an toàn tài chính cho nhà đầu tư cá nhân Việt Nam.
             </p>
@@ -384,10 +393,10 @@ export function NewsPage() {
         </div>
 
         {/* Botanical Classical Divider */}
-        <BotanicalVineDivider className="mb-6 opacity-75" />
+        <BotanicalVineDivider className="mb-6 opacity-75 relative z-10" />
 
         {/* Category Filter Pills & Live Refresh Button */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 relative z-10">
           <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-none">
             {categories.map((c) => (
               <button
@@ -421,12 +430,14 @@ export function NewsPage() {
         {/* ============================================================== */}
         {/* 3. HORIZONTAL NEWS CARD LIST (CHUẨN EMLAW EXPORT STYLE)       */}
         {/* ============================================================== */}
-        <div className="space-y-6">
+        <div className="space-y-6 relative z-10">
           {filteredNews.map((item) => (
             <article
               key={item.id}
-              className="botanical-luxury-card rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 group"
+              className="botanical-luxury-card rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 group relative"
             >
+              {/* Góc hoa văn lá cuộn Acanthus Hoàng Gia */}
+              <BotanicalCardCorners size={56} mode="diagonal" className="opacity-75 group-hover:opacity-100" />
               <div className="flex flex-col sm:flex-row items-stretch">
                 {/* Left Thumbnail Image Column */}
                 <div className="relative sm:w-[270px] sm:min-w-[270px] h-[200px] sm:h-auto overflow-hidden bg-[#FAF3EC] shrink-0 border-b sm:border-b-0 sm:border-r border-[#EBD7C7]">

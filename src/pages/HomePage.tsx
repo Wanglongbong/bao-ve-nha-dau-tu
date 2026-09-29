@@ -38,6 +38,13 @@ import {
   TeamFiligree,
   FiligreeDefs,
 } from '@/components/section-filigree';
+import {
+  BotanicalCornerFiligree,
+  BotanicalCardCorners,
+  BotanicalHeaderCrest,
+  BotanicalVineDivider,
+  BotanicalWatermark,
+} from '@/components/botanical-filigree';
 import { soundFx } from '@/lib/audio-effects';
 
 interface HomePageProps {
@@ -218,7 +225,21 @@ export function HomePage({ onOpenAi, onOpenViewer, onOpenTeamModal }: HomePagePr
       {/* 1. HERO SECTION - LUXURY WARM AMBER-ORANGE PALETTE WITH GUARDIAN LION */}
       <section className="home-hero relative overflow-hidden" id="hero">
         <div className="hero-overlay" />
-        <RoyalCornerFiligree />
+        <BotanicalWatermark opacity={0.06} />
+
+        {/* 4 Góc hoa văn lá cuộn Acanthus Hoàng Gia cỡ lớn nổi bật */}
+        <div className="absolute top-2 left-2 z-10 pointer-events-none">
+          <BotanicalCornerFiligree size={88} position="top-left" />
+        </div>
+        <div className="absolute top-2 right-2 z-10 pointer-events-none">
+          <BotanicalCornerFiligree size={88} position="top-right" />
+        </div>
+        <div className="absolute bottom-2 left-2 z-10 pointer-events-none">
+          <BotanicalCornerFiligree size={88} position="bottom-left" />
+        </div>
+        <div className="absolute bottom-2 right-2 z-10 pointer-events-none">
+          <BotanicalCornerFiligree size={88} position="bottom-right" />
+        </div>
 
         {/* HÌNH TƯỢNG SƯ TỬ UY NGHI */}
         <LionHeroBackdrop />
@@ -230,7 +251,7 @@ export function HomePage({ onOpenAi, onOpenViewer, onOpenTeamModal }: HomePagePr
               Công Trình Nghiên Cứu Pháp Luật Chứng Khoán
             </span>
 
-            <h1>
+            <h1 className="text-artistic-halo">
               Tấm khiên pháp lý chuẩn mực bảo vệ{' '}
               <em className="text-transparent bg-clip-text bg-gradient-to-r from-[#8C2B0A] via-[#C2410C] to-[#D97706] not-italic drop-shadow-sm">
                 Nhà đầu tư cá nhân.
@@ -327,21 +348,22 @@ export function HomePage({ onOpenAi, onOpenViewer, onOpenTeamModal }: HomePagePr
         </div>
       </section>
 
-      {/* 3. SECTION 1: 6-PILLAR ARCHITECTURE (BENTO GRID - LARGER FONTS & SPACIOUS CARDS) */}
-      <section className="services-section py-14" id="tru-cot">
-        <div className="site-shell">
+      {/* 3. SECTION 1: 6-PILLAR ARCHITECTURE (ROYAL BOTANICAL BENTO GRID) */}
+      <section className="services-section py-14 relative overflow-hidden" id="tru-cot">
+        <BotanicalWatermark opacity={0.04} />
+        <div className="site-shell relative z-10">
           <div className="section-heading mb-8">
             <div>
               <span className="section-filigree-label">
-                <Layers className="w-3.5 h-3.5 text-[#FF7A00]" />
+                <Layers className="w-3.5 h-3.5 text-[#C2410C]" />
                 Hành trình pháp lý toàn diện
               </span>
-              <h2 className="mt-2 text-2xl sm:text-3xl font-extrabold text-[#0a131e]">
+              <h2 className="mt-2 text-2xl sm:text-3xl font-extrabold text-[#1C130E] text-artistic-halo">
                 Sáu Trụ Cột Nghiên Cứu Bảo Vệ Nhà Đầu Tư Cá Nhân
               </h2>
-              <PillarsFiligree />
+              <BotanicalHeaderCrest />
             </div>
-            <p className="text-sm sm:text-base text-slate-600 max-w-2xl leading-relaxed mt-2">
+            <p className="text-sm sm:text-base text-[#3D2E24] max-w-2xl leading-relaxed mt-2">
               Khung nghiên cứu 6 trụ cột được thiết kế mạch lạc: từ cơ sở lý luận, ma trận thể chế, hệ thống giám sát 3 cấp đến phân tích đại án và 5 giải pháp đột phá.
             </p>
           </div>
@@ -357,11 +379,14 @@ export function HomePage({ onOpenAi, onOpenViewer, onOpenTeamModal }: HomePagePr
                 <ShieldCheck key="5" className="w-6 h-6" />,
               ];
               return (
-                <article className="bento-pillar-card p-6 sm:p-8" key={pillar.id}>
-                  <div>
+                <article className="botanical-luxury-card rounded-3xl p-6 sm:p-8 relative overflow-hidden group shadow-md" key={pillar.id}>
+                  {/* Góc lá cuộn Acanthus Hoàng Gia nổi bật 2 góc đối xứng */}
+                  <BotanicalCardCorners size={64} mode="diagonal" />
+
+                  <div className="relative z-10">
                     <div className="bento-pillar-head mb-4">
-                      <span className="bento-pillar-num text-2xl">{pillar.number}</span>
-                      <div className="bento-pillar-icon w-12 h-12">{icons[index]}</div>
+                      <span className="bento-pillar-num text-2xl font-mono text-[#8C2B0A]/40 font-bold">{pillar.number}</span>
+                      <div className="bento-pillar-icon w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FFF9F2] to-[#FED7AA] border border-[#8C2B0A]/30 text-[#C2410C] shadow-xs">{icons[index]}</div>
                     </div>
                     <div className="mb-2">
                       {pillar.minimum && (
@@ -371,12 +396,12 @@ export function HomePage({ onOpenAi, onOpenViewer, onOpenTeamModal }: HomePagePr
                         <span className="tier advanced mr-2">Đột phá</span>
                       )}
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-bold mb-2 leading-snug">{pillar.title}</h3>
-                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-4">{pillar.description}</p>
+                    <h3 className="text-xl sm:text-2xl font-bold mb-2 leading-snug text-[#1C130E] text-letter-halo">{pillar.title}</h3>
+                    <p className="text-sm sm:text-base text-[#3D2E24] leading-relaxed mb-4">{pillar.description}</p>
                   </div>
-                  <div className="bento-outcome-box mt-2">
-                    <CheckCircle2 className="w-5 h-5 shrink-0 text-orange-600" />
-                    <span className="text-xs sm:text-sm">
+                  <div className="bento-outcome-box mt-2 bg-[#FFFDF9]/90 border border-[#8C2B0A]/25 rounded-xl p-3 relative z-10">
+                    <CheckCircle2 className="w-5 h-5 shrink-0 text-[#C2410C]" />
+                    <span className="text-xs sm:text-sm text-[#5E1A04]">
                       <strong>Bàn giao:</strong> {pillar.outcome}
                     </span>
                   </div>
@@ -388,8 +413,9 @@ export function HomePage({ onOpenAi, onOpenViewer, onOpenTeamModal }: HomePagePr
       </section>
 
       {/* 4. SECTION 2: ACADEMIC HUB — PRESENTATION SLIDES & FULL RESEARCH PAPER (~30 TRANG, 20.388 TỪ) */}
-      <section id="toan-van" className="py-14 bg-gradient-to-b from-[#FFFDF9] to-[#FFF6EB] border-y border-orange-200/80">
-        <div className="site-shell">
+      <section id="toan-van" className="py-14 bg-gradient-to-b from-[#FFFDF9] via-[#FAF2E8] to-[#FFF6EB] border-y border-[#8C2B0A]/20 relative overflow-hidden">
+        <BotanicalWatermark opacity={0.05} />
+        <div className="site-shell relative z-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-8">
             <div>
               <span className="section-filigree-label">
@@ -399,7 +425,7 @@ export function HomePage({ onOpenAi, onOpenViewer, onOpenTeamModal }: HomePagePr
               <h2 className="text-2xl sm:text-4xl font-extrabold text-[#1C130E] text-artistic-halo mt-2 mb-2 tracking-tight">
                 Slide Canva Thiết Kế Mới 2026 &amp; Toàn Văn Đề Tài 20.388 Từ
               </h2>
-              <AcademicFiligree />
+              <BotanicalHeaderCrest />
               <p className="text-xs sm:text-sm text-[#3D2E24] max-w-2xl mt-2 leading-relaxed">
                 Chuyển đổi tức thời giữa Bộ Slide thuyết trình Canva trực quan 16:9 HD mới cập nhật và Trình đọc văn bản toàn văn đề tài học thuật chính thức của Lớp 261LAW10A01.
               </p>
@@ -440,28 +466,34 @@ export function HomePage({ onOpenAi, onOpenViewer, onOpenTeamModal }: HomePagePr
             </div>
           </div>
 
-          {/* Viewer Render */}
-          {researchViewMode === 'slides' ? (
-            <PresentationSlides />
-          ) : (
-            <DocumentPresentation />
-          )}
+          {/* Viewer Render inside Royal Botanical Frame */}
+          <div className="botanical-hero-frame p-2 sm:p-4 rounded-3xl relative overflow-hidden">
+            <BotanicalCardCorners size={72} mode="all-4" />
+            <div className="relative z-10">
+              {researchViewMode === 'slides' ? (
+                <PresentationSlides />
+              ) : (
+                <DocumentPresentation />
+              )}
+            </div>
+          </div>
         </div>
       </section>
 
       {/* 5. SECTION 3: RESEARCH TEAM SUMMARY (8 MEMBERS) */}
-      <section className="py-14 bg-white" id="doi-ngu-section">
-        <div className="site-shell">
+      <section className="py-14 bg-white relative overflow-hidden" id="doi-ngu-section">
+        <BotanicalWatermark opacity={0.03} />
+        <div className="site-shell relative z-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-6">
             <div>
               <span className="section-filigree-label">
-                <Award className="w-3.5 h-3.5 text-[#FF7A00]" />
+                <Award className="w-3.5 h-3.5 text-[#C2410C]" />
                 Minh bạch học thuật &amp; Nhân sự
               </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0a131e] mt-2 mb-1">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1C130E] text-artistic-halo mt-2 mb-1">
                 Ban Nghiên Cứu Đề Tài (8 Thành Viên)
               </h2>
-              <TeamFiligree />
+              <BotanicalHeaderCrest />
               <p className="text-xs sm:text-sm text-slate-600 max-w-xl mt-1 leading-relaxed">
                 8 thành viên phụ trách chuyên môn phân bổ theo từng mảng: đề cương, số hóa Web Portal, tổng hợp bản Word, biên soạn slide và thuyết trình phản biện trước Hội đồng.
               </p>
@@ -574,13 +606,14 @@ export function HomePage({ onOpenAi, onOpenViewer, onOpenTeamModal }: HomePagePr
 
                 return (
                   <div
-                    className="team-member-card group relative cursor-pointer"
+                    className="botanical-luxury-card rounded-2xl p-3 sm:p-3.5 flex items-center gap-3 group relative cursor-pointer shadow-xs hover:shadow-md transition-all overflow-hidden"
                     key={member.id}
                     onClick={() => {
                       soundFx.playTap();
                       onOpenTeamModal(member.slug);
                     }}
                   >
+                    <BotanicalCornerFiligree size={44} position="top-right" className="absolute top-0 right-0 opacity-40 group-hover:opacity-100" />
                     <div className="team-member-avatar relative overflow-hidden flex-shrink-0">
                       <img
                         src={avatarSrc}
@@ -663,12 +696,13 @@ export function HomePage({ onOpenAi, onOpenViewer, onOpenTeamModal }: HomePagePr
                   return (
                     <div className="team-carousel-item" key={member.id}>
                       <div
-                        className="team-member-card group relative cursor-pointer"
+                        className="botanical-luxury-card rounded-2xl p-3 sm:p-3.5 flex items-center gap-3 group relative cursor-pointer shadow-xs hover:shadow-md transition-all overflow-hidden"
                         onClick={() => {
                           soundFx.playTap();
                           onOpenTeamModal(member.slug);
                         }}
                       >
+                        <BotanicalCornerFiligree size={44} position="top-right" className="absolute top-0 right-0 opacity-40 group-hover:opacity-100" />
                         <div className="team-member-avatar relative overflow-hidden flex-shrink-0">
                           <img
                             src={avatarSrc}

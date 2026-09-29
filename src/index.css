@@ -1465,31 +1465,62 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
    ROYAL BOTANICAL & ATMOSPHERIC TEXT HALO DESIGN SYSTEM
    ========================================================= */
 
-/* Soft atmospheric glowing halo behind letters (Mờ mờ sau chữ cái) */
+/* Soft atmospheric glowing halo behind letters (Vầng ánh quang mờ mờ sau chữ cái) */
 .text-artistic-halo {
-  text-shadow: 0 0 18px rgba(194, 65, 12, 0.22), 0 2px 8px rgba(28, 19, 14, 0.12);
+  text-shadow: 
+    0 0 1px rgba(255, 255, 255, 0.9),
+    0 0 16px rgba(217, 83, 30, 0.38),
+    0 0 32px rgba(212, 175, 55, 0.28),
+    0 2px 6px rgba(28, 19, 14, 0.12);
 }
 
 .text-golden-halo {
-  text-shadow: 0 0 16px rgba(212, 175, 55, 0.32), 0 1px 3px rgba(28, 19, 14, 0.1);
+  text-shadow: 
+    0 0 1px rgba(255, 255, 255, 0.95),
+    0 0 14px rgba(212, 175, 55, 0.5),
+    0 0 30px rgba(194, 65, 12, 0.25),
+    0 1px 3px rgba(28, 19, 14, 0.1);
+}
+
+.text-letter-halo {
+  text-shadow: 
+    0 0 12px rgba(217, 83, 30, 0.28),
+    0 1px 3px rgba(28, 19, 14, 0.08);
 }
 
 .text-subtle-halo {
-  text-shadow: 0 0 12px rgba(194, 65, 12, 0.15);
+  text-shadow: 0 0 12px rgba(194, 65, 12, 0.18);
 }
 
-/* Botanical Luxury Card: Light warm orange/alabaster interior + Deep terracotta border */
+/* Botanical Luxury Card: Light warm orange/alabaster interior + Deep terracotta border + Gold inner hairline */
 .botanical-luxury-card {
-  background: linear-gradient(145deg, #FFFDF9 0%, #FAF3EC 50%, #F5E6D8 100%);
+  background: linear-gradient(145deg, #FFFDF9 0%, #FAF0E6 45%, #F7E7D7 100%);
   border: 2px solid #8C2B0A;
-  box-shadow: 0 10px 30px rgba(140, 43, 10, 0.08), 0 1px 3px rgba(212, 175, 55, 0.2);
+  box-shadow: 
+    inset 0 0 0 1px rgba(212, 175, 55, 0.45),
+    0 10px 30px rgba(140, 43, 10, 0.08);
   position: relative;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .botanical-luxury-card:hover {
   border-color: #C2410C;
-  box-shadow: 0 16px 36px rgba(194, 65, 12, 0.14), 0 0 0 1px rgba(212, 175, 55, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 
+    inset 0 0 0 1px rgba(212, 175, 55, 0.75),
+    0 18px 40px rgba(140, 43, 10, 0.16),
+    0 0 20px rgba(212, 175, 55, 0.18);
+}
+
+/* Botanical Hero Frame: Viền khung mỹ thuật hoàng gia cho banner & viewer */
+.botanical-hero-frame {
+  position: relative;
+  background: linear-gradient(145deg, #FFFDF9 0%, #FAF2E8 50%, #F5E5D5 100%);
+  border: 2px solid #8C2B0A;
+  box-shadow: 
+    inset 0 0 0 1.5px rgba(212, 175, 55, 0.55),
+    0 14px 44px rgba(140, 43, 10, 0.12);
+  border-radius: 24px;
 }
 
 /* Rotating Paper / Newspaper Animation (Giấy quay tròn lại khi làm mới tin) */

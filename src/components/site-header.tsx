@@ -37,7 +37,7 @@ export function SiteHeader({ onOpenAi, onOpenViewer, activeSection = '' }: SiteH
             <Shield className="w-6 h-6 text-orange-600" />
           </div>
           <span>
-            <strong>BẢO VỆ NHÀ ĐẦU TƯ</strong>
+            <strong className="text-letter-halo">BẢO VỆ NHÀ ĐẦU TƯ</strong>
             <small>LỚP 261LAW10A01 • NHÓM 2 • KHOA LUẬT HVNH</small>
           </span>
         </Link>
