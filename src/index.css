@@ -17,25 +17,83 @@
   --color-ring: var(--orange-bright);
 }
 
-:root {
-  /* Venetian Terracotta & Hermès Imperial Amber Haute Artistry Palette */
+:root,
+[data-theme="navy"] {
+  /* Bvlgari Midnight Navy & Roman Gold Royal Notebook Edition */
+  --surface-bg: #F4F0E6;           /* Giấy ngà cao cấp Smythson of Bond Street */
+  --surface-white: #FFFFFF;
+  --surface-pearl: #EAE4D5;
+  --surface-card: #FFFDF9;
+  --surface-warm-ivory: #FAF3E3;
+
+  /* Bvlgari & Porsche Midnight Navy Palette */
+  --navy-obsidian: #070E1B;        /* Màu gáy sổ da thẫm / Top bar */
+  --navy-deep: #0A1428;            /* Sơn mài Bvlgari sâu thẳm */
+  --navy-royal: #0E2145;           /* Màu chủ đạo Hoàng gia Bvlgari */
+  --navy-sapphire: #162E5B;        /* Màu dạ hội lụa satin */
+  --navy-accent: #1D3D70;          /* Ánh biển xanh ngọc bích thẫm */
+  --navy-light: #EBF1FA;
+
+  /* Roman Gold & Antique Champagne Foil Palette */
+  --gold-roman: #E5C158;           /* Vàng kim sa La Mã Bvlgari */
+  --gold-champagne: #D4AF37;       /* Vàng kim cổ điển danh giá */
+  --gold-shimmer: #FFF3D1;         /* Ánh kim tuyến nhấp nháy */
+  --gold-brass: #997A24;           /* Đồng thau bọc góc sổ */
+  --gold-dark: #664E11;            /* Nét khắc chìm dập nhiệt */
+
+  /* Masterpiece Notebook Gradients */
+  --navy-gradient: linear-gradient(135deg, #070E1B 0%, #0E2145 52%, #162E5B 100%);
+  --navy-gradient-luminous: linear-gradient(90deg, #0A1428 0%, #0E2145 50%, #1D3D70 100%);
+  --gold-gradient: linear-gradient(135deg, #856417 0%, #D4AF37 40%, #FFF3D1 60%, #E5C158 100%);
+  --gold-gradient-soft: linear-gradient(135deg, #FFFDF9 0%, #FAF2E2 100%);
+  --navy-border: rgba(14, 33, 69, 0.28);
+  --navy-border-luminous: rgba(229, 193, 88, 0.45);
+  --gold-glow: 0 10px 32px rgba(229, 193, 88, 0.25);
+
+  /* Typography & Ink */
+  --ink: #070E1B;
+  --ink-secondary: #162544;
+  --muted-ink: #3A4E73;
+  --line: #E2DACB;
+  --line-gold: rgba(212, 175, 55, 0.45);
+  --shadow-navy: 0 14px 44px rgba(7, 14, 27, 0.16);
+  --shadow-card: 0 8px 32px rgba(10, 20, 40, 0.06);
+
+  /* Fallback aliases for orange components */
+  --orange-primary: #0E2145;
+  --orange-bright: #162E5B;
+  --orange-light: #EBF1FA;
+  --orange-lighter: #F5F8FD;
+  --orange-gold: #E5C158;
+  --orange-gold-light: #FFF3D1;
+  --orange-dark: #0A1428;
+  --orange-deep: #070E1B;
+  --orange-gradient: linear-gradient(135deg, #070E1B 0%, #0E2145 52%, #162E5B 100%);
+  --orange-border: rgba(14, 33, 69, 0.28);
+
+  --heading: 'Times New Roman', Times, Georgia, serif;
+  --body: 'Times New Roman', Times, Georgia, serif;
+  --brand-font: 'Times New Roman', Times, Georgia, serif;
+  --serif-academic: 'Times New Roman', Times, Georgia, serif;
+}
+
+[data-theme="orange"] {
+  /* Venetian Terracotta & Hermès Imperial Amber Palette */
   --surface-bg: #FAF7F2;
   --surface-white: #FFFFFF;
   --surface-pearl: #F5EFEB;
   --surface-card: #FFFFFF;
   --surface-warm-ivory: #FFFDF9;
 
-  /* Artistic Orange Symphony (Hermès Ochre, Tuscan Terracotta, Champagne Bronze) */
-  --orange-primary: #C2410C;       /* Hermès Royal Amber - warm, rich, prestigious */
-  --orange-bright: #D9531E;        /* Luminous Venetian Ochre */
-  --orange-light: #FDE8D4;         /* Soft Apricot Silk */
-  --orange-lighter: #FFF4E8;       /* Warm Alabaster Tint */
-  --orange-gold: #D4AF37;          /* Antique Champagne Gold */
-  --orange-gold-light: #FDE68A;    /* Shimmering Gold Foil */
-  --orange-dark: #8C2B0A;          /* Deep Terracotta Sienna */
-  --orange-deep: #5E1A04;          /* Imperial Tuscan Roast */
+  --orange-primary: #C2410C;
+  --orange-bright: #D9531E;
+  --orange-light: #FDE8D4;
+  --orange-lighter: #FFF4E8;
+  --orange-gold: #D4AF37;
+  --orange-gold-light: #FDE68A;
+  --orange-dark: #8C2B0A;
+  --orange-deep: #5E1A04;
 
-  /* Masterpiece Gradients */
   --orange-gradient: linear-gradient(135deg, #8C2B0A 0%, #C2410C 52%, #D9531E 100%);
   --orange-gradient-luminous: linear-gradient(90deg, #A3350E 0%, #C2410C 50%, #E06D2B 100%);
   --orange-gradient-soft: linear-gradient(135deg, #FFF9F2 0%, #FEEBD7 100%);
@@ -43,7 +101,6 @@
   --orange-border-luminous: rgba(194, 65, 12, 0.38);
   --orange-glow: 0 10px 32px rgba(163, 53, 14, 0.16);
 
-  /* Warm Archaeological Ink (Replaces Cold Navy) */
   --navy: #1C130E;
   --navy-2: #2B1D15;
   --navy-soft: #3D2B20;
@@ -56,11 +113,6 @@
   --line-orange: rgba(194, 65, 12, 0.24);
   --shadow-orange: 0 14px 40px rgba(163, 53, 14, 0.14);
   --shadow-card: 0 8px 30px rgba(28, 19, 14, 0.04);
-
-  --heading: 'Times New Roman', Times, Georgia, serif;
-  --body: 'Times New Roman', Times, Georgia, serif;
-  --brand-font: 'Times New Roman', Times, Georgia, serif;
-  --serif-academic: 'Times New Roman', Times, Georgia, serif;
 }
 
 * {
@@ -1469,57 +1521,71 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .text-artistic-halo {
   text-shadow: 
     0 0 1px rgba(255, 255, 255, 0.9),
-    0 0 16px rgba(217, 83, 30, 0.38),
-    0 0 32px rgba(212, 175, 55, 0.28),
-    0 2px 6px rgba(28, 19, 14, 0.12);
+    0 0 16px rgba(229, 193, 88, 0.45),
+    0 0 32px rgba(212, 175, 55, 0.3),
+    0 2px 6px rgba(7, 14, 27, 0.15);
 }
 
-.text-golden-halo {
+.text-golden-halo,
+.text-gilded-gold-halo {
   text-shadow: 
-    0 0 1px rgba(255, 255, 255, 0.95),
-    0 0 14px rgba(212, 175, 55, 0.5),
-    0 0 30px rgba(194, 65, 12, 0.25),
-    0 1px 3px rgba(28, 19, 14, 0.1);
+    0 1px 2px rgba(0, 0, 0, 0.65),
+    0 0 14px rgba(229, 193, 88, 0.6),
+    0 0 30px rgba(212, 175, 55, 0.4),
+    0 0 4px rgba(255, 243, 209, 0.9);
 }
 
 .text-letter-halo {
   text-shadow: 
-    0 0 12px rgba(217, 83, 30, 0.28),
-    0 1px 3px rgba(28, 19, 14, 0.08);
+    0 0 12px rgba(229, 193, 88, 0.35),
+    0 1px 3px rgba(7, 14, 27, 0.12);
 }
 
 .text-subtle-halo {
-  text-shadow: 0 0 12px rgba(194, 65, 12, 0.18);
+  text-shadow: 0 0 12px rgba(229, 193, 88, 0.22);
 }
 
-/* Botanical Luxury Card: Light warm orange/alabaster interior + Deep terracotta border + Gold inner hairline */
+/* Notebook Leather Card: Bìa sổ da Navy Bvlgari + Ruột sổ giấy ngà Smythson dát vàng */
+.notebook-leather-card,
 .botanical-luxury-card {
-  background: linear-gradient(145deg, #FFFDF9 0%, #FAF0E6 45%, #F7E7D7 100%);
-  border: 2px solid #8C2B0A;
+  background: linear-gradient(145deg, #FFFDF9 0%, #FAF4EB 50%, #F5EDE0 100%);
+  border: 2px solid #0E2145;
   box-shadow: 
-    inset 0 0 0 1px rgba(212, 175, 55, 0.45),
-    0 10px 30px rgba(140, 43, 10, 0.08);
+    inset 0 0 0 1.5px rgba(229, 193, 88, 0.65),
+    0 12px 36px rgba(7, 14, 27, 0.1);
   position: relative;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.notebook-leather-card:hover,
 .botanical-luxury-card:hover {
-  border-color: #C2410C;
+  border-color: #162E5B;
   transform: translateY(-3px);
   box-shadow: 
-    inset 0 0 0 1px rgba(212, 175, 55, 0.75),
-    0 18px 40px rgba(140, 43, 10, 0.16),
-    0 0 20px rgba(212, 175, 55, 0.18);
+    inset 0 0 0 2px rgba(229, 193, 88, 0.95),
+    0 18px 44px rgba(7, 14, 27, 0.18),
+    0 0 24px rgba(229, 193, 88, 0.3);
+}
+
+/* Deep Navy Dark Leather Cover Card (cho Header/Hero/Featured) */
+.notebook-leather-cover {
+  background: linear-gradient(145deg, #070E1B 0%, #0E2145 55%, #162E5B 100%);
+  border: 2px solid rgba(229, 193, 88, 0.7);
+  box-shadow: 
+    inset 0 0 0 1.5px rgba(212, 175, 55, 0.5),
+    0 16px 48px rgba(7, 14, 27, 0.35);
+  color: #FFFDF9;
+  position: relative;
 }
 
 /* Botanical Hero Frame: Viền khung mỹ thuật hoàng gia cho banner & viewer */
 .botanical-hero-frame {
   position: relative;
-  background: linear-gradient(145deg, #FFFDF9 0%, #FAF2E8 50%, #F5E5D5 100%);
-  border: 2px solid #8C2B0A;
+  background: linear-gradient(145deg, #FFFDF9 0%, #FAF4EB 50%, #F5EDE0 100%);
+  border: 2px solid #0E2145;
   box-shadow: 
-    inset 0 0 0 1.5px rgba(212, 175, 55, 0.55),
-    0 14px 44px rgba(140, 43, 10, 0.12);
+    inset 0 0 0 1.5px rgba(229, 193, 88, 0.65),
+    0 14px 44px rgba(7, 14, 27, 0.14);
   border-radius: 24px;
 }
 
@@ -1538,6 +1604,114 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 
 .animate-paper-spin {
   animation: paper-spin 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+}
+
+/* =========================================================
+   OVERRIDE QUY TẮC CHO DATA-THEME="ORANGE" (KHI CHUYỂN VỀ CAM)
+   ========================================================= */
+[data-theme="orange"] .botanical-luxury-card {
+  background: linear-gradient(145deg, #FFFDF9 0%, #FAF0E6 45%, #F7E7D7 100%);
+  border: 2px solid #8C2B0A;
+  box-shadow: 
+    inset 0 0 0 1px rgba(212, 175, 55, 0.45),
+    0 10px 30px rgba(140, 43, 10, 0.08);
+}
+
+[data-theme="orange"] .botanical-luxury-card:hover {
+  border-color: #C2410C;
+  box-shadow: 
+    inset 0 0 0 1px rgba(212, 175, 55, 0.75),
+    0 18px 40px rgba(140, 43, 10, 0.16),
+    0 0 20px rgba(212, 175, 55, 0.18);
+}
+
+/* =========================================================
+   OVERRIDE QUY TẮC CHO DATA-THEME="NAVY" (SỔ TAY BVLGARI)
+   ========================================================= */
+[data-theme="navy"] .home-hero {
+  background: linear-gradient(145deg, #070E1B 0%, #0B1B3D 52%, #0E2145 100%);
+  color: #FFFDF9;
+  border-bottom: 2px solid rgba(229, 193, 88, 0.4);
+}
+
+[data-theme="navy"] .home-hero .hero-copy h1 {
+  color: #FFFDF9;
+}
+
+[data-theme="navy"] .home-hero .hero-copy > p {
+  color: #D3DEF0;
+}
+
+[data-theme="navy"] .stats-ribbon {
+  background: rgba(14, 33, 69, 0.85);
+  backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(229, 193, 88, 0.55);
+  box-shadow: 0 14px 36px rgba(7, 14, 27, 0.35);
+  color: #FFFDF9;
+}
+
+[data-theme="navy"] .stat-number {
+  color: #E5C158;
+  text-shadow: 0 0 14px rgba(229, 193, 88, 0.5);
+}
+
+[data-theme="navy"] .stat-label {
+  color: #C3D2E8;
+}
+
+[data-theme="navy"] .site-header {
+  background: rgba(10, 20, 40, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1.5px solid rgba(229, 193, 88, 0.45);
+}
+
+[data-theme="navy"] .brand strong {
+  color: #FFFDF9;
+}
+
+[data-theme="navy"] .brand small {
+  color: #E5C158;
+}
+
+[data-theme="navy"] .desktop-nav a,
+[data-theme="navy"] .desktop-nav button {
+  color: #D3DEF0;
+}
+
+[data-theme="navy"] .desktop-nav a:hover,
+[data-theme="navy"] .desktop-nav button:hover {
+  color: #E5C158;
+}
+
+[data-theme="navy"] .orange-button {
+  background: linear-gradient(135deg, #070E1B 0%, #0E2145 50%, #162E5B 100%);
+  border: 1.5px solid #E5C158;
+  color: #FFFDF9;
+  box-shadow: 0 4px 18px rgba(7, 14, 27, 0.35), inset 0 1px 0 rgba(229, 193, 88, 0.4);
+}
+
+[data-theme="navy"] .orange-button:hover {
+  background: linear-gradient(135deg, #0A1428 0%, #162E5B 50%, #1D3D70 100%);
+  border-color: #FFF3D1;
+  box-shadow: 0 8px 26px rgba(14, 33, 69, 0.45), 0 0 16px rgba(229, 193, 88, 0.4);
+}
+
+[data-theme="navy"] .ghost-orange-button {
+  border: 1.5px solid rgba(229, 193, 88, 0.5);
+  color: #E5C158;
+  background: rgba(14, 33, 69, 0.65);
+}
+
+[data-theme="navy"] .ghost-orange-button:hover {
+  background: #0E2145;
+  border-color: #E5C158;
+  color: #FFFDF9;
+}
+
+[data-theme="navy"] .academic-bar {
+  background: linear-gradient(90deg, #070E1B 0%, #0E2145 100%);
+  color: #E5C158;
+  border-bottom: 1px solid rgba(229, 193, 88, 0.3);
 }
 
 

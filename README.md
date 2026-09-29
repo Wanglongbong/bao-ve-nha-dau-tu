@@ -66,6 +66,12 @@ Công trình khoa học phân tích toàn diện thực trạng bảo vệ cổ 
 - Hoa văn hoa lá cỏ cây Baroque cổ điển chìm ở nền và các góc thẻ.
 - Hiệu ứng ánh quang mờ ảo sau các chữ cái (*Atmospheric Text-Halo*), tôn vinh phông chữ Times New Roman.
 
+### 6. Ấn Bản Sổ Tay Hoàng Gia: Xanh Navy Bvlgari & Mạ Vàng Kim Sa (Midnight Navy & Gilded Gold)
+- **1-Click Theme Switcher**: Nút chuyển đổi giao diện trực tiếp trên thanh điều hướng (`[ 📘 Sổ Tay Navy ]` $\leftrightarrow$ `[ 🏛️ Đất Nung Cam ]`), lưu trạng thái tự động vào `localStorage`.
+- **Cảm hứng thị giác Bvlgari & Porsche 911 Midnight Blue**: Phối màu xanh biển đêm sâu thẳm (`#0A1428`, `#0E2145`), tương phản cùng sắc vàng kim sa vương giả (`#E5C158`, `#FFF3D1`).
+- **Chi tiết sổ tay da cao cấp**: Nẹp góc sách chạm khắc hoa lá đồng thau đính đinh tán (`NotebookCornerGuard`), đường chỉ khâu gáy sổ tinh xảo (`NotebookBookbindingStitch`), dải ruy băng ngọc bích đánh dấu trang (`NotebookRibbonDivider`), và ruột sổ giấy ngọc ngà Nhật Bản mềm mại (`#FFFDF9`).
+- **Vầng hào quang chữ mạ vàng dập nổi**: Hiệu ứng đa tầng ánh sáng (`.text-gilded-gold-halo`) giả lập chữ đúc đồng thếp vàng sắc nét, nâng tầm trải nghiệm thị giác.
+
 ---
 
 ## 💻 Cài Đặt & Phát Triển Cục Bộ

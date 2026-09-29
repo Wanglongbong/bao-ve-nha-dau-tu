@@ -45,6 +45,12 @@ import {
   BotanicalVineDivider,
   BotanicalWatermark,
 } from '@/components/botanical-filigree';
+import {
+  NotebookCornerGuard,
+  NotebookCardCorners,
+  NotebookRibbonDivider,
+  NotebookBookbindingStitch,
+} from '@/components/notebook-corner-guard';
 import { soundFx } from '@/lib/audio-effects';
 
 interface HomePageProps {
@@ -222,23 +228,23 @@ export function HomePage({ onOpenAi, onOpenViewer, onOpenTeamModal }: HomePagePr
     <main className="font-serif">
       <FiligreeDefs />
 
-      {/* 1. HERO SECTION - LUXURY WARM AMBER-ORANGE PALETTE WITH GUARDIAN LION */}
+      {/* 1. HERO SECTION - LUXURY MIDNIGHT NAVY & GILDED GOLD NOTEBOOK EDITION */}
       <section className="home-hero relative overflow-hidden" id="hero">
         <div className="hero-overlay" />
         <BotanicalWatermark opacity={0.06} />
 
-        {/* 4 Góc hoa văn lá cuộn Acanthus Hoàng Gia cỡ lớn nổi bật */}
+        {/* 4 Góc bọc sổ kim loại mạ vàng Vintage Brass Notebook Corner Guards */}
         <div className="absolute top-2 left-2 z-10 pointer-events-none">
-          <BotanicalCornerFiligree size={88} position="top-left" />
+          <NotebookCornerGuard size={92} position="top-left" />
         </div>
         <div className="absolute top-2 right-2 z-10 pointer-events-none">
-          <BotanicalCornerFiligree size={88} position="top-right" />
+          <NotebookCornerGuard size={92} position="top-right" />
         </div>
         <div className="absolute bottom-2 left-2 z-10 pointer-events-none">
-          <BotanicalCornerFiligree size={88} position="bottom-left" />
+          <NotebookCornerGuard size={92} position="bottom-left" />
         </div>
         <div className="absolute bottom-2 right-2 z-10 pointer-events-none">
-          <BotanicalCornerFiligree size={88} position="bottom-right" />
+          <NotebookCornerGuard size={92} position="bottom-right" />
         </div>
 
         {/* HÌNH TƯỢNG SƯ TỬ UY NGHI */}
@@ -247,13 +253,13 @@ export function HomePage({ onOpenAi, onOpenViewer, onOpenTeamModal }: HomePagePr
         <div className="site-shell hero-content">
           <div className="hero-copy">
             <span className="eyebrow">
-              <Shield className="w-4 h-4 text-[#C2410C]" />
+              <Shield className="w-4 h-4 text-[#E5C158]" />
               Công Trình Nghiên Cứu Pháp Luật Chứng Khoán
             </span>
 
-            <h1 className="text-artistic-halo">
+            <h1 className="text-gilded-gold-halo text-artistic-halo">
               Tấm khiên pháp lý chuẩn mực bảo vệ{' '}
-              <em className="text-transparent bg-clip-text bg-gradient-to-r from-[#8C2B0A] via-[#C2410C] to-[#D97706] not-italic drop-shadow-sm">
+              <em className="text-transparent bg-clip-text bg-gradient-to-r from-[#E5C158] via-[#FFF3D1] to-[#D4AF37] not-italic drop-shadow-sm font-bold">
                 Nhà đầu tư cá nhân.
               </em>
             </h1>
@@ -379,14 +385,15 @@ export function HomePage({ onOpenAi, onOpenViewer, onOpenTeamModal }: HomePagePr
                 <ShieldCheck key="5" className="w-6 h-6" />,
               ];
               return (
-                <article className="botanical-luxury-card rounded-3xl p-6 sm:p-8 relative overflow-hidden group shadow-md" key={pillar.id}>
-                  {/* Góc lá cuộn Acanthus Hoàng Gia nổi bật 2 góc đối xứng */}
-                  <BotanicalCardCorners size={64} mode="diagonal" />
+                <article className="notebook-leather-card rounded-3xl p-6 sm:p-8 relative overflow-hidden group shadow-md" key={pillar.id}>
+                  {/* Góc bọc sổ kim loại mạ vàng Vintage Brass Notebook Corner Guards 4 góc */}
+                  <NotebookCardCorners size={64} mode="all-4" />
+                  <NotebookBookbindingStitch />
 
-                  <div className="relative z-10">
+                  <div className="relative z-10 pl-2">
                     <div className="bento-pillar-head mb-4">
-                      <span className="bento-pillar-num text-2xl font-mono text-[#8C2B0A]/40 font-bold">{pillar.number}</span>
-                      <div className="bento-pillar-icon w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FFF9F2] to-[#FED7AA] border border-[#8C2B0A]/30 text-[#C2410C] shadow-xs">{icons[index]}</div>
+                      <span className="bento-pillar-num text-2xl font-mono text-[#E5C158] font-bold drop-shadow-xs">{pillar.number}</span>
+                      <div className="bento-pillar-icon w-12 h-12 rounded-2xl bg-gradient-to-br from-[#070E1B] via-[#0E2145] to-[#162E5B] border border-[#E5C158]/50 text-[#E5C158] shadow-xs">{icons[index]}</div>
                     </div>
                     <div className="mb-2">
                       {pillar.minimum && (
@@ -396,13 +403,13 @@ export function HomePage({ onOpenAi, onOpenViewer, onOpenTeamModal }: HomePagePr
                         <span className="tier advanced mr-2">Đột phá</span>
                       )}
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-bold mb-2 leading-snug text-[#1C130E] text-letter-halo">{pillar.title}</h3>
-                    <p className="text-sm sm:text-base text-[#3D2E24] leading-relaxed mb-4">{pillar.description}</p>
+                    <h3 className="text-xl sm:text-2xl font-bold mb-2 leading-snug text-[#070E1B] text-gilded-gold-halo">{pillar.title}</h3>
+                    <p className="text-sm sm:text-base text-[#162544] leading-relaxed mb-4">{pillar.description}</p>
                   </div>
-                  <div className="bento-outcome-box mt-2 bg-[#FFFDF9]/90 border border-[#8C2B0A]/25 rounded-xl p-3 relative z-10">
-                    <CheckCircle2 className="w-5 h-5 shrink-0 text-[#C2410C]" />
-                    <span className="text-xs sm:text-sm text-[#5E1A04]">
-                      <strong>Bàn giao:</strong> {pillar.outcome}
+                  <div className="bento-outcome-box mt-2 bg-[#FFFDF9]/95 border border-[#E5C158]/40 rounded-xl p-3 relative z-10 shadow-xs">
+                    <CheckCircle2 className="w-5 h-5 shrink-0 text-[#E5C158]" />
+                    <span className="text-xs sm:text-sm text-[#0A1428]">
+                      <strong className="text-[#856417]">Bàn giao:</strong> {pillar.outcome}
                     </span>
                   </div>
                 </article>
@@ -413,20 +420,21 @@ export function HomePage({ onOpenAi, onOpenViewer, onOpenTeamModal }: HomePagePr
       </section>
 
       {/* 4. SECTION 2: ACADEMIC HUB — PRESENTATION SLIDES & FULL RESEARCH PAPER (~30 TRANG, 20.388 TỪ) */}
-      <section id="toan-van" className="py-14 bg-gradient-to-b from-[#FFFDF9] via-[#FAF2E8] to-[#FFF6EB] border-y border-[#8C2B0A]/20 relative overflow-hidden">
+      <section id="toan-van" className="py-14 bg-gradient-to-b from-[#FFFDF9] via-[#FAF2E8] to-[#FFF6EB] border-y border-[#0E2145]/20 relative overflow-hidden">
         <BotanicalWatermark opacity={0.05} />
         <div className="site-shell relative z-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-8">
             <div>
               <span className="section-filigree-label">
-                <BookOpen className="w-3.5 h-3.5 text-[#C2410C]" />
+                <BookOpen className="w-3.5 h-3.5 text-[#E5C158]" />
                 Trung Tâm Báo Cáo Học Thuật &amp; Trình Chiếu
               </span>
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#1C130E] text-artistic-halo mt-2 mb-2 tracking-tight">
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#070E1B] text-gilded-gold-halo text-artistic-halo mt-2 mb-2 tracking-tight">
                 Slide Canva Thiết Kế Mới 2026 &amp; Toàn Văn Đề Tài 20.388 Từ
               </h2>
+              <NotebookRibbonDivider title="Ấn Bản Toàn Văn & Slide Canva 2026" />
               <BotanicalHeaderCrest />
-              <p className="text-xs sm:text-sm text-[#3D2E24] max-w-2xl mt-2 leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#162544] max-w-2xl mt-2 leading-relaxed">
                 Chuyển đổi tức thời giữa Bộ Slide thuyết trình Canva trực quan 16:9 HD mới cập nhật và Trình đọc văn bản toàn văn đề tài học thuật chính thức của Lớp 261LAW10A01.
               </p>
             </div>
@@ -441,11 +449,11 @@ export function HomePage({ onOpenAi, onOpenViewer, onOpenTeamModal }: HomePagePr
                 }}
                 className={`flex items-center gap-2 px-5 py-2.5 text-xs sm:text-sm font-bold rounded-xl transition cursor-pointer ${
                   researchViewMode === 'slides'
-                    ? 'bg-gradient-to-r from-[#8C2B0A] via-[#C2410C] to-[#D9531E] text-white shadow-md'
-                    : 'text-[#3D2E24] hover:bg-[#F5E6D8]'
+                    ? 'bg-gradient-to-r from-[#070E1B] via-[#0E2145] to-[#162E5B] border border-[#E5C158]/50 text-white shadow-md'
+                    : 'text-[#162544] hover:bg-[#F5EDE0]'
                 }`}
               >
-                <Presentation className="w-4 h-4" />
+                <Presentation className="w-4 h-4 text-[#E5C158]" />
                 <span>Bộ Slide Trình Chiếu Canva</span>
               </button>
               <button
@@ -456,19 +464,19 @@ export function HomePage({ onOpenAi, onOpenViewer, onOpenTeamModal }: HomePagePr
                 }}
                 className={`flex items-center gap-2 px-5 py-2.5 text-xs sm:text-sm font-bold rounded-xl transition cursor-pointer ${
                   researchViewMode === 'paper'
-                    ? 'bg-orange-600 text-white shadow-md'
-                    : 'text-orange-950 hover:bg-orange-200/60'
+                    ? 'bg-gradient-to-r from-[#070E1B] via-[#0E2145] to-[#162E5B] border border-[#E5C158]/50 text-white shadow-md'
+                    : 'text-[#162544] hover:bg-[#F5EDE0]'
                 }`}
               >
-                <FileText className="w-4 h-4" />
+                <FileText className="w-4 h-4 text-[#E5C158]" />
                 <span>Toàn Văn Bản Word (20.388 từ)</span>
               </button>
             </div>
           </div>
 
-          {/* Viewer Render inside Royal Botanical Frame */}
-          <div className="botanical-hero-frame p-2 sm:p-4 rounded-3xl relative overflow-hidden">
-            <BotanicalCardCorners size={72} mode="all-4" />
+          {/* Viewer Render inside Royal Notebook Folio Frame */}
+          <div className="botanical-hero-frame p-2 sm:p-4 rounded-3xl relative overflow-hidden shadow-2xl">
+            <NotebookCardCorners size={72} mode="all-4" />
             <div className="relative z-10">
               {researchViewMode === 'slides' ? (
                 <PresentationSlides />

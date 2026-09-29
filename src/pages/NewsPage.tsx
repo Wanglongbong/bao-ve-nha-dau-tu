@@ -31,6 +31,10 @@ import {
   BotanicalHeaderCrest,
   BotanicalWatermark,
 } from '@/components/botanical-filigree';
+import {
+  NotebookCardCorners,
+  NotebookRibbonDivider,
+} from '@/components/notebook-corner-guard';
 
 interface NewsItem {
   id: string;
@@ -436,8 +440,8 @@ export function NewsPage() {
               key={item.id}
               className="botanical-luxury-card rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 group relative"
             >
-              {/* Góc hoa văn lá cuộn Acanthus Hoàng Gia */}
-              <BotanicalCardCorners size={56} mode="diagonal" className="opacity-75 group-hover:opacity-100" />
+              {/* Góc bọc sổ kim loại mạ vàng Vintage Brass Corner Guards 4 góc */}
+              <NotebookCardCorners size={56} mode="all-4" className="opacity-80 group-hover:opacity-100" />
               <div className="flex flex-col sm:flex-row items-stretch">
                 {/* Left Thumbnail Image Column */}
                 <div className="relative sm:w-[270px] sm:min-w-[270px] h-[200px] sm:h-auto overflow-hidden bg-[#FAF3EC] shrink-0 border-b sm:border-b-0 sm:border-r border-[#EBD7C7]">
@@ -466,7 +470,7 @@ export function NewsPage() {
                         soundFx.playTap();
                         setActiveArticle(item);
                       }}
-                      className="text-lg sm:text-xl font-bold font-serif text-[#1C130E] group-hover:text-[#C2410C] transition-colors leading-snug mb-2.5 cursor-pointer line-clamp-2 text-artistic-halo"
+                      className="text-lg sm:text-xl font-bold font-serif text-[#070E1B] group-hover:text-[#E5C158] transition-colors leading-snug mb-2.5 cursor-pointer line-clamp-2 text-gilded-gold-halo text-artistic-halo"
                     >
                       {item.title}
                     </h2>
