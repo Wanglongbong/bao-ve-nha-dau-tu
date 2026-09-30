@@ -32,6 +32,7 @@ const requestSchema = z.discriminatedUnion('task', [
       title: z.string().min(2).max(500),
       summary: z.string().min(2).max(4_000),
       legalReference: z.string().max(1_000),
+      sourceUrl: z.string().url().max(2_000).optional(),
     }),
   }),
   z.object({
@@ -134,7 +135,7 @@ ${recentNews ? `\nTIN CAFEF GẦN NHẤT TRONG KHO DỮ LIỆU:\n${recentNews}` 
   if (payload.task === 'article_qa') {
     return {
       systemInstruction: `${shared}\nƯu tiên nguồn chính thức của Chính phủ, Bộ Tài chính, UBCKNN, VSDC và cơ quan tư pháp.`,
-      contents: `Bài viết:\n- Tiêu đề: ${payload.context.title}\n- Tóm tắt: ${payload.context.summary}\n- Căn cứ được bài viết nêu: ${payload.context.legalReference}\n\nCâu hỏi: ${payload.input}`,
+      contents: `Bài viết:\n- Tiêu đề: ${payload.context.title}\n- Tóm tắt: ${payload.context.summary}\n- Căn cứ được bài viết nêu: ${payload.context.legalReference}\n- Nguồn bài gốc: ${payload.context.sourceUrl || 'Không có URL nguồn'}\n\nCâu hỏi: ${payload.input}`,
       config: {
         temperature: 0.2,
         maxOutputTokens: 2_500,

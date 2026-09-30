@@ -39,7 +39,7 @@ export interface AiResponse<T = unknown> {
 
 export type AiPayload =
   | { task: 'chat'; input: string; conversation?: Array<{ role: 'user' | 'assistant'; text: string }> }
-  | { task: 'article_qa'; input: string; context: { title: string; summary: string; legalReference: string } }
+  | { task: 'article_qa'; input: string; context: { title: string; summary: string; legalReference: string; sourceUrl?: string } }
   | { task: 'contract_draft'; input: string; context: { documentType: string; fields: Record<string, string> } }
   | { task: 'contract_compare'; input: string; context: { versionA: string; versionB: string } }
   | { task: 'risk_audit'; input: string };

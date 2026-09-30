@@ -326,7 +326,8 @@ export async function askAboutNewsArticle(
   articleTitle: string,
   articleSummary: string,
   legalRef: string,
-  userQuestion: string
+  userQuestion: string,
+  sourceUrl?: string
 ): Promise<string> {
   const systemPrompt = `Bạn là Trợ lý AI Pháp lý Chứng khoán cao cấp của Nhóm Nghiên cứu 2, Lớp học phần 261LAW10A01, Khoa Luật - Học viện Ngân hàng.
 Nhiệm vụ của bạn là giải đáp thắc mắc của người dùng dựa trên bài viết tin tức pháp luật chứng khoán được cung cấp.
@@ -345,7 +346,7 @@ ${userQuestion}`;
     const res = await callAiTask({
       task: 'article_qa',
       input: userQuestion,
-      context: { title: articleTitle, summary: articleSummary, legalReference: legalRef },
+      context: { title: articleTitle, summary: articleSummary, legalReference: legalRef, sourceUrl },
     });
     if (res.ok && res.content && res.content.trim().length > 20) {
       const sourceBlock = res.sources?.length
@@ -353,9 +354,9 @@ ${userQuestion}`;
         : '';
       return `${res.content}${sourceBlock}`;
     }
-  } catch (e) {
-    console.warn('Gemini API call failed, falling back to local legal reasoning engine', e);
+    throw new Error(res.error?.message || 'Gemini 3.8 chưa phản hồi.');
+  } catch (error) {
+    console.warn('Gemini API call failed', error);
+    throw error;
   }
-
-  return `MẪU PHÂN TÍCH NGOẠI TUYẾN — Gemini 3.8 chưa kết nối. Nội dung sau chỉ để minh họa, cần kiểm chứng trước khi sử dụng.\n\n${generateNewsArticleFallbackAnswer(articleTitle, legalRef, userQuestion)}`;
 }
