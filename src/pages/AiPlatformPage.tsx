@@ -22,8 +22,9 @@ import {
   CONTRACT_DIFF_SAMPLE,
   RISK_REVIEW_SAMPLE,
 } from '@/lib/gemini-client';
-import { callAiTask, type ContractDifference, type RiskAuditResult } from '@/lib/ai-client';
+import { callAiTask, cleanAiText, streamAiTask, type ContractDifference, type RiskAuditResult } from '@/lib/ai-client';
 import { soundFx } from '@/lib/audio-effects';
+import { AiRichText } from '@/components/ai-rich-text';
 
 type PlatformTab = 'generator' | 'compare' | 'audit' | 'chat';
 
@@ -95,11 +96,12 @@ export function AiPlatformPage() {
       2
     )}\nVăn bản phải tuân thủ nghiêm ngặt Luật Chứng khoán Việt Nam 2024, Nghị định 245/2025/NĐ-CP, bảo vệ quyền lợi hợp pháp của Nhà đầu tư cá nhân và bảo đảm đầy đủ căn cứ pháp lý.`;
 
-    const res = await callAiTask({
+    setGeneratedDoc('');
+    const res = await streamAiTask({
       task: 'contract_draft',
       input: prompt,
       context: { documentType: preset.title, fields: formData },
-    });
+    }, setGeneratedDoc);
 
     if (res.ok && res.content) {
       setGeneratedDoc(res.content);
@@ -168,7 +170,7 @@ export function AiPlatformPage() {
 
   const handleSendChat = async (questionText?: string) => {
     const textToSend = questionText || chatInput;
-    if (!textToSend.trim()) return;
+    if (!textToSend.trim() || isChatting) return;
 
     soundFx.playTap();
     const newMsg = {
@@ -177,27 +179,26 @@ export function AiPlatformPage() {
       time: new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }),
     };
 
-    setChatMessages((prev) => [...prev, newMsg]);
+    const assistantTime = new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
+    setChatMessages((prev) => [...prev, newMsg, { role: 'assistant', text: '', time: assistantTime }]);
     if (!questionText) setChatInput('');
     setIsChatting(true);
 
-    const res = await callAiTask({
+    const res = await streamAiTask({
       task: 'chat',
       input: textToSend,
       conversation: chatMessages.slice(-8).map((message) => ({ role: message.role, text: message.text })),
+    }, (text) => {
+      setChatMessages((prev) => prev.map((message, index) => index === prev.length - 1 ? { ...message, text } : message));
     });
     const sourceText = res.sources?.length
       ? `\n\nNguồn tham khảo:\n${res.sources.map((source) => `• ${source.title}: ${source.url}`).join('\n')}`
       : '';
 
-    setChatMessages((prev) => [
-      ...prev,
-      {
-        role: 'assistant',
-        text: res.ok && res.content ? `${res.content}${sourceText}` : `Gemini 3.8 chưa kết nối: ${res.error?.message || 'Vui lòng thử lại.'}`,
-        time: new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }),
-      },
-    ]);
+    const finalText = res.ok && res.content
+      ? cleanAiText(`${res.content}${sourceText}`)
+      : `Gemini 3.8 chưa kết nối: ${res.error?.message || 'Vui lòng thử lại.'}`;
+    setChatMessages((prev) => prev.map((message, index) => index === prev.length - 1 ? { ...message, text: finalText } : message));
     setIsChatting(false);
     soundFx.playChime();
   };
@@ -444,7 +445,7 @@ export function AiPlatformPage() {
 
               {/* Text Area */}
               <div className="flex-1 overflow-y-auto p-4 bg-[#FFFDF9] rounded-2xl border border-orange-100 font-serif text-sm leading-relaxed text-[#2B1705] whitespace-pre-wrap selection:bg-orange-200 shadow-inner">
-                {generatedDoc}
+                <AiRichText text={generatedDoc} streaming={isGenerating} />
               </div>
 
               <div className="pt-4 text-xs text-orange-800 flex items-center justify-between border-t border-orange-100 mt-4">
@@ -700,7 +701,9 @@ export function AiPlatformPage() {
                         : 'bg-white border border-orange-200 text-[#2B1705] rounded-bl-none'
                     }`}
                   >
-                    <p className="whitespace-pre-wrap">{msg.text}</p>
+                    {msg.role === 'assistant'
+                      ? <AiRichText text={msg.text} streaming={isChatting && i === chatMessages.length - 1} />
+                      : <p className="whitespace-pre-wrap">{msg.text}</p>}
                     <span
                       className={`block text-[10px] mt-1.5 text-right ${
                         msg.role === 'user' ? 'text-orange-200' : 'text-slate-400'

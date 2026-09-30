@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { X, Sparkles, Send, Bot, User, Loader2 } from 'lucide-react';
 import { soundFx } from '@/lib/audio-effects';
-import { callAiTask } from '@/lib/ai-client';
+import { cleanAiText, streamAiTask } from '@/lib/ai-client';
+import { AiRichText } from '@/components/ai-rich-text';
 
 interface InvestorAiAssistantProps {
   isOpen: boolean;
@@ -57,6 +58,7 @@ export function InvestorAiAssistant({ isOpen, onClose }: InvestorAiAssistantProp
   ]);
   const [inputVal, setInputVal] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [streamingMessageId, setStreamingMessageId] = useState<string | null>(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -76,26 +78,32 @@ export function InvestorAiAssistant({ isOpen, onClose }: InvestorAiAssistantProp
     if (!textToSend) setInputVal('');
 
     setIsLoading(true);
-    const result = await callAiTask({
+    const replyId = crypto.randomUUID();
+    setStreamingMessageId(replyId);
+    setMessages((prev) => [...prev, { id: replyId, sender: 'ai', text: '' }]);
+    const result = await streamAiTask({
       task: 'chat',
       input: q,
       conversation: messages.slice(-8).map((message) => ({
         role: message.sender === 'user' ? 'user' : 'assistant',
         text: message.text,
       })),
+    }, (text) => {
+      setMessages((prev) => prev.map((message) => message.id === replyId ? { ...message, text } : message));
     });
 
     const sourceText = result.sources?.length
       ? `\n\nNguồn tham khảo:\n${result.sources.map((source) => `• ${source.title}: ${source.url}`).join('\n')}`
       : '';
     const reply = result.ok && result.content
-      ? `${result.content}${sourceText}`
+      ? cleanAiText(`${result.content}${sourceText}`)
       : PREDEFINED_ANSWERS[q]
-        ? `MẪU NGOẠI TUYẾN — Gemini 3.8 chưa kết nối:\n\n${PREDEFINED_ANSWERS[q]}`
+        ? cleanAiText(`MẪU NGOẠI TUYẾN — Gemini 3.8 chưa kết nối:\n\n${PREDEFINED_ANSWERS[q]}`)
         : `Không thể kết nối Gemini 3.8 lúc này: ${result.error?.message || 'Lỗi không xác định'}. Nội dung AI chỉ mang tính tham khảo nghiên cứu và không thay thế tư vấn của luật sư.`;
 
     soundFx.playTap();
-    setMessages((prev) => [...prev, { id: crypto.randomUUID(), sender: 'ai', text: reply }]);
+    setMessages((prev) => prev.map((message) => message.id === replyId ? { ...message, text: reply } : message));
+    setStreamingMessageId(null);
     setIsLoading(false);
   };
 
@@ -147,7 +155,9 @@ export function InvestorAiAssistant({ isOpen, onClose }: InvestorAiAssistantProp
                     : 'bg-white border border-orange-200 text-slate-800 shadow-sm rounded-tl-none'
                 }`}
               >
-                {m.text}
+                {m.sender === 'ai'
+                  ? <AiRichText text={m.text} streaming={streamingMessageId === m.id} />
+                  : m.text}
               </div>
               {m.sender === 'user' && (
                 <div className="w-8 h-8 rounded-lg bg-orange-200 text-orange-800 flex items-center justify-center flex-shrink-0 mt-1">

@@ -13,6 +13,9 @@ type ApiResponse = {
   status: (statusCode: number) => ApiResponse;
   json: (body: unknown) => void;
   setHeader: (name: string, value: string) => void;
+  write?: (chunk: string) => boolean;
+  end?: () => void;
+  flushHeaders?: () => void;
 };
 
 const MODEL = 'gemini-3.8-flash';
@@ -108,9 +111,13 @@ function getPrompt(payload: z.infer<typeof requestSchema>, knowledgeContext = ''
 } {
   const shared = `Bạn là trợ lý thông minh của dự án Bảo Vệ Nhà Đầu Tư. Bạn có thể trả lời cả câu hỏi phổ thông ngoài chuyên môn pháp luật chứng khoán.
 Trả lời bằng tiếng Việt rõ ràng, tự nhiên và hữu ích. Không bịa điều luật, số liệu, án lệ, thành viên hoặc cơ quan có thẩm quyền.
+Trình bày sạch, dễ đọc. Tuyệt đối không dùng ký hiệu Markdown **, __, # hoặc dấu gạch chéo ngược để định dạng. Có thể dùng tiêu đề ngắn trên một dòng và ký hiệu • cho danh sách.
 Phân biệt rõ dữ kiện, nhận định và khuyến nghị. Khi không đủ căn cứ, hãy nói cần kiểm chứng.
 Chỉ thêm lưu ý “mang tính tham khảo, không thay thế tư vấn chuyên môn” khi câu hỏi liên quan pháp luật, tài chính hoặc quyết định đầu tư.
 Khi dùng tài liệu nội bộ dưới đây, hãy nói rõ đó là nội dung trong bài nghiên cứu hoặc dữ liệu nhóm, không giả vờ đó là văn bản pháp luật gốc.
+
+THÔNG TIN TÁC GIẢ WEBSITE — DỮ KIỆN BẮT BUỘC, KHÔNG ĐƯỢC SUY ĐOÁN KHÁC:
+Vũ Anh Quân (MSSV 26A4062552) là người trực tiếp thiết kế, xây dựng và lập trình toàn bộ website/Web Portal Bảo Vệ Nhà Đầu Tư; đồng thời tổng hợp bản Word và phụ trách Mở đầu + Chương 1. Lê Đức Minh là trưởng nhóm, phụ trách dàn ý, thẩm định và Chương 4, không phải người xây dựng website. Khi được hỏi ai làm website, phải trả lời rõ là Vũ Anh Quân.
 
 KHO TRI THỨC NỘI BỘ ĐƯỢC TRUY XUẤT:
 ${knowledgeContext || 'Không có đoạn nội bộ phù hợp trực tiếp.'}
@@ -242,6 +249,61 @@ export default async function handler(request: ApiRequest, response: ApiResponse
     }
     const prompt = getPrompt(parsed.data, knowledge.context, recentNews);
     const ai = new GoogleGenAI({ apiKey: geminiKey });
+    const wantsStream = !prompt.structured
+      && typeof request.headers.accept === 'string'
+      && request.headers.accept.includes('application/x-ndjson')
+      && Boolean(response.write && response.end);
+
+    if (wantsStream) {
+      const generateStream = (model: string, config: GenerateContentConfig = prompt.config) => ai.models.generateContentStream({
+        model,
+        contents: prompt.contents,
+        config: { ...config, systemInstruction: prompt.systemInstruction },
+      });
+      let modelUsed = MODEL;
+      let stream;
+      try {
+        stream = await generateStream(MODEL);
+      } catch (error) {
+        const status = typeof error === 'object' && error && 'status' in error ? Number(error.status) : 0;
+        if (status !== 429) throw error;
+        modelUsed = FALLBACK_MODEL;
+        console.warn(`[${requestId}] Gemini 3.8 quota exhausted; streaming with ${FALLBACK_MODEL}`);
+        const { tools: _searchTools, ...fallbackConfig } = prompt.config;
+        stream = await generateStream(FALLBACK_MODEL, fallbackConfig);
+      }
+
+      response.status(200);
+      response.setHeader('Content-Type', 'application/x-ndjson; charset=utf-8');
+      response.setHeader('X-Content-Type-Options', 'nosniff');
+      response.flushHeaders?.();
+      response.write?.(`${JSON.stringify({ type: 'start', requestId, model: modelUsed })}\n`);
+
+      const webSources: KnowledgeSource[] = [];
+      try {
+        for await (const chunk of stream) {
+          const delta = chunk.text || '';
+          if (delta) response.write?.(`${JSON.stringify({ type: 'delta', text: delta })}\n`);
+          const groundingChunks = chunk.candidates?.[0]?.groundingMetadata?.groundingChunks || [];
+          for (const groundingChunk of groundingChunks) {
+            const web = groundingChunk.web;
+            if (web?.uri && !webSources.some((source) => source.url === web.uri)) {
+              webSources.push({ title: web.title || 'Nguồn tham khảo', url: web.uri });
+            }
+          }
+        }
+        const sources: KnowledgeSource[] = [...knowledge.sources, ...webSources]
+          .filter((source, index, list) => list.findIndex((item) => item.url === source.url) === index)
+          .slice(0, 10);
+        response.write?.(`${JSON.stringify({ type: 'done', requestId, model: modelUsed, sources, latencyMs: Date.now() - startedAt })}\n`);
+      } catch (error) {
+        console.error(`[${requestId}] Gemini stream failed`, error);
+        response.write?.(`${JSON.stringify({ type: 'error', code: 'MODEL_ERROR', message: 'Gemini đang tạm thời không phản hồi. Vui lòng thử lại.' })}\n`);
+      }
+      response.end?.();
+      return;
+    }
+
     const generate = (model: string, config: GenerateContentConfig = prompt.config) => ai.models.generateContent({
       model,
       contents: prompt.contents,

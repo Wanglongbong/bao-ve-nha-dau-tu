@@ -24,6 +24,7 @@ import {
 } from 'lucide-react';
 import { soundFx } from '@/lib/audio-effects';
 import { askAboutNewsArticle } from '@/lib/gemini-client';
+import { AiRichText } from '@/components/ai-rich-text';
 import { getAccessToken, isSupabaseConfigured, supabase } from '@/lib/supabase';
 import {
   BotanicalCornerFiligree,
@@ -394,7 +395,8 @@ export function NewsPage() {
         item.summary,
         item.legalReference,
         queryText.trim(),
-        item.sourceUrl
+        item.sourceUrl,
+        setAiAnswer
       );
       setAiAnswer(answer);
     } catch {
@@ -875,15 +877,13 @@ export function NewsPage() {
 
             {/* Answer Display Area */}
             <div className="flex-1 overflow-y-auto p-4 rounded-2xl bg-[#FFFDF9] border border-[#EBD7C7] text-xs sm:text-sm leading-relaxed text-[#2B1D15]">
-              {isAiLoading ? (
+              {isAiLoading && !aiAnswer ? (
                 <div className="py-8 flex flex-col items-center justify-center gap-2 text-[#8C2B0A]">
                   <Loader2 className="w-7 h-7 animate-spin text-[#C2410C]" />
                   <p className="font-bold text-xs">Trợ lý Gemini AI đang tra cứu điều luật và soạn thảo câu trả lời...</p>
                 </div>
               ) : aiAnswer ? (
-                <div className="space-y-3 whitespace-pre-line font-serif">
-                  {aiAnswer}
-                </div>
+                <AiRichText text={aiAnswer} streaming={isAiLoading} className="font-serif" />
               ) : (
                 <div className="py-8 text-center text-[#7A6658]">
                   <Sparkles className="w-8 h-8 text-[#D4AF37] mx-auto mb-2 opacity-60" />

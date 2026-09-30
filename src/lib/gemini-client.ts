@@ -1,5 +1,5 @@
 // Shared legal templates plus the secure server-side Gemini gateway.
-import { callAiTask } from '@/lib/ai-client';
+import { callAiTask, cleanAiText, streamAiTask } from '@/lib/ai-client';
 
 export interface GeminiResponse {
   ok: boolean;
@@ -327,32 +327,20 @@ export async function askAboutNewsArticle(
   articleSummary: string,
   legalRef: string,
   userQuestion: string,
-  sourceUrl?: string
+  sourceUrl?: string,
+  onText?: (text: string) => void
 ): Promise<string> {
-  const systemPrompt = `Bạn là Trợ lý AI Pháp lý Chứng khoán cao cấp của Nhóm Nghiên cứu 2, Lớp học phần 261LAW10A01, Khoa Luật - Học viện Ngân hàng.
-Nhiệm vụ của bạn là giải đáp thắc mắc của người dùng dựa trên bài viết tin tức pháp luật chứng khoán được cung cấp.
-Hãy phân tích sắc bén, rõ ràng, viện dẫn chính xác Luật Chứng khoán 2019 (sửa đổi 2024), Nghị định 245/2025/NĐ-CP, Bộ luật Dân sự 2015 hoặc Bộ luật Hình sự 2015.
-Luôn đưa ra lời khuyên thực tế để bảo vệ quyền và lợi ích hợp pháp của Nhà đầu tư cá nhân. Trình bày có gạch đầu dòng rõ ràng, phông thái khoa học pháp lý Times New Roman.`;
-
-  const userPrompt = `[BÀI VIẾT TIN TỨC]:
-- Tiêu đề: ${articleTitle}
-- Tóm tắt: ${articleSummary}
-- Căn cứ pháp lý: ${legalRef}
-
-[CÂU HỎI NGƯỜI DÙNG]:
-${userQuestion}`;
-
   try {
-    const res = await callAiTask({
+    const res = await streamAiTask({
       task: 'article_qa',
       input: userQuestion,
       context: { title: articleTitle, summary: articleSummary, legalReference: legalRef, sourceUrl },
-    });
+    }, onText || (() => undefined));
     if (res.ok && res.content && res.content.trim().length > 20) {
       const sourceBlock = res.sources?.length
         ? `\n\nNguồn tham khảo:\n${res.sources.map((source) => `- ${source.title}: ${source.url}`).join('\n')}`
         : '';
-      return `${res.content}${sourceBlock}`;
+      return cleanAiText(`${res.content}${sourceBlock}`);
     }
     throw new Error(res.error?.message || 'Gemini 3.8 chưa phản hồi.');
   } catch (error) {
