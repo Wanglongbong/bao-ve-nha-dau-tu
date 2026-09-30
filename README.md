@@ -9,7 +9,7 @@
 [![React](https://img.shields.io/badge/React-18-blue?style=for-the-badge&logo=react)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org)
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com)
-[![Google Gemini API](https://img.shields.io/badge/AI-Google_Gemini_2.5_Flash-orange?style=for-the-badge&logo=google)](https://ai.google.dev)
+[![Google Gemini API](https://img.shields.io/badge/AI-Google_Gemini_3.8_Flash-orange?style=for-the-badge&logo=google)](https://ai.google.dev)
 
 ---
 
@@ -51,26 +51,23 @@ Công trình khoa học phân tích toàn diện thực trạng bảo vệ cổ 
 - Mục lục định vị cố định bên trái (Sticky TOC) chuyển trang nhanh.
 - Nút bấm tải về file Word chính thức `261LAW10A01_Nhom_2.docx` (283 KB) định dạng Microsoft Word.
 
-### 3. Cẩm Nang Tin Tức Thẻ Ngang EmLaw & Trợ Lý Gemini AI Từng Bài (`/tin-tuc`)
-- Thiết kế danh sách thẻ ngang chuẩn phong cách EmLaw: Thumbnail bên trái, badge nổi bật, tiêu đề thanh lịch và tóm tắt cô đọng.
+### 3. Cẩm Nang Tin Tức Kiểm Chứng & Trợ Lý Gemini AI Từng Bài (`/tin-tuc`)
+- Bố cục legal-tech sáng gồm bài nổi bật, lưới tin, tìm kiếm, danh mục và kho lưu trữ theo ngày.
 - **Hỏi AI Về Bài Này:** Kích hoạt trợ lý Google Gemini phân tích các câu hỏi pháp lý riêng cho từng vụ việc/bài báo.
-- **Làm Mới Tin CafeF:** Nút cập nhật tin tức với hiệu ứng cuộn giấy quay tròn sinh động, nạp dữ liệu chuẩn xác mỗi ngày.
+- **Tin mới mỗi ngày:** Vercel Cron và nút “Làm mới” đọc trực tiếp chuyên mục Chứng khoán CafeF, chỉ lưu tiêu đề, mô tả ngắn, ảnh, thời gian và URL bài gốc; dữ liệu được chống trùng trong Supabase.
 
 ### 4. Nền Tảng AI Pháp Lý Chứng Khoán (`/nen-tang-ai`)
+- Kết nối Gemini 3.8 Flash qua Vercel Function; API key không được đưa xuống trình duyệt.
 - **Tạo Hợp Đồng Chuẩn:** Hợp đồng mở tài khoản ký quỹ Margin (bảo vệ NĐT), Đơn tố cáo thao túng giá gửi UBCKNN & Tòa án, Hợp đồng tư vấn đầu tư độc lập...
 - **Rà Soát Bẫy Rủi Ro:** Soi các điều khoản miễn trừ trách nhiệm vô hiệu theo Điều 405 BLDS và Điều 89 Luật Chứng khoán.
 - **So Sánh Hợp Đồng:** Đối chiếu sự khác biệt giữa hợp đồng mẫu truyền thống và hợp đồng chuẩn bảo vệ cổ đông nhỏ lẻ theo Nghị định 245/2025/NĐ-CP.
+- **Kho tri thức nội bộ:** AI truy xuất theo câu hỏi từ 451 đoạn của bản Word, thông tin đề tài, hồ sơ 8 thành viên và danh mục văn bản pháp luật; vẫn trả lời được câu hỏi phổ thông ngoài chuyên môn.
 
-### 5. Hệ Thống Mỹ Thuật Hoàng Gia (Venetian Terracotta & Botanical Filigree)
-- Hệ màu 5 tầng quý phái: Espresso Bronze Noir, Venetian Terracotta, Hermès Amber, Antique Champagne Gold và Warm Alabaster Parchment.
-- Hoa văn hoa lá cỏ cây Baroque cổ điển chìm ở nền và các góc thẻ.
-- Hiệu ứng ánh quang mờ ảo sau các chữ cái (*Atmospheric Text-Halo*), tôn vinh phông chữ Times New Roman.
-
-### 6. Ấn Bản Sổ Tay Hoàng Gia: Xanh Navy Bvlgari & Mạ Vàng Kim Sa (Midnight Navy & Gilded Gold)
-- **1-Click Theme Switcher**: Nút chuyển đổi giao diện trực tiếp trên thanh điều hướng (`[ 📘 Sổ Tay Navy ]` $\leftrightarrow$ `[ 🏛️ Đất Nung Cam ]`), lưu trạng thái tự động vào `localStorage`.
-- **Cảm hứng thị giác Bvlgari & Porsche 911 Midnight Blue**: Phối màu xanh biển đêm sâu thẳm (`#0A1428`, `#0E2145`), tương phản cùng sắc vàng kim sa vương giả (`#E5C158`, `#FFF3D1`).
-- **Chi tiết sổ tay da cao cấp**: Nẹp góc sách chạm khắc hoa lá đồng thau đính đinh tán (`NotebookCornerGuard`), đường chỉ khâu gáy sổ tinh xảo (`NotebookBookbindingStitch`), dải ruy băng ngọc bích đánh dấu trang (`NotebookRibbonDivider`), và ruột sổ giấy ngọc ngà Nhật Bản mềm mại (`#FFFDF9`).
-- **Vầng hào quang chữ mạ vàng dập nổi**: Hiệu ứng đa tầng ánh sáng (`.text-gilded-gold-halo`) giả lập chữ đúc đồng thếp vàng sắc nét, nâng tầm trải nghiệm thị giác.
+### 5. Hệ Thống Mỹ Thuật Legal-Tech Sáng
+- Một hệ màu thống nhất: trắng, kem ấm, cam đất và vàng nhạt; không có chế độ nền tối.
+- Sans-serif dành cho giao diện và nội dung; serif chỉ nhấn ở tiêu đề lớn.
+- Thẻ trắng, viền nhẹ, khoảng thở rộng và trạng thái tương tác rõ ràng trên desktop lẫn mobile.
+- Nội dung bên trong slide thuyết trình giữ nguyên để bảo toàn thiết kế bài báo cáo.
 
 ---
 
@@ -92,6 +89,16 @@ npm run dev
 # 4. Đóng gói bản Production (Build)
 npm run build
 ```
+
+### Cấu hình Gemini và Supabase
+
+1. Tạo một Supabase project, bật **Anonymous Sign-Ins**, rồi chạy migration trong `supabase/migrations/`.
+2. Sao chép `.env.example` thành `.env.local` và điền các biến public cho môi trường local.
+3. Trên Vercel, khai báo `VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY`, `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `GEMINI_API_KEY` và `CRON_SECRET`.
+4. Vercel Cron gọi `/api/news-sync` mỗi ngày; endpoint chỉ chấp nhận `Authorization: Bearer $CRON_SECRET`.
+5. Dùng `vercel dev` hoặc `npm run dev:full` khi cần kiểm thử frontend và Vercel Functions; `npm run dev` chỉ chạy Vite frontend.
+
+Không đưa `SUPABASE_SERVICE_ROLE_KEY` hoặc `GEMINI_API_KEY` vào biến có tiền tố `VITE_`.
 
 ---
 

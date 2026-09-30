@@ -121,12 +121,12 @@ export function SupervisionTierSection() {
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-900 text-white text-xs space-y-2">
-                <div className="flex items-center gap-2 text-orange-400 font-bold uppercase tracking-wider">
+              <div className="p-4 rounded-xl bg-orange-50 text-[#49382E] border border-orange-200 text-xs space-y-2">
+                <div className="flex items-center gap-2 text-orange-700 font-bold uppercase tracking-wider">
                   <Database className="w-4 h-4" />
                   <span>Mục Tiêu Liên Thông 2026</span>
                 </div>
-                <p className="text-slate-300 leading-relaxed text-[0.78rem]">
+                <p className="text-[#665247] leading-relaxed text-[0.78rem]">
                   Tích hợp đồng bộ CSDL Quốc gia về dân cư với tài khoản chứng khoán, loại bỏ hoàn toàn các tài khoản "ma" mượn danh để thao túng.
                 </p>
               </div>

@@ -121,7 +121,7 @@ export function QrCodeModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm animate-fade-in font-serif"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#704A32]/20 backdrop-blur-md animate-fade-in font-serif"
       onClick={onClose}
       role="dialog"
       aria-modal="true"

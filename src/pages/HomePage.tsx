@@ -393,7 +393,7 @@ export function HomePage({ onOpenAi, onOpenViewer, onOpenTeamModal }: HomePagePr
                   <div className="relative z-10 pl-2">
                     <div className="bento-pillar-head mb-4">
                       <span className="bento-pillar-num text-2xl font-mono text-[#E5C158] font-bold drop-shadow-xs">{pillar.number}</span>
-                      <div className="bento-pillar-icon w-12 h-12 rounded-2xl bg-gradient-to-br from-[#070E1B] via-[#0E2145] to-[#162E5B] border border-[#E5C158]/50 text-[#E5C158] shadow-xs">{icons[index]}</div>
+                      <div className="bento-pillar-icon w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FFF7ED] via-[#FFE8D2] to-[#FFD7B5] border border-[#E8B68F] text-[#B83D16] shadow-xs">{icons[index]}</div>
                     </div>
                     <div className="mb-2">
                       {pillar.minimum && (
@@ -403,12 +403,12 @@ export function HomePage({ onOpenAi, onOpenViewer, onOpenTeamModal }: HomePagePr
                         <span className="tier advanced mr-2">Đột phá</span>
                       )}
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-bold mb-2 leading-snug text-[#070E1B] text-gilded-gold-halo">{pillar.title}</h3>
-                    <p className="text-sm sm:text-base text-[#162544] leading-relaxed mb-4">{pillar.description}</p>
+                    <h3 className="text-xl sm:text-2xl font-bold mb-2 leading-snug text-[#2D211B]">{pillar.title}</h3>
+                    <p className="text-sm sm:text-base text-[#5E4A3E] leading-relaxed mb-4">{pillar.description}</p>
                   </div>
                   <div className="bento-outcome-box mt-2 bg-[#FFFDF9]/95 border border-[#E5C158]/40 rounded-xl p-3 relative z-10 shadow-xs">
                     <CheckCircle2 className="w-5 h-5 shrink-0 text-[#E5C158]" />
-                    <span className="text-xs sm:text-sm text-[#0A1428]">
+                    <span className="text-xs sm:text-sm text-[#5E4A3E]">
                       <strong className="text-[#856417]">Bàn giao:</strong> {pillar.outcome}
                     </span>
                   </div>
@@ -420,7 +420,7 @@ export function HomePage({ onOpenAi, onOpenViewer, onOpenTeamModal }: HomePagePr
       </section>
 
       {/* 4. SECTION 2: ACADEMIC HUB — PRESENTATION SLIDES & FULL RESEARCH PAPER (~30 TRANG, 20.388 TỪ) */}
-      <section id="toan-van" className="py-14 bg-gradient-to-b from-[#FFFDF9] via-[#FAF2E8] to-[#FFF6EB] border-y border-[#0E2145]/20 relative overflow-hidden">
+      <section id="toan-van" className="py-14 bg-gradient-to-b from-[#FFFDF9] via-[#FAF2E8] to-[#FFF6EB] border-y border-[#E9C5A9] relative overflow-hidden">
         <BotanicalWatermark opacity={0.05} />
         <div className="site-shell relative z-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-8">
@@ -429,12 +429,12 @@ export function HomePage({ onOpenAi, onOpenViewer, onOpenTeamModal }: HomePagePr
                 <BookOpen className="w-3.5 h-3.5 text-[#E5C158]" />
                 Trung Tâm Báo Cáo Học Thuật &amp; Trình Chiếu
               </span>
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#070E1B] text-gilded-gold-halo text-artistic-halo mt-2 mb-2 tracking-tight">
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#2D211B] text-artistic-halo mt-2 mb-2 tracking-tight">
                 Slide Canva Thiết Kế Mới 2026 &amp; Toàn Văn Đề Tài 20.388 Từ
               </h2>
               <NotebookRibbonDivider title="Ấn Bản Toàn Văn & Slide Canva 2026" />
               <BotanicalHeaderCrest />
-              <p className="text-xs sm:text-sm text-[#162544] max-w-2xl mt-2 leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#5E4A3E] max-w-2xl mt-2 leading-relaxed">
                 Chuyển đổi tức thời giữa Bộ Slide thuyết trình Canva trực quan 16:9 HD mới cập nhật và Trình đọc văn bản toàn văn đề tài học thuật chính thức của Lớp 261LAW10A01.
               </p>
             </div>
@@ -449,8 +449,8 @@ export function HomePage({ onOpenAi, onOpenViewer, onOpenTeamModal }: HomePagePr
                 }}
                 className={`flex items-center gap-2 px-5 py-2.5 text-xs sm:text-sm font-bold rounded-xl transition cursor-pointer ${
                   researchViewMode === 'slides'
-                    ? 'bg-gradient-to-r from-[#070E1B] via-[#0E2145] to-[#162E5B] border border-[#E5C158]/50 text-white shadow-md'
-                    : 'text-[#162544] hover:bg-[#F5EDE0]'
+                    ? 'bg-gradient-to-r from-[#C2410C] via-[#E85D24] to-[#F0783A] border border-[#D9531E] text-white shadow-md'
+                    : 'text-[#5E4A3E] hover:bg-[#F5EDE0]'
                 }`}
               >
                 <Presentation className="w-4 h-4 text-[#E5C158]" />
@@ -464,8 +464,8 @@ export function HomePage({ onOpenAi, onOpenViewer, onOpenTeamModal }: HomePagePr
                 }}
                 className={`flex items-center gap-2 px-5 py-2.5 text-xs sm:text-sm font-bold rounded-xl transition cursor-pointer ${
                   researchViewMode === 'paper'
-                    ? 'bg-gradient-to-r from-[#070E1B] via-[#0E2145] to-[#162E5B] border border-[#E5C158]/50 text-white shadow-md'
-                    : 'text-[#162544] hover:bg-[#F5EDE0]'
+                    ? 'bg-gradient-to-r from-[#C2410C] via-[#E85D24] to-[#F0783A] border border-[#D9531E] text-white shadow-md'
+                    : 'text-[#5E4A3E] hover:bg-[#F5EDE0]'
                 }`}
               >
                 <FileText className="w-4 h-4 text-[#E5C158]" />

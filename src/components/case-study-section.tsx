@@ -133,20 +133,20 @@ export function CaseStudySection() {
         </div>
 
         {/* Comparison Callout: Chế tài hành chính vs Thiệt hại thực tế */}
-        <div className="mt-14 p-6 md:p-8 rounded-2xl bg-gradient-to-r from-orange-950 to-slate-900 text-white border border-orange-600/40">
+        <div className="mt-14 p-6 md:p-8 rounded-2xl bg-gradient-to-r from-orange-50 via-white to-amber-50 text-[#49382E] border border-orange-200 shadow-sm">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
-              <span className="text-xs uppercase tracking-widest text-orange-400 font-bold">Nghịch Lý Chế Tài Hiện Hành</span>
+              <span className="text-xs uppercase tracking-widest text-orange-700 font-bold">Nghịch Lý Chế Tài Hiện Hành</span>
               <h3 className="font-serif text-xl md:text-2xl font-bold mt-1 mb-2">
                 Mức Phạt Hành Chính Quá Thấp So Với Lợi Ích Trục Lợi
               </h3>
-              <p className="text-slate-300 text-xs md:text-sm max-w-2xl leading-relaxed">
+              <p className="text-[#665247] text-xs md:text-sm max-w-2xl leading-relaxed">
                 Nhiều doanh nghiệp sẵn sàng chịu phạt 92,5 triệu đồng hoặc vài trăm triệu đồng để chậm công bố tài chính hay phát hành trái phiếu không phép, vì lợi ích thu về lên tới hàng chục tỷ đồng. Đây chính là lỗ hổng thúc đẩy đề xuất nâng trần xử phạt và cấm tham gia thị trường có thời hạn.
               </p>
             </div>
-            <div className="flex-shrink-0 bg-orange-600/20 border border-orange-500/50 p-4 rounded-xl text-center min-w-[200px]">
-              <span className="text-3xl font-bold text-orange-400 font-serif">2.731+</span>
-              <span className="block text-[0.7rem] text-slate-300 mt-1 uppercase font-semibold">Quyết định xử phạt (2020-2025)</span>
+            <div className="flex-shrink-0 bg-white border border-orange-200 p-4 rounded-xl text-center min-w-[200px] shadow-xs">
+              <span className="text-3xl font-bold text-orange-700 font-serif">2.731+</span>
+              <span className="block text-[0.7rem] text-[#725E51] mt-1 uppercase font-semibold">Quyết định xử phạt (2020-2025)</span>
             </div>
           </div>
         </div>

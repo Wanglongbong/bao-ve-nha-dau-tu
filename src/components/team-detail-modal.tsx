@@ -120,7 +120,7 @@ export function TeamDetailModal({ isOpen, onClose, initialMemberSlug }: TeamDeta
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-black/60 backdrop-blur-md animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-[#704A32]/20 backdrop-blur-md animate-fadeIn"
       onClick={handleClose}
       aria-modal="true"
       role="dialog"
@@ -323,7 +323,7 @@ export function TeamDetailModal({ isOpen, onClose, initialMemberSlug }: TeamDeta
                         </div>
 
                         {/* Number Badge */}
-                        <div className="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-black/60 text-white font-mono text-[9px] font-bold">
+                        <div className="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-orange-600/90 text-white font-mono text-[9px] font-bold">
                           #{String(TEAM_MEMBERS.findIndex((m) => m.id === member.id) + 1).padStart(2, '0')}
                         </div>
 

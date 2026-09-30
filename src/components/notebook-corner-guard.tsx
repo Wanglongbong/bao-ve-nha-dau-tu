@@ -8,7 +8,7 @@ import React from 'react';
  * - Vàng Cổ Điển Champagne: #D4AF37
  * - Vàng Kim Tuyến Shimmer: #FFF3D1
  * - Đồng Thau Khắc Chìm: #856417
- * - Xanh Midnight Navy Viền: #0E2145
+ * - Cam đất viền: #C2410C
  */
 
 // 1. Góc bọc sổ kim loại mạ vàng (Vintage Brass Notebook Corner Guard)
@@ -17,14 +17,14 @@ export function NotebookCornerGuard({
   size = 68,
   goldColor = '#E5C158',
   brassDark = '#856417',
-  navyColor = '#0E2145',
+  accentColor = '#C2410C',
   position = 'top-left',
 }: {
   className?: string;
   size?: number;
   goldColor?: string;
   brassDark?: string;
-  navyColor?: string;
+  accentColor?: string;
   position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 }) {
   const getTransform = () => {
@@ -61,8 +61,8 @@ export function NotebookCornerGuard({
         </linearGradient>
 
         <linearGradient id="innerShieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#0B1B3D" stopOpacity="0.85" />
-          <stop offset="100%" stopColor="#162E5B" stopOpacity="0.4" />
+          <stop offset="0%" stopColor={accentColor} stopOpacity="0.82" />
+          <stop offset="100%" stopColor="#F59E5B" stopOpacity="0.42" />
         </linearGradient>
       </defs>
 
@@ -74,7 +74,7 @@ export function NotebookCornerGuard({
         strokeWidth="1.2"
       />
 
-      {/* Lớp đệm viền da chìm màu xanh Midnight Navy */}
+      {/* Lớp đệm viền cam đất sáng */}
       <path
         d="M7 7 H78 C72 20 64 30 54 40 C44 50 34 58 20 64 C14 66 9 72 7 78 Z"
         fill="url(#innerShieldGrad)"
@@ -178,15 +178,15 @@ export function NotebookRibbonDivider({
     <div className={`flex items-center justify-center gap-3 my-4 select-none pointer-events-none ${className}`} aria-hidden="true">
       <div className="h-[1.5px] flex-1 max-w-[140px] sm:max-w-[200px] bg-gradient-to-r from-transparent via-[#E5C158] to-[#D4AF37]" />
       
-      <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-[#0A1428] via-[#0E2145] to-[#0A1428] border border-[#E5C158]/60 shadow-sm">
+      <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-[#FFF7ED] via-[#FFE3C9] to-[#FFF7ED] border border-[#E8B68F] shadow-sm">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           {/* Huy hiệu ruy băng đánh dấu trang */}
           <path d="M5 3 H19 V19 L12 15 L5 19 V3 Z" fill="url(#brassGoldGrad)" stroke="#59420D" strokeWidth="0.8" />
-          <path d="M8 5 H16 V15 L12 12.5 L8 15 V5 Z" fill="#0E2145" />
+          <path d="M8 5 H16 V15 L12 12.5 L8 15 V5 Z" fill="#C2410C" />
           <circle cx="12" cy="8.5" r="1.8" fill="#E5C158" />
         </svg>
         {title && (
-          <span className="text-[11px] font-bold font-serif uppercase tracking-widest text-[#E5C158]">
+          <span className="text-[11px] font-bold font-serif uppercase tracking-widest text-[#9A3412]">
             {title}
           </span>
         )}
@@ -208,7 +208,7 @@ export function NotebookBookbindingStitch({
       className={`absolute left-0 top-0 bottom-0 w-2 pointer-events-none select-none overflow-hidden z-10 ${className}`}
       style={{
         borderRight: '1.5px dashed rgba(229, 193, 88, 0.45)',
-        background: 'linear-gradient(90deg, rgba(10, 20, 40, 0.3) 0%, transparent 100%)',
+        background: 'linear-gradient(90deg, rgba(194, 65, 12, 0.16) 0%, transparent 100%)',
       }}
       aria-hidden="true"
     />

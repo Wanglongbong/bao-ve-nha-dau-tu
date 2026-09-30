@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
+import React, { Suspense, lazy, useState } from 'react';
 import { RouterProvider, useRouter } from '@/router';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import { SelectionAssistant } from '@/components/selection-assistant';
-import { InvestorAiAssistant } from '@/components/investor-ai-assistant';
-import { TeamDetailModal } from '@/components/team-detail-modal';
-import { HomePage } from '@/pages/HomePage';
-import { TeamPage } from '@/pages/TeamPage';
-import { AiPlatformPage } from '@/pages/AiPlatformPage';
-import { NewsPage } from '@/pages/NewsPage';
-import { ForumPage } from '@/pages/ForumPage';
-import { WordDocumentPage } from '@/pages/WordDocumentPage';
 import { BackgroundMusic } from '@/components/background-music';
 import { soundFx } from '@/lib/audio-effects';
+
+const TeamPage = lazy(() => import('@/pages/TeamPage').then((module) => ({ default: module.TeamPage })));
+const HomePage = lazy(() => import('@/pages/HomePage').then((module) => ({ default: module.HomePage })));
+const AiPlatformPage = lazy(() => import('@/pages/AiPlatformPage').then((module) => ({ default: module.AiPlatformPage })));
+const NewsPage = lazy(() => import('@/pages/NewsPage').then((module) => ({ default: module.NewsPage })));
+const ForumPage = lazy(() => import('@/pages/ForumPage').then((module) => ({ default: module.ForumPage })));
+const WordDocumentPage = lazy(() => import('@/pages/WordDocumentPage').then((module) => ({ default: module.WordDocumentPage })));
+const InvestorAiAssistant = lazy(() => import('@/components/investor-ai-assistant').then((module) => ({ default: module.InvestorAiAssistant })));
+const TeamDetailModal = lazy(() => import('@/components/team-detail-modal').then((module) => ({ default: module.TeamDetailModal })));
 
 function AppContent() {
   const { pathname } = useRouter();
@@ -65,7 +66,7 @@ function AppContent() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FFFBF7] text-[#0A131E] relative">
+    <div className="min-h-screen flex flex-col bg-[#FFFBF7] text-[#2D211B] relative">
       {/* Main Navigation Header */}
       <SiteHeader
         onOpenAi={handleOpenAi}
@@ -74,7 +75,9 @@ function AppContent() {
 
       {/* Dynamic Page Content */}
       <div id="main-content" className="flex-1">
-        {renderPage()}
+        <Suspense fallback={<div className="site-shell py-20 text-center text-orange-800">Đang mở nội dung…</div>}>
+          {renderPage()}
+        </Suspense>
       </div>
 
       {/* Footer */}
@@ -86,17 +89,18 @@ function AppContent() {
       />
 
       {/* Interactive AI Legal Assistant Modal */}
-      <InvestorAiAssistant
-        isOpen={isAiOpen}
-        onClose={() => setIsAiOpen(false)}
-      />
+      {isAiOpen && (
+        <Suspense fallback={null}>
+          <InvestorAiAssistant isOpen={isAiOpen} onClose={() => setIsAiOpen(false)} />
+        </Suspense>
+      )}
 
       {/* Interactive Team Detail Modal */}
-      <TeamDetailModal
-        isOpen={isTeamModalOpen}
-        onClose={() => setIsTeamModalOpen(false)}
-        initialMemberSlug={selectedMemberSlug}
-      />
+      {isTeamModalOpen && (
+        <Suspense fallback={null}>
+          <TeamDetailModal isOpen={isTeamModalOpen} onClose={() => setIsTeamModalOpen(false)} initialMemberSlug={selectedMemberSlug} />
+        </Suspense>
+      )}
 
       {/* Royal Background Music Player (Life in Motion) */}
       <BackgroundMusic />

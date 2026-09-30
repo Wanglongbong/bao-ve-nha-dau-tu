@@ -82,9 +82,9 @@ export function SiteFooter() {
             </div>
 
             {/* Col 4: Interactive QR Code in Luxury Card */}
-            <div className="footer-qr-pod md:col-span-2 flex flex-col items-center text-center bg-gradient-to-br from-[#070E1B] via-[#0E2145] to-[#162E5B] p-4 rounded-3xl border border-[#E5C158]/60 shadow-xl shadow-[#070E1B]/35 text-white">
-              <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#FFF3D1] mb-2.5 flex items-center gap-1.5">
-                <QrIcon className="w-4 h-4 text-[#E5C158]" /> Quét Mã QR Website
+            <div className="footer-qr-pod md:col-span-2 flex flex-col items-center text-center bg-gradient-to-br from-white via-[#FFF7ED] to-[#FFE8D2] p-4 rounded-3xl border border-[#E7B995] shadow-xl shadow-orange-950/10 text-[#3D2E24]">
+              <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#9A3412] mb-2.5 flex items-center gap-1.5">
+                <QrIcon className="w-4 h-4 text-[#EA580C]" /> Quét Mã QR Website
               </h4>
               
               <div 
@@ -93,16 +93,16 @@ export function SiteFooter() {
                 title="Bấm để phóng to mã QR"
               >
                 <QrCodeImage size={105} />
-                <div className="absolute inset-0 bg-[#0E2145]/15 group-hover:bg-[#0E2145]/25 rounded-2xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <span className="px-2.5 py-1 rounded-lg bg-[#070E1B] text-[#E5C158] border border-[#E5C158] text-[10px] font-bold shadow-sm flex items-center gap-1">
+                <div className="absolute inset-0 bg-orange-100/50 group-hover:bg-orange-100/75 rounded-2xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="px-2.5 py-1 rounded-lg bg-white text-[#9A3412] border border-orange-300 text-[10px] font-bold shadow-sm flex items-center gap-1">
                     <Maximize2 className="w-3 h-3" /> Phóng to
                   </span>
                 </div>
               </div>
-              <span className="text-[11px] text-[#FAF7F2] font-bold mt-2 leading-tight">
+              <span className="text-[11px] text-[#49382E] font-bold mt-2 leading-tight">
                 Mở trên điện thoại di động
               </span>
-              <span className="text-[10px] text-[#E5C158]/90 italic mt-0.5">
+              <span className="text-[10px] text-[#A43A18] italic mt-0.5">
                 (Click vào mã QR để phóng to)
               </span>
             </div>
@@ -111,13 +111,13 @@ export function SiteFooter() {
       </footer>
 
       {/* Dedicated Bottom Bar */}
-      <div className="site-bottom-bar bg-gradient-to-r from-[#040810] via-[#070E1B] to-[#0E2145] text-[#FAF7F2] py-4.5 border-t border-[#E5C158]/40 relative z-20 shadow-2xl">
+      <div className="site-bottom-bar bg-gradient-to-r from-[#FFF1E5] via-[#FFF8F2] to-[#FFE7D2] text-[#49382E] py-4.5 border-t border-[#E9C5A9] relative z-20 shadow-inner">
         <div className="site-shell flex flex-col sm:flex-row items-center justify-between text-xs font-serif gap-2.5">
-          <p className="m-0 font-medium tracking-wide text-[#FAF7F2]/90">
-            © 2026 Nhóm Nghiên Cứu 2 — Lớp học phần <span className="font-bold text-[#E5C158]">261LAW10A01</span>, Khoa Luật, Học viện Ngân hàng.
+          <p className="m-0 font-medium tracking-wide text-[#5A4638]">
+            © 2026 Nhóm Nghiên Cứu 2 — Lớp học phần <span className="font-bold text-[#A43A18]">261LAW10A01</span>, Khoa Luật, Học viện Ngân hàng.
           </p>
-          <div className="flex items-center gap-2 font-bold text-[#E5C158]">
-            <span className="w-2 h-2 rounded-full bg-[#E5C158] animate-pulse"></span>
+          <div className="flex items-center gap-2 font-bold text-[#A43A18]">
+            <span className="w-2 h-2 rounded-full bg-[#E85D24] animate-pulse"></span>
             <span>Hệ thống Pháp lý: Minh bạch • Công bằng • Bảo vệ Nhà đầu tư</span>
           </div>
         </div>

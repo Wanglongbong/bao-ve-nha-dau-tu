@@ -115,30 +115,30 @@ export function DocumentPresentation() {
   return (
     <div className="document-presentation-container py-12">
       {/* Institutional Header Banner */}
-      <div className="bg-gradient-to-r from-[#2B170B] via-[#4A2610] to-[#2B170B] text-white p-6 sm:p-10 rounded-3xl shadow-xl mb-8 border border-amber-500/30 relative overflow-hidden">
+      <div className="bg-gradient-to-r from-[#FFF1E5] via-[#FFF9F3] to-[#FFE8D2] text-[#49382E] p-6 sm:p-10 rounded-3xl shadow-xl mb-8 border border-orange-200 relative overflow-hidden">
         <div className="absolute right-0 top-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative z-10 max-w-4xl">
           <div className="flex flex-wrap items-center gap-2 mb-3">
-            <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-bold uppercase tracking-wider">
+            <span className="px-3 py-1 rounded-full bg-white text-orange-800 border border-orange-200 text-xs font-bold uppercase tracking-wider">
               {paperData.institution}
             </span>
-            <span className="px-3 py-1 rounded-full bg-orange-500/20 text-orange-200 border border-orange-500/30 text-xs font-bold">
+            <span className="px-3 py-1 rounded-full bg-white text-orange-800 border border-orange-200 text-xs font-bold">
               Lớp: {paperData.courseCode} · {paperData.group}
             </span>
-            <span className="px-3 py-1 rounded-full bg-white/10 text-white/90 text-xs font-medium">
+            <span className="px-3 py-1 rounded-full bg-white text-[#5A4638] border border-orange-100 text-xs font-medium">
               GVHD: {paperData.instructor}
             </span>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl font-serif font-bold text-amber-100 tracking-tight leading-tight mt-2">
+          <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#2D211B] tracking-tight leading-tight mt-2">
             {paperData.title}
           </h2>
-          <p className="text-amber-200/80 text-sm sm:text-base mt-3 leading-relaxed">
+          <p className="text-[#665247] text-sm sm:text-base mt-3 leading-relaxed">
             Văn bản hoàn chỉnh toàn văn ~30 trang chuẩn học thuật pháp lý Học viện Ngân hàng.
             Tích hợp đầy đủ 4 Chương, Phần Mở đầu, Kết luận và danh mục tra cứu 2.731 quyết định xử phạt thực chứng.
           </p>
 
-          <div className="flex flex-wrap items-center gap-3 mt-6 pt-6 border-t border-amber-500/20">
+          <div className="flex flex-wrap items-center gap-3 mt-6 pt-6 border-t border-orange-200">
             <button
               onClick={handleCopyCitation}
               className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-amber-500 text-amber-950 hover:bg-amber-400 transition-all cursor-pointer shadow-md"
@@ -146,7 +146,7 @@ export function DocumentPresentation() {
               {copied ? <Check className="w-4 h-4 text-emerald-800" /> : <Copy className="w-4 h-4" />}
               {copied ? 'Đã sao chép trích dẫn chuẩn APA' : 'Sao chép trích dẫn học thuật'}
             </button>
-            <div className="text-xs text-amber-300/80 italic">
+            <div className="text-xs text-orange-800 italic">
               * Dẫn nguồn: Khoa Luật — Học viện Ngân hàng (2026)
             </div>
           </div>

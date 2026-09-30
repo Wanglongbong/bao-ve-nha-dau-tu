@@ -1,5 +1,5 @@
-// Client-side Google Gemini API integration for Securities Law & Investor Protection
-// Adheres to gemini-api-dev standards: uses gemini-flash-latest / gemini-2.5-flash
+// Shared legal templates plus the secure server-side Gemini gateway.
+import { callAiTask } from '@/lib/ai-client';
 
 export interface GeminiResponse {
   ok: boolean;
@@ -9,98 +9,20 @@ export interface GeminiResponse {
   latencyMs?: number;
 }
 
-export const GEMINI_STORAGE_KEY = 'ck_custom_gemini_key';
-
-export function getCustomApiKey(): string {
-  if (typeof window === 'undefined') return '';
-  return localStorage.getItem(GEMINI_STORAGE_KEY) || (import.meta.env.VITE_GEMINI_API_KEY as string) || '';
-}
-
-export function saveCustomApiKey(key: string): void {
-  if (typeof window === 'undefined') return;
-  if (!key || key.trim() === '') {
-    localStorage.removeItem(GEMINI_STORAGE_KEY);
-  } else {
-    localStorage.setItem(GEMINI_STORAGE_KEY, key.trim());
-  }
-}
-
-const DEFAULT_MODEL = 'gemini-2.5-flash';
-
 export async function callGeminiApi(
   systemInstruction: string,
   userPrompt: string,
-  model = DEFAULT_MODEL
+  _model = 'gemini-3.8-flash'
 ): Promise<GeminiResponse> {
-  const apiKey = getCustomApiKey();
   const startTime = Date.now();
-
-  if (!apiKey || apiKey.length < 8) {
-    return {
-      ok: false,
-      content: '',
-      modelUsed: model,
-      error: 'NO_API_KEY',
-      latencyMs: Date.now() - startTime,
-    };
-  }
-
-  const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
-
-  try {
-    const payload = {
-      contents: [
-        {
-          role: 'user',
-          parts: [{ text: `${systemInstruction}\n\n[YÊU CẦU NGƯỜI DÙNG]:\n${userPrompt}` }],
-        },
-      ],
-      generationConfig: {
-        temperature: 0.3,
-        maxOutputTokens: 2500,
-        topP: 0.95,
-      },
-    };
-
-    const res = await fetch(endpoint, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(payload),
-    });
-
-    const data = await res.json();
-    const latency = Date.now() - startTime;
-
-    if (!res.ok) {
-      const errMsg = data.error?.message || `Lỗi API (${res.status})`;
-      return {
-        ok: false,
-        content: '',
-        modelUsed: model,
-        error: errMsg,
-        latencyMs: latency,
-      };
-    }
-
-    const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
-    return {
-      ok: true,
-      content: reply,
-      modelUsed: model,
-      latencyMs: latency,
-    };
-  } catch (err: unknown) {
-    const message = err instanceof Error ? err.message : 'Lỗi kết nối mạng';
-    return {
-      ok: false,
-      content: '',
-      modelUsed: model,
-      error: message,
-      latencyMs: Date.now() - startTime,
-    };
-  }
+  const result = await callAiTask({ task: 'chat', input: `${systemInstruction}\n\n${userPrompt}` });
+  return {
+    ok: result.ok,
+    content: result.content || '',
+    modelUsed: result.model,
+    error: result.error?.message,
+    latencyMs: result.latencyMs || Date.now() - startTime,
+  };
 }
 
 // -------------------------------------------------------------
@@ -331,7 +253,7 @@ Trong mọi trường hợp nghẽn mạng internet, lỗi đường truyền t�
 };
 
 // -------------------------------------------------------------
-// NEWS ARTICLE AI Q&A ASSISTANT (Gemini 2.5 Flash + Fallback)
+// NEWS ARTICLE AI Q&A ASSISTANT (Gemini 3.8 Flash + clearly labelled fallback)
 // -------------------------------------------------------------
 
 export function generateNewsArticleFallbackAnswer(
@@ -420,14 +342,20 @@ Luôn đưa ra lời khuyên thực tế để bảo vệ quyền và lợi ích
 ${userQuestion}`;
 
   try {
-    const res = await callGeminiApi(systemPrompt, userPrompt);
+    const res = await callAiTask({
+      task: 'article_qa',
+      input: userQuestion,
+      context: { title: articleTitle, summary: articleSummary, legalReference: legalRef },
+    });
     if (res.ok && res.content && res.content.trim().length > 20) {
-      return res.content;
+      const sourceBlock = res.sources?.length
+        ? `\n\nNguồn tham khảo:\n${res.sources.map((source) => `- ${source.title}: ${source.url}`).join('\n')}`
+        : '';
+      return `${res.content}${sourceBlock}`;
     }
   } catch (e) {
     console.warn('Gemini API call failed, falling back to local legal reasoning engine', e);
   }
 
-  return generateNewsArticleFallbackAnswer(articleTitle, legalRef, userQuestion);
+  return `MẪU PHÂN TÍCH NGOẠI TUYẾN — Gemini 3.8 chưa kết nối. Nội dung sau chỉ để minh họa, cần kiểm chứng trước khi sử dụng.\n\n${generateNewsArticleFallbackAnswer(articleTitle, legalRef, userQuestion)}`;
 }
-

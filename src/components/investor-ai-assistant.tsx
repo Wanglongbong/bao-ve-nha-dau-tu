@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { X, Sparkles, Send, ShieldAlert, Scale, HelpCircle, Bot, User } from 'lucide-react';
+import { X, Sparkles, Send, Bot, User, Loader2 } from 'lucide-react';
 import { soundFx } from '@/lib/audio-effects';
+import { callAiTask } from '@/lib/ai-client';
 
 interface InvestorAiAssistantProps {
   isOpen: boolean;
@@ -55,6 +56,7 @@ export function InvestorAiAssistant({ isOpen, onClose }: InvestorAiAssistantProp
     },
   ]);
   const [inputVal, setInputVal] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
@@ -64,24 +66,37 @@ export function InvestorAiAssistant({ isOpen, onClose }: InvestorAiAssistantProp
 
   if (!isOpen) return null;
 
-  const handleSend = (textToSend?: string) => {
+  const handleSend = async (textToSend?: string) => {
     const q = (textToSend || inputVal).trim();
-    if (!q) return;
+    if (!q || isLoading) return;
 
     soundFx.playTap();
     const userMsg: Message = { id: Date.now().toString(), sender: 'user', text: q };
     setMessages((prev) => [...prev, userMsg]);
     if (!textToSend) setInputVal('');
 
-    setTimeout(() => {
-      let reply = PREDEFINED_ANSWERS[q];
-      if (!reply) {
-        reply = `Cảm ơn câu hỏi của bạn về: "${q}". Theo quy định của Luật Chứng khoán 2019 (sửa đổi 2024) và các Nghị định hướng dẫn, quyền lợi của nhà đầu tư cá nhân luôn được pháp luật tôn trọng và bảo vệ theo nguyên tắc công bằng, công khai, minh bạch. Mọi hành vi bưng bít thông tin, phát hành trái phép hay thông đồng thao túng giá đều phải chịu chế tài nghiêm khắc. Để được giải quyết quyền lợi bồi hoàn, bạn nên bảo lưu toàn bộ sao kê lệnh giao dịch và gửi đơn khiếu nại lên UBCKNN.`;
-      }
-      soundFx.playTap();
-      const aiMsg: Message = { id: (Date.now() + 1).toString(), sender: 'ai', text: reply };
-      setMessages((prev) => [...prev, aiMsg]);
-    }, 450);
+    setIsLoading(true);
+    const result = await callAiTask({
+      task: 'chat',
+      input: q,
+      conversation: messages.slice(-8).map((message) => ({
+        role: message.sender === 'user' ? 'user' : 'assistant',
+        text: message.text,
+      })),
+    });
+
+    const sourceText = result.sources?.length
+      ? `\n\nNguồn tham khảo:\n${result.sources.map((source) => `• ${source.title}: ${source.url}`).join('\n')}`
+      : '';
+    const reply = result.ok && result.content
+      ? `${result.content}${sourceText}`
+      : PREDEFINED_ANSWERS[q]
+        ? `MẪU NGOẠI TUYẾN — Gemini 3.8 chưa kết nối:\n\n${PREDEFINED_ANSWERS[q]}`
+        : `Không thể kết nối Gemini 3.8 lúc này: ${result.error?.message || 'Lỗi không xác định'}. Nội dung AI chỉ mang tính tham khảo nghiên cứu và không thay thế tư vấn của luật sư.`;
+
+    soundFx.playTap();
+    setMessages((prev) => [...prev, { id: crypto.randomUUID(), sender: 'ai', text: reply }]);
+    setIsLoading(false);
   };
 
   const handleClose = () => {
@@ -90,7 +105,7 @@ export function InvestorAiAssistant({ isOpen, onClose }: InvestorAiAssistantProp
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fadeIn">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#704A32]/20 backdrop-blur-md animate-fadeIn">
       <div className="bg-white rounded-2xl border border-orange-300 shadow-2xl w-full max-w-2xl overflow-hidden flex flex-col h-[600px] max-h-[90vh]">
         {/* Header */}
         <div className="bg-gradient-to-r from-orange-600 via-orange-500 to-amber-600 p-4 text-white flex items-center justify-between">
@@ -141,6 +156,11 @@ export function InvestorAiAssistant({ isOpen, onClose }: InvestorAiAssistantProp
               )}
             </div>
           ))}
+          {isLoading && (
+            <div className="flex items-center gap-2 text-xs text-orange-700">
+              <Loader2 className="w-4 h-4 animate-spin" /> Gemini 3.8 đang kiểm tra nguồn và soạn câu trả lời…
+            </div>
+          )}
         </div>
 
         {/* Quick Prompts */}
@@ -167,10 +187,12 @@ export function InvestorAiAssistant({ isOpen, onClose }: InvestorAiAssistantProp
             value={inputVal}
             onChange={(e) => setInputVal(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+            disabled={isLoading}
             className="flex-1 px-4 py-2 text-xs md:text-sm bg-orange-50/30 border border-orange-200 rounded-xl focus:outline-none focus:border-orange-500 focus:bg-white"
           />
           <button
             onClick={() => handleSend()}
+            disabled={isLoading}
             className="w-10 h-10 rounded-xl bg-orange-600 hover:bg-orange-700 text-white flex items-center justify-center transition-colors flex-shrink-0"
           >
             <Send className="w-4 h-4" />

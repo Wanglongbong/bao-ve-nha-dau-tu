@@ -138,7 +138,7 @@ export function TeamWorkspaceSection({ onOpenDetailModal, onNavigateToTeamPage }
                     </div>
 
                     {/* Member Number Badge */}
-                    <div className="absolute top-2.5 left-2.5 px-2 py-0.5 rounded bg-black/65 backdrop-blur-xs text-white font-mono text-[10px] font-bold shadow-xs">
+                    <div className="absolute top-2.5 left-2.5 px-2 py-0.5 rounded bg-orange-600/90 backdrop-blur-xs text-white font-mono text-[10px] font-bold shadow-xs">
                       #{String(index + 1).padStart(2, '0')}
                     </div>
 

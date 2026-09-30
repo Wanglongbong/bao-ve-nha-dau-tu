@@ -5,7 +5,6 @@ import {
   GitCompare,
   ShieldAlert,
   MessageSquare,
-  Key,
   Copy,
   Check,
   Download,
@@ -18,22 +17,18 @@ import {
   ChevronRight,
   ExternalLink,
 } from 'lucide-react';
-import { AiConfigModal } from '@/components/ai-config-modal';
 import {
-  callGeminiApi,
-  getCustomApiKey,
   CONTRACT_PRESETS,
   CONTRACT_DIFF_SAMPLE,
   RISK_REVIEW_SAMPLE,
 } from '@/lib/gemini-client';
+import { callAiTask, type ContractDifference, type RiskAuditResult } from '@/lib/ai-client';
 import { soundFx } from '@/lib/audio-effects';
 
 type PlatformTab = 'generator' | 'compare' | 'audit' | 'chat';
 
 export function AiPlatformPage() {
   const [activeTab, setActiveTab] = useState<PlatformTab>('generator');
-  const [isConfigOpen, setIsConfigOpen] = useState(false);
-  const [hasApiKey, setHasApiKey] = useState(() => !!getCustomApiKey());
 
   // Generator State
   const [selectedPreset, setSelectedPreset] = useState<string>('margin');
@@ -41,7 +36,7 @@ export function AiPlatformPage() {
     ...CONTRACT_PRESETS.margin.defaultFields,
   });
   const [generatedDoc, setGeneratedDoc] = useState<string>(() =>
-    CONTRACT_PRESETS.margin.generate(CONTRACT_PRESETS.margin.defaultFields)
+    `MẪU THAM KHẢO NGOẠI TUYẾN — bấm “Tạo văn bản” để dùng Gemini 3.8\n\n${CONTRACT_PRESETS.margin.generate(CONTRACT_PRESETS.margin.defaultFields)}`
   );
   const [isGenerating, setIsGenerating] = useState(false);
   const [copiedDoc, setCopiedDoc] = useState(false);
@@ -50,6 +45,7 @@ export function AiPlatformPage() {
   const [v1Text, setV1Text] = useState(CONTRACT_DIFF_SAMPLE.v1Content);
   const [v2Text, setV2Text] = useState(CONTRACT_DIFF_SAMPLE.v2Content);
   const [compareAnalysis, setCompareAnalysis] = useState<string | null>(null);
+  const [compareDifferences, setCompareDifferences] = useState<ContractDifference[]>(CONTRACT_DIFF_SAMPLE.differences);
   const [isComparing, setIsComparing] = useState(false);
 
   // Audit State
@@ -84,7 +80,7 @@ export function AiPlatformPage() {
     const preset = CONTRACT_PRESETS[key];
     if (preset) {
       setFormData(preset.defaultFields);
-      setGeneratedDoc(preset.generate(preset.defaultFields));
+      setGeneratedDoc(`MẪU THAM KHẢO NGOẠI TUYẾN — bấm “Tạo văn bản” để dùng Gemini 3.8\n\n${preset.generate(preset.defaultFields)}`);
     }
   };
 
@@ -93,32 +89,43 @@ export function AiPlatformPage() {
     setIsGenerating(true);
     const preset = CONTRACT_PRESETS[selectedPreset];
 
-    if (!hasApiKey) {
-      // Deterministic fallback
-      setTimeout(() => {
-        setGeneratedDoc(preset.generate(formData));
-        setIsGenerating(false);
-      }, 500);
-      return;
-    }
-
     const prompt = `Soạn thảo hoàn chỉnh văn bản pháp lý "${preset.title}" với các thông số sau:\n${JSON.stringify(
       formData,
       null,
       2
     )}\nVăn bản phải tuân thủ nghiêm ngặt Luật Chứng khoán Việt Nam 2024, Nghị định 245/2025/NĐ-CP, bảo vệ quyền lợi hợp pháp của Nhà đầu tư cá nhân và bảo đảm đầy đủ căn cứ pháp lý.`;
 
-    const res = await callGeminiApi(
-      'Bạn là chuyên gia pháp lý chứng khoán hàng đầu Việt Nam.',
-      prompt
-    );
+    const res = await callAiTask({
+      task: 'contract_draft',
+      input: prompt,
+      context: { documentType: preset.title, fields: formData },
+    });
 
     if (res.ok && res.content) {
       setGeneratedDoc(res.content);
     } else {
-      setGeneratedDoc(preset.generate(formData));
+      setGeneratedDoc(`MẪU NGOẠI TUYẾN — Gemini 3.8 chưa kết nối\n\n${preset.generate(formData)}`);
     }
     setIsGenerating(false);
+  };
+
+  const handleCompareContracts = async () => {
+    if (!v1Text.trim() || !v2Text.trim()) return;
+    setIsComparing(true);
+    setCompareAnalysis(null);
+    const res = await callAiTask<{ summary: string; differences: ContractDifference[] }>({
+      task: 'contract_compare',
+      input: 'So sánh hai phiên bản và chỉ ra các thay đổi ảnh hưởng trực tiếp đến nhà đầu tư cá nhân.',
+      context: { versionA: v1Text, versionB: v2Text },
+    });
+    if (res.ok && res.structured) {
+      setCompareAnalysis(res.structured.summary);
+      setCompareDifferences(res.structured.differences);
+    } else {
+      setCompareAnalysis(`Gemini 3.8 chưa kết nối: ${res.error?.message || 'Không nhận được kết quả.'}`);
+      setCompareDifferences(CONTRACT_DIFF_SAMPLE.differences);
+    }
+    setIsComparing(false);
   };
 
   const handleCopyDoc = () => {
@@ -143,36 +150,18 @@ export function AiPlatformPage() {
     soundFx.playChime();
     setIsAuditing(true);
 
-    if (!hasApiKey) {
-      setTimeout(() => {
-        setAuditResult(RISK_REVIEW_SAMPLE.auditResult);
-        setIsAuditing(false);
-      }, 600);
-      return;
-    }
-
     const prompt = `Rà soát bẫy pháp lý và chấm điểm bảo vệ nhà đầu tư cho điều khoản hợp đồng chứng khoán sau:\n"${auditInput}"\nĐối chiếu với Luật Chứng khoán 2024, Nghị định 245/2025/NĐ-CP và Bộ luật Dân sự 2015. Nêu rõ các lỗi vi phạm và khuyến nghị sửa đổi.`;
 
-    const res = await callGeminiApi(
-      'Bạn là chuyên viên kiểm toán pháp lý hợp đồng chứng khoán.',
-      prompt
-    );
+    const res = await callAiTask<RiskAuditResult>({ task: 'risk_audit', input: prompt });
 
-    if (res.ok && res.content) {
-      setAuditResult({
-        score: 30,
-        level: 'RỦI RO PHÁP LÝ CAO (PHÁT HIỆN TỪ GEMINI AI)',
-        summary: res.content.slice(0, 250) + '...',
-        violations: [
-          {
-            law: 'Phân tích trực tiếp từ Gemini API 2.5 Flash',
-            desc: res.content,
-          },
-        ],
-        recommendation: 'Tham khảo ý kiến luật sư và chỉnh sửa điều khoản loại trừ trách nhiệm.',
-      });
+    if (res.ok && res.structured) {
+      setAuditResult(res.structured);
     } else {
-      setAuditResult(RISK_REVIEW_SAMPLE.auditResult);
+      setAuditResult({
+        ...RISK_REVIEW_SAMPLE.auditResult,
+        level: 'MẪU NGOẠI TUYẾN — GEMINI 3.8 CHƯA KẾT NỐI',
+        summary: `${res.error?.message || 'Không thể kết nối dịch vụ AI.'} ${RISK_REVIEW_SAMPLE.auditResult.summary}`,
+      });
     }
     setIsAuditing(false);
   };
@@ -192,41 +181,20 @@ export function AiPlatformPage() {
     if (!questionText) setChatInput('');
     setIsChatting(true);
 
-    if (!hasApiKey) {
-      setTimeout(() => {
-        let reply = '';
-        if (textToSend.includes('giải chấp') || textToSend.includes('margin')) {
-          reply = 'Theo Luật Chứng khoán 2024 và Quy chế giao dịch ký quỹ của UBCKNN, CTCK có nghĩa vụ thông báo Call Margin tối thiểu trước 01 ngày làm việc (T+1) và chỉ được giải chấp đúng số lượng để hồi phục tỷ lệ an toàn. Việc CTCK bán tháo toàn bộ danh mục mà không gửi thông báo hợp lệ cấu thành hành vi vi phạm hợp đồng và có thể bị khiếu nại lên UBCKNN để đòi bồi thường chênh lệch giá.';
-        } else if (textToSend.includes('thao túng') || textToSend.includes('bồi thường')) {
-          reply = 'Để đòi bồi thường trong các vụ án thao túng giá chứng khoán (như FLC, Louis Holdings), Nhà đầu tư cần: 1) Sao kê lịch sử lệnh khớp trong giai đoạn thao túng được Tòa án xác định; 2) Đăng ký tư cách Người có quyền lợi nghĩa vụ liên quan / Bị hại tại Tòa; 3) Yêu cầu trích xuất bồi thường từ tài sản kê biên của các bị cáo theo Điều 211 BLHS và nguyên tắc bồi thường thiệt hại ngoài hợp đồng (Điều 584 BLDS).';
-        } else {
-          reply = 'Hệ thống pháp luật chứng khoán Việt Nam hiện nay ưu tiên bảo vệ nhà đầu tư qua 3 tầng: Tầng 1 là nghĩa vụ minh bạch thông tin của tổ chức phát hành; Tầng 2 là trách nhiệm giám sát và tách bạch tài khoản của CTCK; Tầng 3 là thẩm quyền thanh tra, xử phạt và chuyển giao hình sự của UBCKNN kết hợp Tòa án nhân dân.';
-        }
-
-        setChatMessages((prev) => [
-          ...prev,
-          {
-            role: 'assistant',
-            text: reply,
-            time: new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }),
-          },
-        ]);
-        setIsChatting(false);
-        soundFx.playChime();
-      }, 700);
-      return;
-    }
-
-    const res = await callGeminiApi(
-      'Bạn là trợ lý pháp lý chuyên gia về Luật Chứng khoán Việt Nam, bảo vệ quyền lợi của nhà đầu tư cá nhân.',
-      textToSend
-    );
+    const res = await callAiTask({
+      task: 'chat',
+      input: textToSend,
+      conversation: chatMessages.slice(-8).map((message) => ({ role: message.role, text: message.text })),
+    });
+    const sourceText = res.sources?.length
+      ? `\n\nNguồn tham khảo:\n${res.sources.map((source) => `• ${source.title}: ${source.url}`).join('\n')}`
+      : '';
 
     setChatMessages((prev) => [
       ...prev,
       {
         role: 'assistant',
-        text: res.ok && res.content ? res.content : 'Xin lỗi, không thể kết nối tới Gemini API. Vui lòng kiểm tra lại API Key hoặc đường truyền mạng.',
+        text: res.ok && res.content ? `${res.content}${sourceText}` : `Gemini 3.8 chưa kết nối: ${res.error?.message || 'Vui lòng thử lại.'}`,
         time: new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }),
       },
     ]);
@@ -254,21 +222,13 @@ export function AiPlatformPage() {
                 Cổng AI Pháp Lý Bảo Vệ Nhà Đầu Tư
               </h1>
               <p className="text-base sm:text-lg text-[#5A2C0D] max-w-3xl leading-relaxed">
-                Tích hợp mô hình <strong>Google Gemini 2.5 Flash</strong> hỗ trợ NĐT cá nhân soạn thảo hợp đồng, so sánh điều khoản bất lợi, phát hiện bẫy pháp lý và hỏi đáp chuyên sâu 24/7 đối chiếu Luật Chứng khoán 2024.
+                Tích hợp <strong>Google Gemini 3.8 Flash</strong> qua máy chủ bảo mật để soạn thảo, so sánh điều khoản, phát hiện rủi ro và hỏi đáp có nguồn tham khảo.
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0">
-              <button
-                onClick={() => {
-                  soundFx.playTap();
-                  setIsConfigOpen(true);
-                }}
-                className="px-5 py-3 rounded-2xl bg-white hover:bg-orange-50 border-2 border-orange-400 text-orange-900 font-bold text-sm shadow-md hover:shadow-lg flex items-center justify-center gap-2 transition"
-              >
-                <Key className="w-4 h-4 text-orange-600" />
-                <span>{hasApiKey ? 'Đã Cấu Hình Gemini' : 'Cấu Hình API Key'}</span>
-              </button>
+            <div className="px-4 py-3 rounded-2xl bg-white/90 border border-orange-300 text-orange-900 text-xs font-bold shadow-sm shrink-0">
+              <ShieldCheck className="w-4 h-4 text-emerald-600 inline mr-2" />
+              API key được bảo vệ phía máy chủ
             </div>
           </div>
 
@@ -533,6 +493,21 @@ export function AiPlatformPage() {
               </div>
             </div>
 
+            <button
+              onClick={handleCompareContracts}
+              disabled={isComparing}
+              className="w-full py-3.5 rounded-2xl bg-orange-600 hover:bg-orange-700 text-white font-bold text-sm uppercase tracking-wider shadow-md flex items-center justify-center gap-2 transition disabled:opacity-50"
+            >
+              {isComparing ? <RefreshCw className="w-4 h-4 animate-spin" /> : <GitCompare className="w-4 h-4" />}
+              {isComparing ? 'Gemini 3.8 đang đối chiếu…' : 'So sánh hai phiên bản bằng AI'}
+            </button>
+
+            {compareAnalysis && (
+              <p className="p-4 rounded-2xl bg-orange-50 border border-orange-200 text-sm leading-relaxed text-[#5A2C0D]">
+                {compareAnalysis}
+              </p>
+            )}
+
             {/* Differences Table */}
             <div className="bg-white border-2 border-orange-200 rounded-3xl p-6 sm:p-8 shadow-sm">
               <h3 className="text-xl font-bold text-[#2A1305] mb-4 flex items-center gap-2">
@@ -550,7 +525,7 @@ export function AiPlatformPage() {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-orange-100">
-                    {CONTRACT_DIFF_SAMPLE.differences.map((diff, idx) => (
+                    {compareDifferences.map((diff, idx) => (
                       <tr key={idx} className="hover:bg-orange-50/50 transition">
                         <td className="p-3.5 font-bold text-[#2A1305]">{diff.title}</td>
                         <td className="p-3.5 text-rose-700 font-semibold">{diff.risk}</td>
@@ -680,7 +655,7 @@ export function AiPlatformPage() {
                   </h3>
                   <p className="text-xs text-emerald-700 font-sans font-medium flex items-center gap-1">
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                    Sẵn sàng tư vấn trực tuyến (Google Gemini 2.5 Flash)
+                    Sẵn sàng tra cứu (Google Gemini 3.8 Flash)
                   </p>
                 </div>
               </div>
@@ -767,13 +742,6 @@ export function AiPlatformPage() {
           </div>
         )}
       </div>
-
-      {/* AI Key Configuration Modal */}
-      <AiConfigModal
-        isOpen={isConfigOpen}
-        onClose={() => setIsConfigOpen(false)}
-        onKeySaved={() => setHasApiKey(!!getCustomApiKey())}
-      />
     </div>
   );
 }

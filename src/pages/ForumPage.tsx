@@ -1,579 +1,295 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import {
-  MessageSquare,
-  Plus,
-  Search,
-  ThumbsUp,
-  MessageCircle,
-  Share2,
-  Clock,
-  User,
-  ShieldCheck,
-  Tag,
-  Filter,
-  X,
-  Send,
-  Sparkles,
+  AlertCircle, CheckCircle2, Clock, Flag, Loader2, MessageCircle, MessageSquare,
+  Plus, Search, Send, ThumbsUp, Trash2, User, Wifi, WifiOff, X,
 } from 'lucide-react';
 import { soundFx } from '@/lib/audio-effects';
+import { ensureAnonymousSession, isSupabaseConfigured, supabase } from '@/lib/supabase';
+
+type Category = 'dai-an' | 'gop-y-luat' | 'kinh-nghiem' | 'hoc-thuat';
 
 interface ForumComment {
-  id: string;
-  author: string;
-  role: string;
-  text: string;
-  time: string;
+  id: string; topicId: string; authorId: string | null; author: string;
+  role: string; text: string; createdAt: string;
 }
 
 interface ForumTopic {
-  id: string;
-  category: 'dai-an' | 'gop-y-luat' | 'kinh-nghiem' | 'hoc-thuat';
-  categoryLabel: string;
-  badgeClass: string;
-  title: string;
-  author: string;
-  authorRole: string;
-  time: string;
-  content: string;
-  likes: number;
-  comments: ForumComment[];
+  id: string; authorId: string | null; category: Category; title: string;
+  author: string; authorRole: string; content: string; createdAt: string;
+  likes: number; likedByMe: boolean; comments: ForumComment[]; seeded?: boolean;
 }
 
-const INITIAL_TOPICS: ForumTopic[] = [
+const categoryMeta: Record<Category, { label: string; cls: string }> = {
+  'gop-y-luat': { label: 'Góp Ý Hoàn Thiện Luật', cls: 'bg-orange-100 text-orange-900 border-orange-300' },
+  'dai-an': { label: 'Đại Án & Án Lệ', cls: 'bg-rose-100 text-rose-900 border-rose-300' },
+  'kinh-nghiem': { label: 'Kinh Nghiệm NĐT', cls: 'bg-amber-100 text-amber-900 border-amber-300' },
+  'hoc-thuat': { label: 'Hỏi Đáp Đề Tài', cls: 'bg-sky-100 text-sky-900 border-sky-300' },
+};
+
+const previewTopics: ForumTopic[] = [
   {
-    id: 'topic-1',
-    category: 'gop-y-luat',
-    categoryLabel: 'Góp Ý Hoàn Thiện Luật',
-    badgeClass: 'bg-orange-100 text-orange-900 border-orange-300',
-    title: 'Đề xuất luật hóa cơ chế Khởi kiện tập thể (Class Action) trong Luật Chứng khoán sửa đổi',
-    author: 'TS. Nguyễn Phương Thảo',
-    authorRole: 'Giảng viên hướng dẫn',
-    time: '27/09/2026 • 15:40',
-    content:
-      'Hiện nay nhà đầu tư cá nhân bị thiệt hại do hành vi thao túng giá rất khó tự mình khởi kiện dân sự vì chi phí luật sư quá cao so với giá trị thiệt hại đơn lẻ. Cần khẩn trương thiết lập cơ chế đại diện khởi kiện tập thể thông qua Hiệp hội các nhà đầu tư tài chính (VAFI) hoặc Quỹ bảo vệ nhà đầu tư.',
-    likes: 42,
-    comments: [
-      {
-        id: 'c1',
-        author: 'Vũ Anh Quân',
-        role: 'Nhóm 2 (Word & Web)',
-        text: 'Em hoàn toàn đồng ý với Cô ạ. Trong Chương 3 của đề tài nhóm em cũng đã phân tích kinh nghiệm của SEC Hoa Kỳ về Rule 23 Class Action để kiến nghị áp dụng tại Việt Nam.',
-        time: '27/09/2026 • 16:15',
-      },
-      {
-        id: 'c2',
-        author: 'Lê Đức Minh',
-        role: 'Trưởng nhóm',
-        text: 'Nếu có cơ chế này thì hàng chục nghìn cổ đông FLC sẽ có đại diện đứng ra đòi lại quyền lợi một cách đồng bộ và tiết kiệm án phí rất nhiều.',
-        time: '27/09/2026 • 17:02',
-      },
-    ],
+    id: 'preview-1', authorId: null, category: 'gop-y-luat',
+    title: 'Đề xuất luật hóa cơ chế Khởi kiện tập thể trong Luật Chứng khoán sửa đổi',
+    author: 'TS. Nguyễn Phương Thảo', authorRole: 'Giảng viên hướng dẫn',
+    content: 'Nhà đầu tư cá nhân bị thiệt hại do hành vi thao túng giá rất khó tự mình khởi kiện vì chi phí theo đuổi vụ việc cao. Cần nghiên cứu cơ chế đại diện khởi kiện tập thể và quỹ bảo vệ nhà đầu tư.',
+    createdAt: '2026-09-27T15:40:00+07:00', likes: 42, likedByMe: false, comments: [], seeded: true,
   },
   {
-    id: 'topic-2',
-    category: 'dai-an',
-    categoryLabel: 'Đại Án & Án Lệ',
-    badgeClass: 'bg-rose-100 text-rose-900 border-rose-300',
-    title: 'Xác định thiệt hại thực tế của nhà đầu tư trong vụ án thao túng giá cổ phiếu: Cần công thức rõ ràng!',
-    author: 'Hoàng Thu Hiền',
-    authorRole: 'Nhóm 2 (Chương 2)',
-    time: '26/09/2026 • 09:20',
-    content:
-      'Khó khăn lớn nhất trong các phiên tòa hình sự về Điều 211 BLHS là việc bóc tách: phần lỗ nào do thị trường chung giảm điểm, phần lỗ nào trực tiếp do lệnh mua ảo của đối tượng thao túng gây ra. Nhóm đề tài đã đề xuất phương pháp Event Study của tài chính hành vi để giám định tư pháp.',
-    likes: 29,
-    comments: [
-      {
-        id: 'c3',
-        author: 'Ngô Quang Trường',
-        role: 'Nhóm 2 (Chương 2)',
-        text: 'Nghị định 245/2025 vừa ban hành đã bổ sung thêm hướng dẫn về tính toán giá trị giao dịch không công bố thông tin, đây là một điểm tựa rất tốt cho Tòa án.',
-        time: '26/09/2026 • 11:30',
-      },
-    ],
-  },
-  {
-    id: 'topic-3',
-    category: 'kinh-nghiem',
-    categoryLabel: 'Kinh Nghiệm NĐT',
-    badgeClass: 'bg-amber-100 text-amber-900 border-amber-300',
-    title: 'Cảnh giác với các điều khoản ủy quyền đặt lệnh toàn quyền trong Hợp đồng mở tài khoản',
-    author: 'Bùi Minh Khuê',
-    authorRole: 'Nhóm 2 (Chương 3)',
-    time: '25/09/2026 • 14:05',
-    content:
-      'Nhiều môi giới đề nghị NĐT ký giấy ủy quyền đặt lệnh hoặc đưa mật khẩu tài khoản kèm OTP để "đánh hộ". Đây là hành vi vi phạm nghiêm trọng Điều 89 Luật Chứng khoán và khi tài khoản bị cháy, CTCK sẽ phủi bỏ trách nhiệm vì coi đó là thỏa thuận dân sự cá nhân.',
-    likes: 35,
-    comments: [
-      {
-        id: 'c4',
-        author: 'Đinh Thị Minh Hoà',
-        role: 'Nhóm 2 (Slides & Thuyết trình)',
-        text: 'NĐT cá nhân cần nhớ nguyên tắc sống còn: Tuyệt đối không bao giờ chia sẻ mật khẩu giao dịch và mã Smart OTP cho bất kỳ ai, kể cả nhân viên môi giới!',
-        time: '25/09/2026 • 14:50',
-      },
-    ],
-  },
-  {
-    id: 'topic-4',
-    category: 'hoc-thuat',
-    categoryLabel: 'Hỏi Đáp Đề Tài 261LAW10A01',
-    badgeClass: 'bg-blue-100 text-blue-900 border-blue-300',
-    title: 'Hỏi về tài liệu tham khảo: Số liệu thanh tra xử phạt của UBCKNN giai đoạn 2021 - 2026',
-    author: 'Trần Sỹ Long',
-    authorRole: 'Nhóm 2 (Báo cáo)',
-    time: '24/09/2026 • 10:15',
-    content:
-      'Để hoàn thiện Báo cáo thuyết trình, các bạn có thể tra cứu toàn bộ 2.731 văn bản xử phạt hành chính trên Cổng thông tin UBCKNN hoặc trong Bản Word toàn văn phần Phụ lục thống kê của nhóm trên website nhé!',
-    likes: 18,
-    comments: [],
+    id: 'preview-2', authorId: null, category: 'kinh-nghiem',
+    title: 'Cảnh giác với điều khoản ủy quyền đặt lệnh toàn quyền trong hợp đồng mở tài khoản',
+    author: 'Bùi Minh Khuê', authorRole: 'Nhóm 2 · Chương 3',
+    content: 'Nhà đầu tư không nên giao mật khẩu hoặc OTP cho môi giới để giao dịch hộ. Khi có tranh chấp, việc chứng minh lỗi và yêu cầu bồi thường có thể rất khó khăn.',
+    createdAt: '2026-09-25T14:05:00+07:00', likes: 35, likedByMe: false, comments: [], seeded: true,
   },
 ];
 
-const STORAGE_FORUM_KEY = 'ck_forum_topics_2026';
+function formatTime(value: string): string {
+  return new Intl.DateTimeFormat('vi-VN', {
+    day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit',
+  }).format(new Date(value));
+}
+
+function validateCommunityText(value: string): string | null {
+  const normalized = value.toLocaleLowerCase('vi');
+  const blockedTerms = ['địt mẹ', 'đụ má', 'con đĩ', 'lồn', 'cặc'];
+  if (blockedTerms.some((term) => normalized.includes(term))) return 'Nội dung có ngôn từ không phù hợp với diễn đàn học thuật.';
+  if (/\b0\d{9}\b/.test(value) || /\b\d{12}\b/.test(value)) return 'Không đăng số điện thoại, số CCCD hoặc dữ liệu nhận dạng cá nhân.';
+  if ((value.match(/https?:\/\//gi) || []).length > 2) return 'Mỗi nội dung chỉ được chứa tối đa hai liên kết tham khảo.';
+  return null;
+}
 
 export function ForumPage() {
-  const [topics, setTopics] = useState<ForumTopic[]>(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem(STORAGE_FORUM_KEY);
-      if (saved) {
-        try {
-          return JSON.parse(saved);
-        } catch {
-          // fallback
-        }
-      }
-    }
-    return INITIAL_TOPICS;
-  });
-
+  const [topics, setTopics] = useState<ForumTopic[]>(previewTopics);
+  const [currentUserId, setCurrentUserId] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(isSupabaseConfigured);
+  const [error, setError] = useState<string | null>(null);
+  const [notice, setNotice] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeTopic, setActiveTopic] = useState<ForumTopic | null>(null);
-
-  // New Topic Modal State
+  const [activeTopicId, setActiveTopicId] = useState<string | null>(null);
   const [isNewTopicOpen, setIsNewTopicOpen] = useState(false);
   const [newTitle, setNewTitle] = useState('');
-  const [newCategory, setNewCategory] = useState<'dai-an' | 'gop-y-luat' | 'kinh-nghiem' | 'hoc-thuat'>('gop-y-luat');
-  const [newAuthor, setNewAuthor] = useState('');
-  const [newRole, setNewRole] = useState('Nhà đầu tư cá nhân');
+  const [newCategory, setNewCategory] = useState<Category>('gop-y-luat');
+  const [newAuthor, setNewAuthor] = useState(() => localStorage.getItem('bvndt_display_name') || '');
   const [newContent, setNewContent] = useState('');
-
-  // Comment Input State
   const [replyText, setReplyText] = useState('');
-  const [replyAuthor, setReplyAuthor] = useState('');
+  const [replyAuthor, setReplyAuthor] = useState(() => localStorage.getItem('bvndt_display_name') || '');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const activeTopic = topics.find((topic) => topic.id === activeTopicId) || null;
 
-  // Sync to localStorage
+  const loadTopics = useCallback(async () => {
+    if (!supabase) { setTopics(previewTopics); setIsLoading(false); return; }
+    const { data: sessionData } = await supabase.auth.getSession();
+    const userId = sessionData.session?.user.id || null;
+    setCurrentUserId(userId);
+    const [{ data: topicRows, error: topicError }, { data: commentRows }, { data: likeRows }] = await Promise.all([
+      supabase.from('topics').select('*').eq('status', 'published').order('created_at', { ascending: false }),
+      supabase.from('comments').select('*').eq('status', 'published').order('created_at', { ascending: true }),
+      supabase.from('topic_likes').select('topic_id,user_id'),
+    ]);
+    if (topicError) { setError(`Không tải được cộng đồng: ${topicError.message}`); setIsLoading(false); return; }
+    const comments = (commentRows || []) as Array<Record<string, unknown>>;
+    const likes = (likeRows || []) as Array<Record<string, unknown>>;
+    const mapped = ((topicRows || []) as Array<Record<string, unknown>>).map((row): ForumTopic => {
+      const topicId = String(row.id);
+      const topicLikes = likes.filter((like) => like.topic_id === topicId);
+      return {
+        id: topicId, authorId: row.author_id ? String(row.author_id) : null,
+        category: row.category as Category, title: String(row.title), author: String(row.author_name),
+        authorRole: String(row.author_role), content: String(row.content), createdAt: String(row.created_at),
+        likes: topicLikes.length, likedByMe: Boolean(userId && topicLikes.some((like) => like.user_id === userId)),
+        comments: comments.filter((comment) => comment.topic_id === topicId).map((comment) => ({
+          id: String(comment.id), topicId, authorId: comment.author_id ? String(comment.author_id) : null,
+          author: String(comment.author_name), role: String(comment.author_role),
+          text: String(comment.body), createdAt: String(comment.created_at),
+        })),
+        seeded: Boolean(row.is_seeded),
+      };
+    });
+    setTopics(mapped); setError(null); setIsLoading(false);
+  }, []);
+
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem(STORAGE_FORUM_KEY, JSON.stringify(topics));
-    }
-  }, [topics]);
+    loadTopics();
+    if (!supabase) return;
+    const channel = supabase.channel('community-live')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'topics' }, loadTopics)
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'comments' }, loadTopics)
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'topic_likes' }, loadTopics)
+      .subscribe();
+    return () => { supabase.removeChannel(channel); };
+  }, [loadTopics]);
 
-  const categories = [
-    { id: 'all', label: 'Tất Cả Thảo Luận' },
-    { id: 'gop-y-luat', label: 'Góp Ý Luật & Cơ Chế' },
-    { id: 'dai-an', label: 'Đại Án & Bồi Thường' },
-    { id: 'kinh-nghiem', label: 'Cảnh Báo & Kinh Nghiệm' },
-    { id: 'hoc-thuat', label: 'Hỏi Đáp Đề Tài 261LAW10A01' },
-  ];
+  const saveProfile = async (displayName: string) => {
+    if (!supabase) throw new Error('Supabase chưa được cấu hình.');
+    const session = await ensureAnonymousSession();
+    const cleanName = displayName.trim();
+    const { error: profileError } = await supabase.from('community_profiles').upsert({
+      user_id: session.user.id, display_name: cleanName, updated_at: new Date().toISOString(),
+    });
+    if (profileError) throw profileError;
+    localStorage.setItem('bvndt_display_name', cleanName); setCurrentUserId(session.user.id);
+    return session.user.id;
+  };
 
-  const handleLike = (topicId: string, e: React.MouseEvent) => {
-    e.stopPropagation();
+  const handleLike = async (topic: ForumTopic, event: React.MouseEvent) => {
+    event.stopPropagation();
+    if (!supabase) { setNotice('Đây là chế độ xem trước. Hãy cấu hình Supabase để tương tác.'); return; }
     soundFx.playTap();
-    setTopics((prev) =>
-      prev.map((t) => (t.id === topicId ? { ...t, likes: t.likes + 1 } : t))
-    );
-    if (activeTopic?.id === topicId) {
-      setActiveTopic((prev) => (prev ? { ...prev, likes: prev.likes + 1 } : null));
+    try {
+      const session = await ensureAnonymousSession();
+      setTopics((current) => current.map((item) => item.id === topic.id
+        ? { ...item, likedByMe: !item.likedByMe, likes: item.likes + (item.likedByMe ? -1 : 1) } : item));
+      const query = supabase.from('topic_likes');
+      const { error: likeError } = topic.likedByMe
+        ? await query.delete().eq('topic_id', topic.id).eq('user_id', session.user.id)
+        : await query.insert({ topic_id: topic.id, user_id: session.user.id });
+      if (likeError) throw likeError;
+    } catch (likeError) {
+      setError(likeError instanceof Error ? likeError.message : 'Không thể cập nhật lượt thích.'); await loadTopics();
     }
   };
 
-  const handleCreateTopic = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!newTitle.trim() || !newContent.trim() || !newAuthor.trim()) return;
-
-    soundFx.playChime();
-    const catMap = {
-      'gop-y-luat': { label: 'Góp Ý Hoàn Thiện Luật', cls: 'bg-orange-100 text-orange-900 border-orange-300' },
-      'dai-an': { label: 'Đại Án & Án Lệ', cls: 'bg-rose-100 text-rose-900 border-rose-300' },
-      'kinh-nghiem': { label: 'Kinh Nghiệm NĐT', cls: 'bg-amber-100 text-amber-900 border-amber-300' },
-      'hoc-thuat': { label: 'Hỏi Đáp Đề Tài 261LAW10A01', cls: 'bg-blue-100 text-blue-900 border-blue-300' },
-    };
-
-    const newTopicItem: ForumTopic = {
-      id: `topic-${Date.now()}`,
-      category: newCategory,
-      categoryLabel: catMap[newCategory].label,
-      badgeClass: catMap[newCategory].cls,
-      title: newTitle.trim(),
-      author: newAuthor.trim(),
-      authorRole: newRole.trim() || 'Thành viên diễn đàn',
-      time: 'Vừa xong',
-      content: newContent.trim(),
-      likes: 1,
-      comments: [],
-    };
-
-    setTopics([newTopicItem, ...topics]);
-    setIsNewTopicOpen(false);
-    setNewTitle('');
-    setNewContent('');
+  const handleCreateTopic = async (event: React.FormEvent) => {
+    event.preventDefault();
+    if (newTitle.trim().length < 10 || newContent.trim().length < 20 || newAuthor.trim().length < 2) return;
+    const validationError = validateCommunityText(`${newTitle} ${newContent}`);
+    if (validationError) { setError(validationError); return; }
+    setIsSubmitting(true);
+    try {
+      const userId = await saveProfile(newAuthor);
+      const { error: insertError } = await supabase!.from('topics').insert({
+        author_id: userId, author_name: newAuthor.trim(), author_role: 'Nhà đầu tư cá nhân',
+        category: newCategory, title: newTitle.trim(), content: newContent.trim(),
+      });
+      if (insertError) throw insertError;
+      soundFx.playChime(); setIsNewTopicOpen(false); setNewTitle(''); setNewContent('');
+      setNotice('Thảo luận đã được đăng và đồng bộ với cộng đồng.'); await loadTopics();
+    } catch (submitError) { setError(submitError instanceof Error ? submitError.message : 'Không thể đăng thảo luận.'); }
+    finally { setIsSubmitting(false); }
   };
 
-  const handleAddComment = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!activeTopic || !replyText.trim() || !replyAuthor.trim()) return;
-
-    soundFx.playTap();
-    const newComment: ForumComment = {
-      id: `c-${Date.now()}`,
-      author: replyAuthor.trim(),
-      role: 'Độc giả / NĐT cá nhân',
-      text: replyText.trim(),
-      time: 'Vừa xong',
-    };
-
-    const updated = {
-      ...activeTopic,
-      comments: [...activeTopic.comments, newComment],
-    };
-
-    setActiveTopic(updated);
-    setTopics((prev) => prev.map((t) => (t.id === updated.id ? updated : t)));
-    setReplyText('');
+  const handleAddComment = async (event: React.FormEvent) => {
+    event.preventDefault();
+    if (!activeTopic || replyText.trim().length < 2 || replyAuthor.trim().length < 2) return;
+    const validationError = validateCommunityText(replyText);
+    if (validationError) { setError(validationError); return; }
+    setIsSubmitting(true);
+    try {
+      const userId = await saveProfile(replyAuthor);
+      const { error: insertError } = await supabase!.from('comments').insert({
+        topic_id: activeTopic.id, author_id: userId, author_name: replyAuthor.trim(),
+        author_role: 'Nhà đầu tư cá nhân', body: replyText.trim(),
+      });
+      if (insertError) throw insertError;
+      setReplyText(''); await loadTopics();
+    } catch (submitError) { setError(submitError instanceof Error ? submitError.message : 'Không thể gửi bình luận.'); }
+    finally { setIsSubmitting(false); }
   };
 
-  const filteredTopics = topics.filter((t) => {
-    const matchCat = selectedCategory === 'all' || t.category === selectedCategory;
-    const matchSearch =
-      t.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      t.content.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      t.author.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchCat && matchSearch;
-  });
+  const handleSoftDelete = async (table: 'topics' | 'comments', id: string) => {
+    if (!supabase || !window.confirm('Ẩn nội dung này khỏi cộng đồng?')) return;
+    const { error: deleteError } = await supabase.from(table).update({ status: 'deleted', updated_at: new Date().toISOString() }).eq('id', id);
+    if (deleteError) setError(deleteError.message);
+    else { if (table === 'topics') setActiveTopicId(null); await loadTopics(); }
+  };
+
+  const handleReport = async (targetType: 'topic' | 'comment', targetId: string) => {
+    if (!supabase) return;
+    const reason = window.prompt('Mô tả ngắn lý do cần kiểm tra nội dung này:');
+    if (!reason || reason.trim().length < 5) return;
+    try {
+      const session = await ensureAnonymousSession();
+      const { error: reportError } = await supabase.from('reports').insert({
+        reporter_id: session.user.id, target_type: targetType, target_id: targetId, reason: reason.trim().slice(0, 500),
+      });
+      if (reportError) throw reportError; setNotice('Đã gửi báo cáo để nhóm nghiên cứu kiểm tra.');
+    } catch (reportError) { setError(reportError instanceof Error ? reportError.message : 'Không thể gửi báo cáo.'); }
+  };
+
+  const filteredTopics = useMemo(() => topics.filter((topic) => {
+    const query = searchQuery.trim().toLocaleLowerCase('vi');
+    return (selectedCategory === 'all' || topic.category === selectedCategory)
+      && (!query || `${topic.title} ${topic.content} ${topic.author}`.toLocaleLowerCase('vi').includes(query));
+  }), [topics, selectedCategory, searchQuery]);
+  const categories = [{ id: 'all', label: 'Tất cả' }, ...Object.entries(categoryMeta).map(([id, meta]) => ({ id, label: meta.label }))];
 
   return (
-    <div className="min-h-screen bg-[#FFFDF9] text-[#2B1705] font-serif pt-6 pb-20">
-      {/* Top Academic Ribbon */}
-      <div className="site-shell mb-8">
-        <div className="bg-gradient-to-r from-[#FFF5EB] via-[#FFE8CC] to-[#FFDCB0] border-2 border-orange-300 rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div>
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-orange-800 bg-orange-200/80 px-3.5 py-1.5 rounded-full w-fit mb-2">
-              <MessageSquare className="w-4 h-4 text-orange-600" />
-              <span>Diễn Đàn Học Thuật &amp; Phản Biện Pháp Lý</span>
-            </div>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-[#241003]">
-              Diễn Đàn Cộng Đồng Nhà Đầu Tư
-            </h1>
-            <p className="text-sm sm:text-base text-[#5A2C0D] mt-1 max-w-2xl leading-relaxed">
-              Không gian thảo luận, phản biện án lệ, đóng góp ý kiến sửa đổi Luật Chứng khoán và chia sẻ kinh nghiệm tự bảo vệ quyền lợi hợp pháp.
-            </p>
-          </div>
-
-          <button
-            onClick={() => {
-              soundFx.playTap();
-              setIsNewTopicOpen(true);
-            }}
-            className="px-5 py-3 rounded-2xl bg-orange-600 hover:bg-orange-700 text-white font-bold text-sm uppercase tracking-wider shadow-md hover:shadow-lg flex items-center gap-2 transition shrink-0"
-          >
-            <Plus className="w-4 h-4" />
-            <span>Tạo Thảo Luận Mới</span>
-          </button>
-        </div>
-      </div>
-
-      {/* Main Container */}
+    <div className="min-h-screen bg-[#FFF9F2] text-[#2D211B] pt-8 pb-20">
       <div className="site-shell">
-        {/* Search & Filters */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
-          {/* Categories */}
-          <div className="flex items-center gap-2 overflow-x-auto w-full sm:w-auto pb-2 sm:pb-0 scrollbar-none">
-            {categories.map((c) => (
-              <button
-                key={c.id}
-                onClick={() => {
-                  soundFx.playTap();
-                  setSelectedCategory(c.id);
-                }}
-                className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition border ${
-                  selectedCategory === c.id
-                    ? 'bg-orange-600 border-orange-600 text-white shadow-xs'
-                    : 'bg-white border-orange-200 text-orange-950 hover:bg-orange-50'
-                }`}
-              >
-                {c.label}
-              </button>
-            ))}
+        <section className="community-hero">
+          <div><div className="community-eyebrow"><MessageSquare className="w-4 h-4" /> Cộng đồng học thuật có kết nối thật</div>
+            <h1>Diễn Đàn Bảo Vệ Nhà Đầu Tư</h1>
+            <p>Thảo luận án lệ, góp ý chính sách và chia sẻ cách tự bảo vệ quyền lợi trên một không gian minh bạch, cập nhật theo thời gian thực.</p>
           </div>
+          <button onClick={() => setIsNewTopicOpen(true)} className="orange-button"><Plus className="w-4 h-4" /> Tạo thảo luận</button>
+        </section>
 
-          {/* Search Box */}
-          <div className="relative w-full sm:w-72">
-            <Search className="w-4 h-4 text-orange-700 absolute left-3.5 top-3" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Tìm kiếm chủ đề, tác giả..."
-              className="w-full pl-10 pr-4 py-2 rounded-2xl border border-orange-300 focus:border-orange-500 outline-none text-xs sm:text-sm bg-white text-[#2A1305]"
-            />
-          </div>
+        <div className={`connection-banner ${isSupabaseConfigured ? 'is-live' : 'is-preview'}`}>
+          {isSupabaseConfigured ? <Wifi className="w-4 h-4" /> : <WifiOff className="w-4 h-4" />}
+          {isSupabaseConfigured ? 'Supabase Realtime đang hoạt động' : 'Chế độ xem trước — thêm biến môi trường Supabase để đăng bài, bình luận và đồng bộ nhiều thiết bị.'}
+        </div>
+        {error && <div className="community-alert is-error"><AlertCircle className="w-4 h-4" /> {error}<button onClick={() => setError(null)}><X className="w-4 h-4" /></button></div>}
+        {notice && <div className="community-alert is-success"><CheckCircle2 className="w-4 h-4" /> {notice}<button onClick={() => setNotice(null)}><X className="w-4 h-4" /></button></div>}
+
+        <div className="community-toolbar">
+          <div className="community-filters">{categories.map((category) => <button key={category.id} onClick={() => setSelectedCategory(category.id)} className={selectedCategory === category.id ? 'active' : ''}>{category.label}</button>)}</div>
+          <label className="community-search"><Search className="w-4 h-4" /><input value={searchQuery} onChange={(event) => setSearchQuery(event.target.value)} placeholder="Tìm chủ đề hoặc tác giả…" /></label>
         </div>
 
-        {/* Topics List */}
-        <div className="space-y-4">
-          {filteredTopics.map((topic) => (
-            <div
-              key={topic.id}
-              onClick={() => {
-                soundFx.playTap();
-                setActiveTopic(topic);
-              }}
-              className="bg-white border-2 border-orange-200 hover:border-orange-500 rounded-3xl p-5 sm:p-6 shadow-xs hover:shadow-md transition-all cursor-pointer group"
-            >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-                <div className="flex items-center gap-2">
-                  <span className={`px-3 py-1 rounded-full text-[11px] font-bold border ${topic.badgeClass}`}>
-                    {topic.categoryLabel}
-                  </span>
-                  <span className="text-xs text-slate-400">•</span>
-                  <span className="text-xs text-slate-500 flex items-center gap-1">
-                    <Clock className="w-3.5 h-3.5" /> {topic.time}
-                  </span>
-                </div>
-
-                <div className="text-xs text-orange-900 font-semibold flex items-center gap-1.5">
-                  <User className="w-3.5 h-3.5 text-orange-600" />
-                  <strong>{topic.author}</strong>
-                  <span className="text-slate-400">({topic.authorRole})</span>
-                </div>
-              </div>
-
-              <h3 className="text-lg sm:text-xl font-bold text-[#241003] group-hover:text-orange-700 transition leading-snug mb-2">
-                {topic.title}
-              </h3>
-
-              <p className="text-xs sm:text-sm text-[#5A2C0D] leading-relaxed line-clamp-2 mb-4">
-                {topic.content}
-              </p>
-
-              <div className="flex items-center justify-between pt-3 border-t border-orange-100 text-xs">
-                <div className="flex items-center gap-4">
-                  <button
-                    onClick={(e) => handleLike(topic.id, e)}
-                    className="flex items-center gap-1.5 text-orange-800 hover:text-orange-600 font-bold transition"
-                  >
-                    <ThumbsUp className="w-4 h-4 text-orange-600" />
-                    <span>{topic.likes} Thích</span>
-                  </button>
-
-                  <span className="flex items-center gap-1.5 text-slate-600">
-                    <MessageCircle className="w-4 h-4 text-slate-400" />
-                    <span>{topic.comments.length} Bình luận</span>
-                  </span>
-                </div>
-
-                <span className="text-orange-600 font-bold group-hover:underline">
-                  Xem chi tiết &amp; Bình luận →
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
+        {isLoading ? <div className="community-loading"><Loader2 className="w-6 h-6 animate-spin" /> Đang tải thảo luận…</div> : (
+          <div className="community-list">
+            {filteredTopics.map((topic) => {
+              const meta = categoryMeta[topic.category];
+              return <article key={topic.id} onClick={() => setActiveTopicId(topic.id)} className="community-topic-card">
+                <div className="community-topic-meta"><span className={meta.cls}>{meta.label}</span><span><Clock className="w-3.5 h-3.5" /> {formatTime(topic.createdAt)}</span></div>
+                <h2>{topic.title}</h2><p>{topic.content}</p>
+                <footer><span><User className="w-4 h-4" /><strong>{topic.author}</strong> · {topic.authorRole}</span>
+                  <span className="community-actions"><button onClick={(event) => handleLike(topic, event)} className={topic.likedByMe ? 'liked' : ''}><ThumbsUp className="w-4 h-4" /> {topic.likes}</button><span><MessageCircle className="w-4 h-4" /> {topic.comments.length}</span></span>
+                </footer>
+              </article>;
+            })}
+            {!filteredTopics.length && <div className="community-empty">Chưa có thảo luận phù hợp với bộ lọc.</div>}
+          </div>
+        )}
       </div>
 
-      {/* Detail Topic Modal */}
-      {activeTopic && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fade-in font-serif">
-          <div 
-            className="w-full max-w-3xl bg-white border-2 border-orange-300 rounded-3xl shadow-2xl p-6 sm:p-8 relative max-h-[90vh] flex flex-col text-[#2B1705]"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close Button */}
-            <button
-              onClick={() => setActiveTopic(null)}
-              className="absolute top-5 right-5 w-9 h-9 rounded-full bg-orange-100 hover:bg-orange-200 text-orange-800 flex items-center justify-center transition"
-              title="Đóng"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            {/* Header info */}
-            <div className="flex items-center gap-2 mb-2 text-xs">
-              <span className={`px-2.5 py-1 rounded-full font-bold border ${activeTopic.badgeClass}`}>
-                {activeTopic.categoryLabel}
-              </span>
-              <span className="text-slate-400">•</span>
-              <span className="text-slate-500">{activeTopic.time}</span>
-            </div>
-
-            <h2 className="text-xl sm:text-2xl font-bold text-[#241003] leading-snug mb-2 pr-8">
-              {activeTopic.title}
-            </h2>
-
-            <div className="flex items-center gap-2 text-xs text-orange-900 font-bold mb-4 pb-3 border-b border-orange-200">
-              <User className="w-4 h-4 text-orange-600" />
-              <span>{activeTopic.author}</span>
-              <span className="text-slate-400">({activeTopic.authorRole})</span>
-            </div>
-
-            {/* Scrollable Content */}
-            <div className="flex-1 overflow-y-auto space-y-6 pr-2">
-              <div className="text-sm leading-relaxed text-[#2B1705] bg-orange-50/40 p-4 rounded-2xl border border-orange-100">
-                {activeTopic.content}
-              </div>
-
-              {/* Likes counter */}
-              <div className="flex items-center gap-3">
-                <button
-                  onClick={(e) => handleLike(activeTopic.id, e)}
-                  className="px-4 py-2 rounded-xl bg-orange-100 hover:bg-orange-200 text-orange-900 font-bold text-xs flex items-center gap-2 transition"
-                >
-                  <ThumbsUp className="w-4 h-4 text-orange-600" />
-                  <span>{activeTopic.likes} Lượt thích</span>
-                </button>
-              </div>
-
-              {/* Comments Section */}
-              <div className="space-y-4 pt-4 border-t border-orange-200">
-                <h4 className="font-bold text-sm text-[#2A1305] flex items-center gap-2">
-                  <MessageCircle className="w-4 h-4 text-orange-600" />
-                  Bình Luận ({activeTopic.comments.length})
-                </h4>
-
-                <div className="space-y-3">
-                  {activeTopic.comments.map((cm) => (
-                    <div key={cm.id} className="p-3.5 rounded-2xl bg-orange-50/50 border border-orange-100 text-xs">
-                      <div className="flex items-center justify-between mb-1.5">
-                        <strong className="text-orange-900">{cm.author} <span className="text-slate-500 font-normal">({cm.role})</span></strong>
-                        <span className="text-[10px] text-slate-400">{cm.time}</span>
-                      </div>
-                      <p className="text-[#3A1E07] leading-relaxed">{cm.text}</p>
-                    </div>
-                  ))}
-
-                  {activeTopic.comments.length === 0 && (
-                    <p className="text-xs text-slate-400 italic">Chưa có bình luận nào. Hãy là người đầu tiên đóng góp ý kiến!</p>
-                  )}
-                </div>
-
-                {/* Reply Form */}
-                <form onSubmit={handleAddComment} className="pt-3 border-t border-orange-100 space-y-2">
-                  <div className="flex gap-2">
-                    <input
-                      type="text"
-                      value={replyAuthor}
-                      onChange={(e) => setReplyAuthor(e.target.value)}
-                      placeholder="Họ tên của bạn..."
-                      required
-                      className="w-1/3 px-3 py-2 rounded-xl border border-orange-200 text-xs bg-white focus:border-orange-500 outline-none"
-                    />
-                    <input
-                      type="text"
-                      value={replyText}
-                      onChange={(e) => setReplyText(e.target.value)}
-                      placeholder="Ý kiến bình luận của bạn..."
-                      required
-                      className="flex-1 px-3 py-2 rounded-xl border border-orange-200 text-xs bg-white focus:border-orange-500 outline-none"
-                    />
-                    <button
-                      type="submit"
-                      className="px-4 py-2 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs flex items-center gap-1 transition shadow-xs"
-                    >
-                      <Send className="w-3.5 h-3.5" />
-                      Gửi
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
+      {activeTopic && <div className="community-modal-backdrop" onClick={() => setActiveTopicId(null)}>
+        <section className="community-modal" onClick={(event) => event.stopPropagation()}>
+          <button className="community-modal-close" onClick={() => setActiveTopicId(null)} aria-label="Đóng"><X className="w-5 h-5" /></button>
+          <span className={`community-modal-category ${categoryMeta[activeTopic.category].cls}`}>{categoryMeta[activeTopic.category].label}</span>
+          <h2>{activeTopic.title}</h2>
+          <div className="community-author"><User className="w-4 h-4" /> <strong>{activeTopic.author}</strong> · {activeTopic.authorRole} · {formatTime(activeTopic.createdAt)}</div>
+          <p className="community-topic-body">{activeTopic.content}</p>
+          <div className="community-detail-actions">
+            <button onClick={(event) => handleLike(activeTopic, event)} className={activeTopic.likedByMe ? 'liked' : ''}><ThumbsUp className="w-4 h-4" /> {activeTopic.likes} lượt thích</button>
+            <button onClick={() => handleReport('topic', activeTopic.id)}><Flag className="w-4 h-4" /> Báo cáo</button>
+            {currentUserId === activeTopic.authorId && !activeTopic.seeded && <button onClick={() => handleSoftDelete('topics', activeTopic.id)}><Trash2 className="w-4 h-4" /> Xóa bài</button>}
           </div>
-        </div>
-      )}
-
-      {/* New Topic Modal */}
-      {isNewTopicOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fade-in font-serif">
-          <div 
-            className="w-full max-w-xl bg-white border-2 border-orange-300 rounded-3xl shadow-2xl p-6 sm:p-8 relative text-[#2B1705]"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={() => setIsNewTopicOpen(false)}
-              className="absolute top-5 right-5 w-9 h-9 rounded-full bg-orange-100 hover:bg-orange-200 text-orange-800 flex items-center justify-center transition"
-              title="Đóng"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <h3 className="text-2xl font-bold text-[#241003] mb-4 flex items-center gap-2">
-              <Plus className="w-6 h-6 text-orange-600" />
-              Tạo Thảo Luận Mới
-            </h3>
-
-            <form onSubmit={handleCreateTopic} className="space-y-4 text-xs">
-              <div>
-                <label className="block font-bold text-[#5A2C0D] mb-1">Tiêu Đề Thảo Luận</label>
-                <input
-                  type="text"
-                  value={newTitle}
-                  onChange={(e) => setNewTitle(e.target.value)}
-                  placeholder="Ví dụ: Đề xuất giải pháp bảo vệ quyền lợi cổ đông khi tái cấu trúc..."
-                  required
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-orange-200 focus:border-orange-500 outline-none text-xs text-[#2A1305]"
-                />
-              </div>
-
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="block font-bold text-[#5A2C0D] mb-1">Chủ Đề</label>
-                  <select
-                    value={newCategory}
-                    onChange={(e) => setNewCategory(e.target.value as any)}
-                    className="w-full px-3 py-2 rounded-xl border border-orange-200 bg-white outline-none"
-                  >
-                    <option value="gop-y-luat">Góp Ý Hoàn Thiện Luật</option>
-                    <option value="dai-an">Đại Án &amp; Bồi Thường</option>
-                    <option value="kinh-nghiem">Kinh Nghiệm NĐT</option>
-                    <option value="hoc-thuat">Hỏi Đáp Đề Tài BTL</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block font-bold text-[#5A2C0D] mb-1">Họ Tên Của Bạn</label>
-                  <input
-                    type="text"
-                    value={newAuthor}
-                    onChange={(e) => setNewAuthor(e.target.value)}
-                    placeholder="Nguyễn Văn A"
-                    required
-                    className="w-full px-3.5 py-2 rounded-xl border border-orange-200 outline-none"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block font-bold text-[#5A2C0D] mb-1">Nội Dung Thảo Luận Chi Tiết</label>
-                <textarea
-                  value={newContent}
-                  onChange={(e) => setNewContent(e.target.value)}
-                  rows={5}
-                  placeholder="Trình bày quan điểm, câu hỏi hoặc kiến nghị pháp lý của bạn..."
-                  required
-                  className="w-full p-3 rounded-xl border border-orange-200 outline-none focus:border-orange-500 font-serif leading-relaxed text-xs"
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full py-3 rounded-2xl bg-orange-600 hover:bg-orange-700 text-white font-bold uppercase tracking-wider text-xs shadow-md transition"
-              >
-                Đăng Bài Lên Diễn Đàn
-              </button>
-            </form>
+          <div className="community-comments"><h3><MessageCircle className="w-4 h-4" /> Bình luận ({activeTopic.comments.length})</h3>
+            {activeTopic.comments.map((comment) => <div key={comment.id} className="community-comment">
+              <div><strong>{comment.author}</strong><span>{comment.role} · {formatTime(comment.createdAt)}</span></div><p>{comment.text}</p>
+              <div className="community-comment-actions"><button onClick={() => handleReport('comment', comment.id)}><Flag className="w-3.5 h-3.5" /> Báo cáo</button>{currentUserId === comment.authorId && <button onClick={() => handleSoftDelete('comments', comment.id)}><Trash2 className="w-3.5 h-3.5" /> Xóa</button>}</div>
+            </div>)}
+            {!activeTopic.comments.length && <p className="community-empty">Chưa có bình luận. Hãy mở đầu cuộc trao đổi.</p>}
+            <form onSubmit={handleAddComment} className="community-reply-form"><input value={replyAuthor} onChange={(event) => setReplyAuthor(event.target.value)} minLength={2} maxLength={40} placeholder="Tên hiển thị" required /><input value={replyText} onChange={(event) => setReplyText(event.target.value)} minLength={2} maxLength={1500} placeholder="Viết bình luận có căn cứ…" required /><button type="submit" disabled={isSubmitting || !isSupabaseConfigured}><Send className="w-4 h-4" /> Gửi</button></form>
           </div>
-        </div>
-      )}
+        </section>
+      </div>}
+
+      {isNewTopicOpen && <div className="community-modal-backdrop" onClick={() => setIsNewTopicOpen(false)}>
+        <section className="community-modal community-compose" onClick={(event) => event.stopPropagation()}>
+          <button className="community-modal-close" onClick={() => setIsNewTopicOpen(false)} aria-label="Đóng"><X className="w-5 h-5" /></button>
+          <h2>Tạo thảo luận mới</h2><p>Tên hiển thị được công khai; hệ thống không yêu cầu email. Không đăng CCCD, số tài khoản hoặc dữ liệu riêng tư.</p>
+          <form onSubmit={handleCreateTopic}>
+            <label>Tên hiển thị<input value={newAuthor} onChange={(event) => setNewAuthor(event.target.value)} minLength={2} maxLength={40} required /></label>
+            <label>Chủ đề<select value={newCategory} onChange={(event) => setNewCategory(event.target.value as Category)}>{Object.entries(categoryMeta).map(([id, meta]) => <option key={id} value={id}>{meta.label}</option>)}</select></label>
+            <label>Tiêu đề<input value={newTitle} onChange={(event) => setNewTitle(event.target.value)} minLength={10} maxLength={180} required /></label>
+            <label>Nội dung<textarea value={newContent} onChange={(event) => setNewContent(event.target.value)} minLength={20} maxLength={5000} rows={7} required /></label>
+            <button type="submit" disabled={isSubmitting || !isSupabaseConfigured} className="orange-button">{isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4" />} Đăng thảo luận</button>
+          </form>
+        </section>
+      </div>}
     </div>
   );
 }
