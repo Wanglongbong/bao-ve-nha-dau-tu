@@ -59,14 +59,29 @@ export function WordDocumentPage() {
   // Tự động cuộn danh mục mục lục bên trái theo tiến trình đọc bài viết
   useEffect(() => {
     if (!activeSectionId || !tocContainerRef.current) return;
-    const activeBtn = tocContainerRef.current.querySelector<HTMLElement>(`[data-toc-button="${activeSectionId}"]`);
+    const tocContainer = tocContainerRef.current;
+    const activeBtn = tocContainer.querySelector<HTMLElement>(`[data-toc-button="${activeSectionId}"]`);
     if (activeBtn) {
-      activeBtn.scrollIntoView({
+      const containerRect = tocContainer.getBoundingClientRect();
+      const buttonRect = activeBtn.getBoundingClientRect();
+      const nextTop = tocContainer.scrollTop
+        + (buttonRect.top - containerRect.top)
+        - (tocContainer.clientHeight / 2)
+        + (buttonRect.height / 2);
+      tocContainer.scrollTo({
+        top: Math.max(0, nextTop),
         behavior: 'smooth',
-        block: 'nearest',
       });
     }
   }, [activeSectionId]);
+
+  // Trên desktop, con lăn ở vùng mục lục vẫn phải cuộn bài viết chính.
+  // Mục lục tự dịch chuyển bằng scroll-spy ở trên, nên không cần chiếm con lăn.
+  const handleDesktopTocWheel = (event: React.WheelEvent<HTMLDivElement>) => {
+    if (window.innerWidth < 1024 || mobileTocOpen) return;
+    event.preventDefault();
+    window.scrollBy({ top: event.deltaY, left: 0, behavior: 'auto' });
+  };
 
   const handleCopyCitation = () => {
     soundFx.playChime();
@@ -142,7 +157,7 @@ export function WordDocumentPage() {
   const fontSizeClass = 'text-[1.08rem] leading-[1.88] text-[#2C1D14]';
 
   return (
-    <div className="min-h-screen bg-[#FFFDF9] text-[#1E140C] font-serif pb-24">
+    <div className="min-h-screen bg-[#FFFDF9] text-[#1E140C] font-serif pb-24 touch-pan-y">
       {/* 1. HERO BANNER: PAPER INFO & ACTIONS */}
       <section className="bg-gradient-to-b from-[#FFF7ED] via-[#FAF7F2] to-[#FFFDF9] border-b border-[#F2E4D4] pt-10 pb-12 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
@@ -270,8 +285,9 @@ export function WordDocumentPage() {
           >
             <div
               ref={tocContainerRef}
-              className={`bg-[#FFFDF9] border border-[#EBD7C7] rounded-2xl shadow-xl shadow-[#2B1D15]/5 p-5 overflow-y-auto max-h-[calc(100vh-7.5rem)] scroll-smooth ${
-                mobileTocOpen ? 'w-full max-w-md h-full' : 'w-full'
+              onWheel={handleDesktopTocWheel}
+              className={`bg-[#FFFDF9] border border-[#EBD7C7] rounded-2xl shadow-xl shadow-[#2B1D15]/5 p-5 max-h-[calc(100vh-7.5rem)] scroll-smooth ${
+                mobileTocOpen ? 'w-full max-w-md h-full overflow-y-auto' : 'w-full overflow-y-hidden'
               }`}
             >
               {/* Header */}

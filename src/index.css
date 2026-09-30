@@ -119,7 +119,9 @@
 html {
   scroll-behavior: smooth;
   background: var(--surface-bg);
-  overflow-x: hidden;
+  /* `clip` prevents horizontal spill without creating the scroll container
+     that breaks sticky headers and the Word reader's following TOC. */
+  overflow-x: clip;
 }
 
 body {
@@ -135,7 +137,7 @@ body {
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 a {
