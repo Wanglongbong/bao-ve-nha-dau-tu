@@ -32,6 +32,7 @@ export function WordDocumentPage() {
   const [copied, setCopied] = useState(false);
   const [mobileTocOpen, setMobileTocOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const tocContainerRef = useRef<HTMLDivElement>(null);
 
   // Monitor scroll for TOC active item and back-to-top button
   useEffect(() => {
@@ -42,8 +43,8 @@ export function WordDocumentPage() {
       let currentId = 'sec-1';
 
       sectionElements.forEach((el) => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top <= 160 && rect.bottom >= 60) {
+        const top = el.getBoundingClientRect().top;
+        if (top <= 200) {
           currentId = el.getAttribute('data-toc-id') || currentId;
         }
       });
@@ -54,6 +55,18 @@ export function WordDocumentPage() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Tự động cuộn danh mục mục lục bên trái theo tiến trình đọc bài viết
+  useEffect(() => {
+    if (!activeSectionId || !tocContainerRef.current) return;
+    const activeBtn = tocContainerRef.current.querySelector<HTMLElement>(`[data-toc-button="${activeSectionId}"]`);
+    if (activeBtn) {
+      activeBtn.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+      });
+    }
+  }, [activeSectionId]);
 
   const handleCopyCitation = () => {
     soundFx.playChime();
@@ -126,11 +139,7 @@ export function WordDocumentPage() {
       .filter(Boolean) as typeof paperData.chapters;
   }, [searchQuery]);
 
-  const fontSizeClass = {
-    normal: 'text-[1.05rem] leading-[1.85]',
-    large: 'text-[1.18rem] leading-[1.95]',
-    xlarge: 'text-[1.3rem] leading-[2.1]',
-  }[fontSize];
+  const fontSizeClass = 'text-[1.08rem] leading-[1.88] text-[#2C1D14]';
 
   return (
     <div className="min-h-screen bg-[#FFFDF9] text-[#1E140C] font-serif pb-24">
@@ -188,10 +197,10 @@ export function WordDocumentPage() {
             <button
               onClick={handleCopyCitation}
               className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-white border border-[#F2E4D4] text-[#3D2E24] font-serif text-sm hover:bg-[#FFF7ED] transition-all shadow-sm cursor-pointer"
-              title="Sao chép trích dẫn học thuật"
+              title="Sao chép trích dẫn học thuật APA"
             >
               {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4 text-stone-500" />}
-              <span>{copied ? 'Đã sao chép trích dẫn!' : 'Trích Dẫn APA'}</span>
+              <span>{copied ? 'Đã sao chép trích dẫn!' : 'Trích dẫn APA'}</span>
             </button>
 
             {/* Print Button */}
@@ -205,79 +214,43 @@ export function WordDocumentPage() {
             </button>
           </div>
 
-          {/* Reader Preferences Bar: Search & Font Size */}
-          <div className="mt-8 p-4 rounded-2xl bg-white border border-[#F2E4D4] shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
+          {/* Reader Preferences Bar: Search & Info */}
+          <div className="mt-8 p-4 rounded-2xl bg-white border border-[#F2E4D4] shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
             {/* Search Input */}
-            <div className="relative w-full md:w-96">
+            <div className="relative w-full sm:max-w-md md:max-w-lg">
               <Search className="w-4 h-4 text-[#C2410C] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
               <input
                 type="text"
                 placeholder="Tìm từ khóa trong bài (ví dụ: FLC, Điều 145, Class Action)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 text-sm bg-[#FAF7F2] border border-[#F2E4D4] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#C2410C]/20 focus:border-[#C2410C] font-serif placeholder:font-sans placeholder:text-stone-400"
+                className="w-full pl-10 pr-10 py-2.5 text-sm bg-[#FAF7F2] border border-[#F2E4D4] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#C2410C]/20 focus:border-[#C2410C] font-serif placeholder:font-sans placeholder:text-stone-400"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600 text-xs font-sans"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600 text-xs font-sans font-bold"
                 >
                   Xóa
                 </button>
               )}
             </div>
 
-            {/* Font Size & Mobile TOC Toggle */}
-            <div className="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end">
+            {/* Quick Info & Mobile TOC Toggle */}
+            <div className="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end">
+              <span className="hidden md:inline-flex items-center gap-1.5 text-xs text-[#8C2B0A] font-serif font-bold bg-[#FFF7ED] px-3.5 py-2 rounded-xl border border-[#F2E4D4]">
+                <FileText className="w-3.5 h-3.5 text-[#C2410C]" />
+                Toàn văn 20.388 từ · 6 Chương chính
+              </span>
+
               {/* Mobile TOC Button */}
               <button
                 onClick={() => setMobileTocOpen(!mobileTocOpen)}
-                className="lg:hidden inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#F2E4D4] bg-[#FFF7ED] text-[#8C2B0A] text-xs font-serif font-bold"
+                className="lg:hidden inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-[#F2E4D4] bg-[#FFF7ED] text-[#8C2B0A] text-xs font-serif font-bold"
               >
                 <Menu className="w-4 h-4" />
                 <span>Mục Lục ({paperData.chapters.length} Chương)</span>
               </button>
-
-              <div className="flex items-center gap-2">
-                <span className="text-xs text-stone-500 font-sans uppercase tracking-wider font-semibold">
-                  Cỡ chữ:
-                </span>
-                <div className="flex items-center border border-[#F2E4D4] rounded-lg overflow-hidden bg-[#FAF7F2]">
-                  <button
-                    onClick={() => {
-                      soundFx.playTap();
-                      setFontSize('normal');
-                    }}
-                    className={`px-3 py-1 text-xs font-serif font-bold transition-all ${
-                      fontSize === 'normal' ? 'bg-[#8C2B0A] text-white' : 'text-[#3D2E24] hover:bg-[#F2E4D4]'
-                    }`}
-                  >
-                    A
-                  </button>
-                  <button
-                    onClick={() => {
-                      soundFx.playTap();
-                      setFontSize('large');
-                    }}
-                    className={`px-3 py-1 text-sm font-serif font-bold transition-all ${
-                      fontSize === 'large' ? 'bg-[#8C2B0A] text-white' : 'text-[#3D2E24] hover:bg-[#F2E4D4]'
-                    }`}
-                  >
-                    A+
-                  </button>
-                  <button
-                    onClick={() => {
-                      soundFx.playTap();
-                      setFontSize('xlarge');
-                    }}
-                    className={`px-3 py-1 text-base font-serif font-bold transition-all ${
-                      fontSize === 'xlarge' ? 'bg-[#8C2B0A] text-white' : 'text-[#3D2E24] hover:bg-[#F2E4D4]'
-                    }`}
-                  >
-                    A++
-                  </button>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -291,12 +264,13 @@ export function WordDocumentPage() {
           <aside
             className={`lg:w-80 xl:w-96 shrink-0 transition-all ${
               mobileTocOpen
-                ? 'fixed inset-0 z-50 bg-black/60 p-4 flex justify-end'
+                ? 'fixed inset-0 z-50 bg-[#704A32]/20 backdrop-blur-sm p-4 flex justify-end'
                 : 'hidden lg:block sticky top-24'
             }`}
           >
             <div
-              className={`bg-[#FFFDF9] border border-[#EBD7C7] rounded-2xl shadow-xl shadow-[#2B1D15]/5 p-5 overflow-y-auto max-h-[calc(100vh-7.5rem)] ${
+              ref={tocContainerRef}
+              className={`bg-[#FFFDF9] border border-[#EBD7C7] rounded-2xl shadow-xl shadow-[#2B1D15]/5 p-5 overflow-y-auto max-h-[calc(100vh-7.5rem)] scroll-smooth ${
                 mobileTocOpen ? 'w-full max-w-md h-full' : 'w-full'
               }`}
             >
@@ -319,6 +293,7 @@ export function WordDocumentPage() {
               {/* Fast Jump Shortcuts */}
               <div className="space-y-1 mb-4 pb-3 border-b border-[#F2E4D4] text-xs font-sans">
                 <button
+                  data-toc-button="muc-abbreviations"
                   onClick={() => scrollToElement('muc-abbreviations')}
                   className="w-full text-left px-3 py-2 rounded-lg hover:bg-[#FAF0E6] text-[#3D2E24] flex items-center justify-between transition-colors cursor-pointer"
                 >
@@ -326,6 +301,7 @@ export function WordDocumentPage() {
                   <span className="text-[10px] text-[#C2410C] font-bold">11 thuật ngữ</span>
                 </button>
                 <button
+                  data-toc-button="muc-bibliography"
                   onClick={() => scrollToElement('muc-bibliography')}
                   className="w-full text-left px-3 py-2 rounded-lg hover:bg-[#FAF0E6] text-[#3D2E24] flex items-center justify-between transition-colors cursor-pointer"
                 >
@@ -340,6 +316,7 @@ export function WordDocumentPage() {
                   <div key={chap.id} className="space-y-1">
                     {/* Chapter Title Button */}
                     <button
+                      data-toc-button={chap.id}
                       onClick={() => scrollToElement(chap.id)}
                       className={`w-full text-left p-2.5 rounded-xl font-serif text-sm transition-all flex items-start gap-2 cursor-pointer ${
                         activeSectionId === chap.id
@@ -358,6 +335,7 @@ export function WordDocumentPage() {
                         return (
                           <div key={sec.id} className="space-y-0.5">
                             <button
+                              data-toc-button={sec.id}
                               onClick={() => scrollToElement(sec.id)}
                               className={`w-full text-left px-2.5 py-1.5 rounded-lg text-xs font-serif transition-all flex items-center justify-between cursor-pointer ${
                                 isActive
@@ -377,6 +355,7 @@ export function WordDocumentPage() {
                                 {sec.subsections.map((sub) => (
                                   <button
                                     key={sub.id}
+                                    data-toc-button={sub.id}
                                     onClick={() => scrollToElement(sub.id)}
                                     className={`w-full text-left px-2 py-1 rounded text-[11px] font-serif transition-colors truncate block cursor-pointer ${
                                       activeSectionId === sub.id
