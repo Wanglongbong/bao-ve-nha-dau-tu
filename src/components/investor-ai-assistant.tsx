@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { X, Sparkles, Send, Bot, User, Loader2 } from 'lucide-react';
 import { soundFx } from '@/lib/audio-effects';
 import { cleanAiText, streamAiTask } from '@/lib/ai-client';
@@ -59,12 +59,17 @@ export function InvestorAiAssistant({ isOpen, onClose }: InvestorAiAssistantProp
   const [inputVal, setInputVal] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [streamingMessageId, setStreamingMessageId] = useState<string | null>(null);
+  const messageEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isOpen) {
       soundFx.playPop();
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    messageEndRef.current?.scrollIntoView({ block: 'nearest' });
+  }, [messages, isLoading]);
 
   if (!isOpen) return null;
 
@@ -171,6 +176,7 @@ export function InvestorAiAssistant({ isOpen, onClose }: InvestorAiAssistantProp
               <Loader2 className="w-4 h-4 animate-spin" /> Gemini 3.8 đang kiểm tra nguồn và soạn câu trả lời…
             </div>
           )}
+          <div ref={messageEndRef} aria-hidden="true" />
         </div>
 
         {/* Quick Prompts */}

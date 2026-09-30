@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   Sparkles,
   FileSignature,
@@ -66,6 +66,11 @@ export function AiPlatformPage() {
     },
   ]);
   const [isChatting, setIsChatting] = useState(false);
+  const chatEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    chatEndRef.current?.scrollIntoView({ block: 'nearest' });
+  }, [chatMessages, isChatting]);
 
   const sampleQuestions = [
     'Làm thế nào để đòi bồi thường thiệt hại khi cổ phiếu bị thao túng giá?',
@@ -721,6 +726,7 @@ export function AiPlatformPage() {
                   Gemini AI đang tra cứu cơ sở dữ liệu Luật Chứng khoán...
                 </div>
               )}
+              <div ref={chatEndRef} aria-hidden="true" />
             </div>
 
             {/* Input Bar */}
