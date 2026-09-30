@@ -16,6 +16,7 @@ type ApiResponse = {
 };
 
 const MODEL = 'gemini-3.8-flash';
+const FALLBACK_MODEL = 'gemini-3.1-flash-lite';
 const MAX_INPUT = 12_000;
 
 const conversationSchema = z
@@ -241,11 +242,22 @@ export default async function handler(request: ApiRequest, response: ApiResponse
     }
     const prompt = getPrompt(parsed.data, knowledge.context, recentNews);
     const ai = new GoogleGenAI({ apiKey: geminiKey });
-    const result = await ai.models.generateContent({
-      model: MODEL,
+    const generate = (model: string) => ai.models.generateContent({
+      model,
       contents: prompt.contents,
       config: { ...prompt.config, systemInstruction: prompt.systemInstruction },
     });
+    let modelUsed = MODEL;
+    let result;
+    try {
+      result = await generate(MODEL);
+    } catch (error) {
+      const status = typeof error === 'object' && error && 'status' in error ? Number(error.status) : 0;
+      if (status !== 429) throw error;
+      modelUsed = FALLBACK_MODEL;
+      console.warn(`[${requestId}] Gemini 3.8 quota exhausted; using ${FALLBACK_MODEL}`);
+      result = await generate(FALLBACK_MODEL);
+    }
 
     const text = result.text?.trim() || '';
     const groundingChunks = result.candidates?.[0]?.groundingMetadata?.groundingChunks || [];
@@ -262,7 +274,7 @@ export default async function handler(request: ApiRequest, response: ApiResponse
     return response.status(200).json({
       ok: true,
       requestId,
-      model: MODEL,
+      model: modelUsed,
       ...(prompt.structured ? { structured: JSON.parse(text) } : { content: text }),
       sources,
       latencyMs: Date.now() - startedAt,
