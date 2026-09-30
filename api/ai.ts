@@ -242,10 +242,10 @@ export default async function handler(request: ApiRequest, response: ApiResponse
     }
     const prompt = getPrompt(parsed.data, knowledge.context, recentNews);
     const ai = new GoogleGenAI({ apiKey: geminiKey });
-    const generate = (model: string) => ai.models.generateContent({
+    const generate = (model: string, config: GenerateContentConfig = prompt.config) => ai.models.generateContent({
       model,
       contents: prompt.contents,
-      config: { ...prompt.config, systemInstruction: prompt.systemInstruction },
+      config: { ...config, systemInstruction: prompt.systemInstruction },
     });
     let modelUsed = MODEL;
     let result;
@@ -256,7 +256,8 @@ export default async function handler(request: ApiRequest, response: ApiResponse
       if (status !== 429) throw error;
       modelUsed = FALLBACK_MODEL;
       console.warn(`[${requestId}] Gemini 3.8 quota exhausted; using ${FALLBACK_MODEL}`);
-      result = await generate(FALLBACK_MODEL);
+      const { tools: _searchTools, ...fallbackConfig } = prompt.config;
+      result = await generate(FALLBACK_MODEL, fallbackConfig);
     }
 
     const text = result.text?.trim() || '';
