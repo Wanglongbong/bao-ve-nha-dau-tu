@@ -1,4 +1,4 @@
-import paper from '../../src/data/official-paper-data.json';
+import paper from '../../src/data/official-paper-data.json' with { type: 'json' };
 import { LEGAL_FRAMEWORK, PROJECT_METADATA, TEAM_MEMBERS } from '../../src/lib/research-data.js';
 
 export interface KnowledgeSource { title: string; url: string }
