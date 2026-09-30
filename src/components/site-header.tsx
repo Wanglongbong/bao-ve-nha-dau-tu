@@ -10,10 +10,7 @@ interface SiteHeaderProps {
 }
 
 const navItems = [
-  { href: '/', label: 'Tổng Quan' },
   { href: '/ban-word', label: 'Bản Word' },
-  { href: '/#toan-van', label: 'Slide & Toàn Văn' },
-  { href: '/#tru-cot', label: '6 Trụ Cột' },
   { href: '/tin-tuc', label: 'Tin Tức' },
   { href: '/nen-tang-ai', label: 'Nền Tảng AI' },
   { href: '/dien-dan', label: 'Cộng Đồng' },
