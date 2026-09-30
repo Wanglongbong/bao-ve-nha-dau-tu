@@ -147,6 +147,24 @@ export async function streamAiTask(
     let sources: AiSource[] = [];
     let latencyMs: number | undefined;
     let streamError: AiResponse['error'];
+    let visibleLength = 0;
+    let animationPromise: Promise<void> | null = null;
+
+    const animateVisibleText = async () => {
+      while (visibleLength < rawText.length) {
+        visibleLength = Math.min(visibleLength + 3, rawText.length);
+        onText(cleanAiText(rawText.slice(0, visibleLength)));
+        await new Promise((resolve) => window.setTimeout(resolve, 14));
+      }
+    };
+
+    const scheduleAnimation = () => {
+      if (animationPromise) return;
+      animationPromise = animateVisibleText().finally(() => {
+        animationPromise = null;
+        if (visibleLength < rawText.length) scheduleAnimation();
+      });
+    };
 
     const processLine = (line: string) => {
       if (!line.trim()) return;
@@ -164,7 +182,7 @@ export async function streamAiTask(
       if (event.model) model = event.model;
       if (event.type === 'delta' && event.text) {
         rawText += event.text;
-        onText(cleanAiText(rawText));
+        scheduleAnimation();
       }
       if (event.type === 'done') {
         sources = event.sources || [];
@@ -184,6 +202,7 @@ export async function streamAiTask(
       if (done) break;
     }
     if (buffer.trim()) processLine(buffer);
+    while (animationPromise) await animationPromise;
 
     const content = cleanAiText(rawText);
     return streamError
